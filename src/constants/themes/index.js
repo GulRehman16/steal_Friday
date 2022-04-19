@@ -12,6 +12,13 @@ const Themes = {
     golderBG: '#FFD700',
   },
 
+  boxColors: {
+    blueLite: '#c9d5e2',
+    greenLite: '#ecf8d3',
+    grayLite: '#c9c9c9',
+    purpulLite: '#d3cfdf',
+    redLite: '#c2404c',
+  },
   textColors: {
     primaryText: '',
     secondaryText: '',

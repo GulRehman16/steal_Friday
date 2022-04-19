@@ -7,12 +7,14 @@ import {
   Image,
   StatusBar,
   ScrollView,
+  FlatList,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Images} from '../../../constants';
 import CountDown from 'react-native-countdown-component';
 import LinearGradient from 'react-native-linear-gradient';
-import {TextWithLine} from '../../../components';
+import {Boxs, TextWithLine} from '../../../components';
+import {Themes} from '../../../constants';
 
 const Home = props => {
   return (
@@ -92,7 +94,7 @@ const Home = props => {
               onFinish={() => console.log('finished')}
               digitStyle={{}}
               digitTxtStyle={{color: 'white'}}
-              timeLabelStyle={{color: 'red', fontWeight: 'bold'}}
+              // timeLabelStyle={{color: 'red', fontWeight: 'bold'}}
               separatorStyle={{color: '#AF0010'}}
               timeToShow={['D', 'H', 'M', 'S']}
               timeLabels={{d: 'Days', h: 'Hours', m: 'Minutes', s: 'Seconds'}}
@@ -110,6 +112,29 @@ const Home = props => {
 
           <View style={{width: '100%', marginTop: 20}}>
             <TextWithLine left={0} text="Featured Deals" text2="View All" />
+          </View>
+          <View
+            style={{
+              width: '100%',
+              marginTop: 20,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}>
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              data={[
+                {color: Themes.boxColors.blueLite, text: 'New'},
+                {color: Themes.boxColors.greenLite},
+                {color: Themes.boxColors.grayLite},
+              ]}
+              horizontal={true}
+              renderItem={({item}) => {
+                return (
+                  <Boxs Bgcolor={item.color} marginRight={4} text={item.text} />
+                );
+              }}
+            />
           </View>
         </View>
       </ScrollView>
