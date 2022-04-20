@@ -10,13 +10,61 @@ import {
   FlatList,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Images} from '../../../constants';
 import CountDown from 'react-native-countdown-component';
 import LinearGradient from 'react-native-linear-gradient';
 import {Boxs, TextWithLine} from '../../../components';
-import {Themes} from '../../../constants';
+import {Themes, Images} from '../../../constants';
+import {Item} from 'native-base';
 
 const Home = props => {
+  const data = [
+    {
+      color: Themes.boxColors.grayLite,
+      text: 'old',
+      img: Images.Icon.grayStar,
+      itemImg: Images.Pictures.tShirt2,
+      ammount: ' $15.00',
+      imgW: 65,
+      imgH: 100,
+    },
+    {
+      color: Themes.boxColors.purpulLite,
+      text: 'old',
+      img: Images.Icon.purpleStar,
+      itemImg: Images.Pictures.purpleShoes,
+      ammount: ' $15.00',
+      imgW: 75,
+      imgH: 80,
+    },
+    {
+      color: Themes.boxColors.blueLite,
+      text: 'New',
+      img: Images.Icon.star1,
+      itemImg: Images.Pictures.headPhone,
+      ammount: ' $15.00',
+      imgW: 65,
+      imgH: 65,
+    },
+    {
+      img: Images.Icon.greenStar,
+      itemImg: Images.Pictures.greenShoes,
+      color: Themes.boxColors.greenLite,
+      text: 'New',
+      ammount: ' $15.00',
+      imgW: 60,
+      imgH: 65,
+    },
+
+    {
+      color: Themes.boxColors.grayLite,
+      text: 'old',
+      img: Images.Icon.grayStar,
+      itemImg: Images.Pictures.tShirt1,
+      ammount: ' $15.00',
+      imgW: 70,
+      imgH: 100,
+    },
+  ];
   return (
     <SafeAreaView style={styles.screenContainer}>
       <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
@@ -72,22 +120,10 @@ const Home = props => {
             </TouchableOpacity>
           </View>
         </View>
-        <View
-          style={{
-            width: '90%',
-            height: '100%',
-            alignSelf: 'center',
-          }}>
+        <View style={styles.mainBody}>
           <LinearGradient
             colors={['#650E0D', '#CA1C1A']}
-            style={{
-              width: '100%',
-              borderRadius: 20,
-              backgroundColor: '#AF0010',
-              alignSelf: 'center',
-              height: 65,
-              elevation: 5,
-            }}>
+            style={styles.countLinearStyle}>
             <CountDown
               size={25}
               until={1000}
@@ -98,14 +134,7 @@ const Home = props => {
               separatorStyle={{color: '#AF0010'}}
               timeToShow={['D', 'H', 'M', 'S']}
               timeLabels={{d: 'Days', h: 'Hours', m: 'Minutes', s: 'Seconds'}}
-              timeLabelStyle={{
-                color: 'white',
-                position: 'absolute',
-                bottom: 0,
-                fontSize: 10,
-                color: '#ffffffff',
-                opacity: 0.5,
-              }}
+              timeLabelStyle={styles.timeLabelStyle}
               showSeparator
             />
           </LinearGradient>
@@ -113,25 +142,47 @@ const Home = props => {
           <View style={{width: '100%', marginTop: 20}}>
             <TextWithLine left={0} text="Featured Deals" text2="View All" />
           </View>
-          <View
-            style={{
-              width: '100%',
-              marginTop: 20,
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}>
+          <View style={styles.box1}>
             <FlatList
               showsHorizontalScrollIndicator={false}
-              data={[
-                {color: Themes.boxColors.blueLite, text: 'New'},
-                {color: Themes.boxColors.greenLite},
-                {color: Themes.boxColors.grayLite},
-              ]}
+              data={data}
               horizontal={true}
               renderItem={({item}) => {
                 return (
-                  <Boxs Bgcolor={item.color} marginRight={4} text={item.text} />
+                  <Boxs
+                    Bgcolor={item.color}
+                    marginRight={10}
+                    text={item.text}
+                    icon={item.img}
+                    itemImg={item.itemImg}
+                    amount={item.ammount}
+                    imgHeight={item.imgH}
+                    imgWidth={item.imgW}
+                    StockNewOld
+                    FeaturedDeals
+                  />
+                );
+              }}
+            />
+          </View>
+
+          <View style={{width: '100%', marginTop: 20}}>
+            <TextWithLine left={0} text="Deal Categories" text2="View All" />
+          </View>
+          <View style={styles.box2}>
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              data={data}
+              horizontal={true}
+              renderItem={({item}) => {
+                return (
+                  <Boxs
+                    width={266}
+                    height={283}
+                    marginRight={20}
+                    elevation={5}
+                    DealCategories
+                  />
                 );
               }}
             />
@@ -146,18 +197,23 @@ export default Home;
 
 const styles = StyleSheet.create({
   screenContainer: {flex: 1, backgroundColor: '#F8F8F8'},
+  mainBody: {
+    width: '90%',
+    height: '100%',
+    alignSelf: 'center',
+    paddingBottom: 100,
+  },
   Header: {
     width: '90%',
+
     alignSelf: 'center',
     height: 120,
-
     marginTop: 25,
     flexDirection: 'row',
   },
 
   Headerpart1: {
     width: '16%',
-
     height: '36%',
   },
   Headerpart2: {
@@ -190,4 +246,37 @@ const styles = StyleSheet.create({
     height: 50,
   },
   Headerpart3Content3_1: {width: '100%', height: '100%'},
+  timeLabelStyle: {
+    color: 'white',
+    position: 'absolute',
+    bottom: 0,
+    fontSize: 10,
+    color: '#ffffffff',
+    opacity: 0.5,
+  },
+  countLinearStyle: {
+    width: '100%',
+    borderRadius: 20,
+    backgroundColor: '#AF0010',
+    alignSelf: 'center',
+    height: 65,
+    elevation: 5,
+  },
+  box1: {
+    width: '100%',
+    marginTop: 20,
+    height: 200,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#F8F8F8',
+  },
+  box2: {
+    width: '100%',
+    overflow: 'visible',
+    marginTop: 40,
+    height: 300,
+    flexDirection: 'row',
+    backgroundColor: 'transparent',
+  },
 });

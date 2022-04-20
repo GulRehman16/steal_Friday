@@ -20,7 +20,7 @@ const Themes = {
     redLite: '#c2404c',
   },
   textColors: {
-    primaryText: '',
+    primaryText: '#030303',
     secondaryText: '',
     whiteText: '#FFFFFF',
     blackText: '#000000',
