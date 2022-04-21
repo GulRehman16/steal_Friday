@@ -67,7 +67,11 @@ const Home = props => {
   ];
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
+      <StatusBar
+        backgroundColor={'transparent'}
+        barStyle="dark-content"
+        translucent={true}
+      />
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{flexGrow: 1}}>

@@ -14,6 +14,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import {FormInput, AppButton} from '../../components';
 import {Images} from '../../constants';
+import {Header} from '../../components';
 
 const CustomDrawer = ({navigation}) => {
   const dashboardData = [
@@ -71,12 +72,26 @@ const CustomDrawer = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground
-        source={Images.Background.drawerBg}
+      <TouchableOpacity
+        activeOpacity={1}
+        onPress={() => navigation.closeDrawer()}
         style={{
           width: '100%',
           height: '100%',
-        }}></ImageBackground>
+          backgroundColor: 'transparent',
+        }}>
+        <ImageBackground
+          resizeMode="stretch"
+          source={Images.Background.drawerBg}
+          style={{
+            width: '100%',
+            height: '100%',
+          }}>
+          <View>
+            <Header headerText />
+          </View>
+        </ImageBackground>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -85,9 +100,6 @@ export {CustomDrawer};
 
 const styles = StyleSheet.create({
   container: {
-    overflow: 'hidden',
-    width: 300,
-    height: '100%',
-    backgroundColor: 'transparent',
+    flex: 1,
   },
 });
