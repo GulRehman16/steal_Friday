@@ -1,6 +1,7 @@
 const Images = {
   Background: {
     bg: require('../../assets/images/bg.png'),
+    drawerBg: require('../../assets/images/drawerBg.png'),
   },
   Pictures: {
     appLogo: require('../../assets/images/logo.png'),

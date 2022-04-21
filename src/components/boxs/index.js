@@ -106,6 +106,7 @@ const Boxs = ({
               />
             </View>
           </View>
+          <Text style={{position: 'absolute', bottom: -10}}>djakldj</Text>
         </>
       )}
 

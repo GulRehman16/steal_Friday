@@ -75,7 +75,10 @@ const Home = props => {
           <View style={styles.Headerpart1}>
             <TouchableOpacity
               style={styles.Headerpart1Content1}
-              activeOpacity={0.8}>
+              activeOpacity={0.8}
+              onPress={() => {
+                props.navigation.openDrawer();
+              }}>
               <Image
                 source={Images.Pictures.drawerLogo}
                 style={styles.Headerpart1Content2}
@@ -149,18 +152,20 @@ const Home = props => {
               horizontal={true}
               renderItem={({item}) => {
                 return (
-                  <Boxs
-                    Bgcolor={item.color}
-                    marginRight={10}
-                    text={item.text}
-                    icon={item.img}
-                    itemImg={item.itemImg}
-                    amount={item.ammount}
-                    imgHeight={item.imgH}
-                    imgWidth={item.imgW}
-                    StockNewOld
-                    FeaturedDeals
-                  />
+                  <>
+                    <Boxs
+                      Bgcolor={item.color}
+                      marginRight={10}
+                      text={item.text}
+                      icon={item.img}
+                      itemImg={item.itemImg}
+                      amount={item.ammount}
+                      imgHeight={item.imgH}
+                      imgWidth={item.imgW}
+                      StockNewOld
+                      FeaturedDeals
+                    />
+                  </>
                 );
               }}
             />
@@ -186,6 +191,9 @@ const Home = props => {
                 );
               }}
             />
+          </View>
+          <View style={{width: '100%', marginTop: 20}}>
+            <TextWithLine left={0} text="Active Deals" text2="View All" />
           </View>
         </View>
       </ScrollView>

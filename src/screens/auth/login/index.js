@@ -120,9 +120,9 @@ const Login = props => {
                 <AppButton
                   btnWidth={180}
                   label="Login"
-                  onPress={() =>
-                    props.navigation.replace('Homes', {screen: 'home'})
-                  }
+                  onPress={() => {
+                    props.navigation.replace('MyDrawer', {screen: 'Home'});
+                  }}
                 />
               </View>
             </View>

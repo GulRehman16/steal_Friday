@@ -8,6 +8,7 @@ import signup from '../../screens/auth/signup';
 import mainAuth from '../../screens/auth/mainAuth';
 import MyTabs from '../bottomTab';
 import ContactUs from '../../screens/auth/contactUs';
+import MyDrawer from '../Drawer';
 
 const Stack = createNativeStackNavigator();
 
@@ -74,6 +75,11 @@ const MyStack = () => {
         <Stack.Screen
           name="MyTabs"
           component={MyTabs}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MyDrawer"
+          component={MyDrawer}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
