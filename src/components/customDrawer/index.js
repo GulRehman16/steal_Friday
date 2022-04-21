@@ -87,9 +87,33 @@ const CustomDrawer = ({navigation}) => {
             width: '100%',
             height: '100%',
           }}>
-          <View>
-            <Header headerText />
+          <View style={{alignSelf:'center', marginTop:'23%', marginLeft:-35}}>
+            <Image resizeMode='contain' source={Images.Icon.logo} style={{width:166,height:51}}/>
           </View>
+          {/* <View style={{marginTop:}}>
+
+          <TouchableOpacity style={{ backgroundColor:'red'}}>
+            <Text style={{fontSize:16,color:'#ffff'}}>Home</Text>
+      
+          </TouchableOpacity>
+          <TouchableOpacity style={{ backgroundColor:'red',}}>
+            <Text style={{fontSize:16,color:'#ffff'}}>Home</Text>
+      
+          </TouchableOpacity>
+          <TouchableOpacity style={{ backgroundColor:'red', }}>
+            <Text style={{fontSize:16,color:'#ffff'}}>Home</Text>
+      
+          </TouchableOpacity>
+          <TouchableOpacity style={{ backgroundColor:'red', }}>
+            <Text style={{fontSize:16,color:'#ffff'}}>Home</Text>
+      
+          </TouchableOpacity>
+          <TouchableOpacity style={{ backgroundColor:'red', }}>
+            <Text style={{fontSize:16,color:'#ffff'}}>Home</Text>
+      
+          </TouchableOpacity>
+          </View> */}
+
         </ImageBackground>
       </TouchableOpacity>
     </SafeAreaView>

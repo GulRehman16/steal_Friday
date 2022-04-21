@@ -19,6 +19,7 @@ const Images = {
     tShirt2: require('../../assets/images/tShirt2.png'),
   },
   Icon: {
+    logo:require('../../assets/images/logo.png'),
     star1: require('../../assets/images/star.png'),
     greenStar: require('../../assets/images/greenStar.png'),
     grayStar: require('../../assets/images/greyStar.png'),
