@@ -23,6 +23,7 @@ const Home = props => {
       text: 'old',
       img: Images.Icon.grayStar,
       itemImg: Images.Pictures.tShirt2,
+      itemName: 'Gym T-Shirt',
       ammount: ' $15.00',
       imgW: 65,
       imgH: 100,
@@ -33,12 +34,14 @@ const Home = props => {
       img: Images.Icon.purpleStar,
       itemImg: Images.Pictures.purpleShoes,
       ammount: ' $15.00',
+      itemName: 'Nike Collection',
       imgW: 75,
       imgH: 80,
     },
     {
       color: Themes.boxColors.blueLite,
       text: 'New',
+      itemName: 'Beats Up HeadSet',
       img: Images.Icon.star1,
       itemImg: Images.Pictures.headPhone,
       ammount: ' $15.00',
@@ -51,6 +54,7 @@ const Home = props => {
       color: Themes.boxColors.greenLite,
       text: 'New',
       ammount: ' $15.00',
+      itemName: 'Nike Collection',
       imgW: 60,
       imgH: 65,
     },
@@ -59,6 +63,72 @@ const Home = props => {
       color: Themes.boxColors.grayLite,
       text: 'old',
       img: Images.Icon.grayStar,
+      itemName: 'Gym T-Shirt',
+      itemImg: Images.Pictures.tShirt1,
+      ammount: ' $15.00',
+      imgW: 70,
+      imgH: 100,
+    },
+  ];
+
+  const data2 = [
+    {
+      color: Themes.boxColors.grayLite,
+      text: 'old',
+      img: Images.Icon.grayStar,
+      itemImg: Images.Pictures.tShirt2,
+      itemName: 'Gym T-Shirt',
+      ammount: ' $15.00',
+      imgW: 65,
+      imgH: 100,
+    },
+    {
+      color: Themes.boxColors.purpulLite,
+      text: 'old',
+      img: Images.Icon.purpleStar,
+      itemImg: Images.Pictures.purpleShoes,
+      ammount: ' $15.00',
+      itemName: 'Nike Collection',
+      imgW: 75,
+      imgH: 80,
+    },
+    {
+      color: Themes.boxColors.blueLite,
+      text: 'New',
+      itemName: 'Beats Up HeadSet',
+      img: Images.Icon.star1,
+      itemImg: Images.Pictures.headPhone,
+      ammount: ' $15.00',
+      imgW: 65,
+      imgH: 65,
+    },
+    {
+      img: Images.Icon.greenStar,
+      itemImg: Images.Pictures.greenShoes,
+      color: Themes.boxColors.greenLite,
+      text: 'New',
+      ammount: ' $15.00',
+      itemName: 'Nike Collection',
+      imgW: 60,
+      imgH: 65,
+    },
+
+    {
+      color: Themes.boxColors.redLite,
+      text: 'old',
+      img: Images.Icon.grayStar,
+      itemName: 'Gym T-Shirt',
+      itemImg: Images.Pictures.airpods,
+      ammount: ' $15.00',
+      imgW: 70,
+      imgH: 100,
+    },
+
+    {
+      color: Themes.boxColors.grayLite,
+      text: 'old',
+      img: Images.Icon.grayStar,
+      itemName: 'Gym T-Shirt',
       itemImg: Images.Pictures.tShirt1,
       ammount: ' $15.00',
       imgW: 70,
@@ -149,33 +219,36 @@ const Home = props => {
           <View style={{width: '100%', marginTop: 20}}>
             <TextWithLine left={0} text="Featured Deals" text2="View All" />
           </View>
-          <View style={styles.box1}>
-            <FlatList
-              showsHorizontalScrollIndicator={false}
-              data={data}
-              horizontal={true}
-              renderItem={({item}) => {
-                return (
-                  <>
-                    <Boxs
-                      Bgcolor={item.color}
-                      marginRight={10}
-                      text={item.text}
-                      icon={item.img}
-                      itemImg={item.itemImg}
-                      amount={item.ammount}
-                      imgHeight={item.imgH}
-                      imgWidth={item.imgW}
-                      StockNewOld
-                      FeaturedDeals
-                    />
-                  </>
-                );
-              }}
-            />
+          <View>
+            <View style={styles.box1}>
+              <FlatList
+                showsHorizontalScrollIndicator={false}
+                data={data}
+                horizontal={true}
+                renderItem={({item}) => {
+                  return (
+                    <>
+                      <Boxs
+                        Bgcolor={item.color}
+                        marginRight={10}
+                        text={item.text}
+                        icon={item.img}
+                        itemImg={item.itemImg}
+                        itemName={item.itemName}
+                        amount={item.ammount}
+                        imgHeight={item.imgH}
+                        imgWidth={item.imgW}
+                        StockNewOld
+                        FeaturedDeals
+                      />
+                    </>
+                  );
+                }}
+              />
+            </View>
           </View>
 
-          <View style={{width: '100%', marginTop: 20}}>
+          <View style={{width: '100%', marginTop: 10}}>
             <TextWithLine left={0} text="Deal Categories" text2="View All" />
           </View>
           <View style={styles.box2}>
@@ -196,8 +269,29 @@ const Home = props => {
               }}
             />
           </View>
-          <View style={{width: '100%', marginTop: 20}}>
+          <View style={{marginTop: 10}}>
             <TextWithLine left={0} text="Active Deals" text2="View All" />
+          </View>
+          <View style={styles.box4}>
+            {data2.map((item, index) => {
+              return (
+                <>
+                  <Boxs
+                    Bgcolor={item.color}
+                    marginRight={10}
+                    text={item.text}
+                    icon={item.img}
+                    itemImg={item.itemImg}
+                    itemName={item.itemName}
+                    amount={item.ammount}
+                    imgHeight={item.imgH}
+                    imgWidth={item.imgW}
+                    StockNewOld
+                    FeaturedDeals
+                  />
+                </>
+              );
+            })}
           </View>
         </View>
       </ScrollView>
@@ -217,7 +311,6 @@ const styles = StyleSheet.create({
   },
   Header: {
     width: '90%',
-
     alignSelf: 'center',
     height: 120,
     marginTop: 25,
@@ -277,10 +370,17 @@ const styles = StyleSheet.create({
   box1: {
     width: '100%',
     marginTop: 20,
-    height: 200,
+    height: 220,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    backgroundColor: '#F8F8F8',
+  },
+  box4: {
+    flexDirection: 'row',
+    marginLeft: -10,
+    flexWrap: 'wrap',
+    marginTop: 20,
     backgroundColor: '#F8F8F8',
   },
   box2: {

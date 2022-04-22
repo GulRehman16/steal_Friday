@@ -17,13 +17,22 @@ const Images = {
     tShirt1: require('../../assets/images/tShirt1.png'),
     purpleShoes: require('../../assets/images/purpleShoes.png'),
     tShirt2: require('../../assets/images/tShirt2.png'),
+    airpods: require('../../assets/images/airPods.png'),
   },
   Icon: {
-    logo:require('../../assets/images/logo.png'),
+    logo: require('../../assets/images/logo.png'),
     star1: require('../../assets/images/star.png'),
     greenStar: require('../../assets/images/greenStar.png'),
     grayStar: require('../../assets/images/greyStar.png'),
     purpleStar: require('../../assets/images/purpleStar.png'),
+    home: require('../../assets/images/homeIcon.png'),
+    user: require('../../assets/images/userIcon.png'),
+    resubcription: require('../../assets/images/resubcriptionIcon.png'),
+    favourite: require('../../assets/images/favouriteIcon.png'),
+    card: require('../../assets/images/shoppingCardIcon.png'),
+    contact: require('../../assets/images/contactIcon.png'),
+    order: require('../../assets/images/myOrderIcon.png'),
+    logout: require('../../assets/images/logOutIcon.png'),
   },
 };
 
