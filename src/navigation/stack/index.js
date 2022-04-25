@@ -9,6 +9,8 @@ import mainAuth from '../../screens/auth/mainAuth';
 import MyTabs from '../bottomTab';
 import ContactUs from '../../screens/auth/contactUs';
 import MyDrawer from '../Drawer';
+import Notification from '../../screens/homes/notification';
+import ActiveDeals from '../../screens/homes/activeDeals';
 
 const Stack = createNativeStackNavigator();
 
@@ -52,6 +54,16 @@ export const Homes = () => {
       <Stack.Screen
         name="home"
         component={home}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="notification"
+        component={Notification}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="activeDeals"
+        component={ActiveDeals}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

@@ -18,6 +18,12 @@ const Images = {
     purpleShoes: require('../../assets/images/purpleShoes.png'),
     tShirt2: require('../../assets/images/tShirt2.png'),
     airpods: require('../../assets/images/airPods.png'),
+    nikeShoes: require('../../assets/images/nikeShoes.png'),
+    blackHeadfone: require('../../assets/images/blackHeadfone.png'),
+    tShirt: require('../../assets/images/t_shirt.png'),
+    headfone: require('../../assets/images/headfone.png'),
+    blackShoes: require('../../assets/images/blackShoes.png'),
+    orangeShoes: require('../../assets/images/orangeShoes.png'),
   },
   Icon: {
     logo: require('../../assets/images/logo.png'),

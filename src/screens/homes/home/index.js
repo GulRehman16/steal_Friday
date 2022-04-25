@@ -180,6 +180,9 @@ const Home = props => {
 
           <View style={styles.Headerpart3}>
             <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate('notification');
+              }}
               style={styles.Headerpart3Content1}
               activeOpacity={0.8}>
               <Image
@@ -217,7 +220,12 @@ const Home = props => {
           </LinearGradient>
 
           <View style={{width: '100%', marginTop: 20}}>
-            <TextWithLine left={0} text="Featured Deals" text2="View All" />
+            <TextWithLine
+              viewAllBtn
+              left={0}
+              text="Featured Deals"
+              text2="View All"
+            />
           </View>
           <View>
             <View style={styles.box1}>
@@ -249,7 +257,12 @@ const Home = props => {
           </View>
 
           <View style={{width: '100%', marginTop: 10}}>
-            <TextWithLine left={0} text="Deal Categories" text2="View All" />
+            <TextWithLine
+              viewAllBtn
+              left={0}
+              text="Deal Categories"
+              text2="View All"
+            />
           </View>
           <View style={styles.box2}>
             <FlatList
@@ -270,7 +283,12 @@ const Home = props => {
             />
           </View>
           <View style={{marginTop: 10}}>
-            <TextWithLine left={0} text="Active Deals" text2="View All" />
+            <TextWithLine
+              viewAllBtn
+              left={0}
+              text="Active Deals"
+              text2="View All"
+            />
           </View>
           <View style={styles.box4}>
             {data2.map((item, index) => {

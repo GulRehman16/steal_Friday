@@ -10,6 +10,8 @@ const TextWithLine = ({
   fontSize,
   fontWeight,
   lineColor,
+  viewAllBtn,
+  backgroundColor,
 }) => {
   return (
     <>
@@ -21,6 +23,7 @@ const TextWithLine = ({
           justifyContent: 'center',
           marginTop: 10,
           flexDirection: 'row',
+          backgroundColor: backgroundColor || '#fff',
         }}>
         <View
           style={{
@@ -37,7 +40,7 @@ const TextWithLine = ({
               left: left,
               right: right,
               overflow: 'hidden',
-              backgroundColor: '#F8F8F8',
+              backgroundColor: backgroundColor || '#fff',
               paddingHorizontal: 10,
               alignItems: 'center',
             }}>
@@ -50,43 +53,42 @@ const TextWithLine = ({
               {text}
             </Text>
           </View>
-          <TouchableOpacity
-            style={{
-              position: 'absolute',
-              top: -13,
-              height: 25,
-              right: 0,
-              overflow: 'hidden',
-              backgroundColor: '#F8F8F8',
-              paddingHorizontal: 10,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}
-            activeOpacity={0.9}>
-            <Text
+          {viewAllBtn && (
+            <TouchableOpacity
               style={{
-                fontSize: fontSize || 14,
-                color: '#CD1C1B',
-                fontWeight: fontWeight || 'bold',
-              }}>
-              {text2}
-            </Text>
-
-            <Icon
-              name="arrow-right"
-              type="FontAwesome"
-              style={{
-                color: '#CD1C1B',
-                fontWeight: 'bold',
-                fontSize: 15,
-                marginLeft: 5,
+                position: 'absolute',
+                top: -13,
+                height: 25,
+                right: 0,
+                overflow: 'hidden',
+                backgroundColor: '#F8F8F8',
+                paddingHorizontal: 10,
+                flexDirection: 'row',
+                alignItems: 'center',
               }}
-            />
-          </TouchableOpacity>
+              activeOpacity={0.9}>
+              <Text
+                style={{
+                  fontSize: fontSize || 14,
+                  color: '#CD1C1B',
+                  fontWeight: fontWeight || 'bold',
+                }}>
+                {text2}
+              </Text>
+
+              <Icon
+                name="arrow-right"
+                type="FontAwesome"
+                style={{
+                  color: '#CD1C1B',
+                  fontWeight: 'bold',
+                  fontSize: 15,
+                  marginLeft: 5,
+                }}
+              />
+            </TouchableOpacity>
+          )}
         </View>
-        {/* <View style={styles.activeRoom}></View>
-        <Text style={styles.activeRoomText}>{text}</Text>
-        <View style={styles.activeLine}></View> */}
       </View>
     </>
   );
