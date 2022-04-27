@@ -4,9 +4,9 @@ import ActiveDeals from './src/screens/homes/activeDeals';
 import Notification from './src/screens/homes/notification';
 
 const App = props => {
-  return <ActiveDeals />;
+  return <MyStack {...props} />;
 
-  <MyStack {...props} />;
+  // <ActiveDeals />;
 };
 
 export default App;

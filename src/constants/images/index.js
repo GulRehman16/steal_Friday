@@ -39,6 +39,8 @@ const Images = {
     contact: require('../../assets/images/contactIcon.png'),
     order: require('../../assets/images/myOrderIcon.png'),
     logout: require('../../assets/images/logOutIcon.png'),
+    nextIcon: require('../../assets/images/next.png'),
+    openCamera: require('../../assets/images/openCamera.png'),
   },
 };
 

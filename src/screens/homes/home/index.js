@@ -191,6 +191,9 @@ const Home = props => {
               />
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate('profileSettings');
+              }}
               style={styles.Headerpart3Content3}
               activeOpacity={0.8}>
               <Image
@@ -210,7 +213,7 @@ const Home = props => {
               onFinish={() => console.log('finished')}
               digitStyle={{}}
               digitTxtStyle={{color: 'white'}}
-              // timeLabelStyle={{color: 'red', fontWeight: 'bold'}}
+              //timeLabelStyle={{color: 'red', fontWeight: 'bold'}}
               separatorStyle={{color: '#AF0010'}}
               timeToShow={['D', 'H', 'M', 'S']}
               timeLabels={{d: 'Days', h: 'Hours', m: 'Minutes', s: 'Seconds'}}

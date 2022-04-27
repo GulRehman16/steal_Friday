@@ -11,6 +11,8 @@ import ContactUs from '../../screens/auth/contactUs';
 import MyDrawer from '../Drawer';
 import Notification from '../../screens/homes/notification';
 import ActiveDeals from '../../screens/homes/activeDeals';
+import ProfileSettings from '../../screens/homes/profileSettings';
+import ProfileEdit from '../../screens/homes/profileEdit';
 
 const Stack = createNativeStackNavigator();
 
@@ -64,6 +66,16 @@ export const Homes = () => {
       <Stack.Screen
         name="activeDeals"
         component={ActiveDeals}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="profileSettings"
+        component={ProfileSettings}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="profileEdit"
+        component={ProfileEdit}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
