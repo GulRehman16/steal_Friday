@@ -101,7 +101,11 @@ const Login = props => {
                     text={'Remember'}
                   />
                 </View>
-                <TouchableOpacity style={{marginTop: 5}}>
+                <TouchableOpacity
+                  style={{marginTop: 5}}
+                  onPress={() => {
+                    props.navigation.navigate('forgetPassword');
+                  }}>
                   <Text
                     style={{
                       color: 'black',

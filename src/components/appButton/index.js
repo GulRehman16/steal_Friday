@@ -28,6 +28,7 @@ const AppButton = ({
           backgroundColor: '#CD1C1B',
           justifyContent: 'center',
           alignItems: 'center',
+          elevation: 5,
         }
       }>
       <Text style={{color: color || 'white'}}> {label} </Text>

@@ -6,13 +6,16 @@ import login from '../../screens/auth/login';
 import home from '../../screens/homes/home';
 import signup from '../../screens/auth/signup';
 import mainAuth from '../../screens/auth/mainAuth';
-import MyTabs from '../bottomTab';
 import ContactUs from '../../screens/auth/contactUs';
 import MyDrawer from '../Drawer';
 import Notification from '../../screens/homes/notification';
 import ActiveDeals from '../../screens/homes/activeDeals';
 import ProfileSettings from '../../screens/homes/profileSettings';
 import ProfileEdit from '../../screens/homes/profileEdit';
+import NotificationSettings from '../../screens/homes/notificationSetting';
+import ChangePassword from '../../screens/auth/changePassword';
+import ForgetPassword from '../../screens/auth/forgetPassword';
+import ForgetPasswordOtp from '../../screens/auth/forgetPasswordOtp';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +47,21 @@ const Auth = () => {
       <Stack.Screen
         name="contactUs"
         component={ContactUs}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="changePassword"
+        component={ChangePassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="forgetPassword"
+        component={ForgetPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="forgetPasswordOtp"
+        component={ForgetPasswordOtp}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
@@ -78,6 +96,11 @@ export const Homes = () => {
         component={ProfileEdit}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name="notificationSetting"
+        component={NotificationSettings}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };
@@ -96,11 +119,7 @@ const MyStack = () => {
           component={Homes}
           options={{headerShown: false}}
         />
-        <Stack.Screen
-          name="MyTabs"
-          component={MyTabs}
-          options={{headerShown: false}}
-        />
+
         <Stack.Screen
           name="MyDrawer"
           component={MyDrawer}

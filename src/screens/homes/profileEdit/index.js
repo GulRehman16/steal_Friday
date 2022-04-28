@@ -106,6 +106,47 @@ const ProfileEdit = props => {
                     iconL
                   />
                 </View>
+
+                <View
+                  style={{
+                    borderBottomColor: '#BCBCBC',
+                    marginTop: 35,
+                    borderBottomWidth: 2,
+                  }}>
+                  <FormInput
+                    keyboardType={'numeric'}
+                    placeHolder="+1463839738093"
+                    placeHolderColor={'black'}
+                    iconColor={'black'}
+                    iconLName="phone"
+                    iconLType="Feather"
+                    iconR
+                    iconRName="edit"
+                    iconRType="AntDesign"
+                    iconL
+                  />
+                </View>
+
+                <View
+                  style={{
+                    width: '60%',
+                    alignSelf: 'center',
+                    marginTop: 35,
+                  }}>
+                  <View
+                    style={{
+                      paddingVertical: 20,
+                      width: '100%',
+                      alignItems: 'center',
+                      elevation: 5,
+                    }}>
+                    <AppButton
+                      btnWidth={180}
+                      label="Update"
+                      onPress={() => {}}
+                    />
+                  </View>
+                </View>
               </View>
             </View>
           </View>

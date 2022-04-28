@@ -45,12 +45,22 @@ const ProfileSettings = props => {
               <Image source={Images.Icon.nextIcon} style={styles.nextIcon} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.btnStyle} activeOpacity={0.9}>
+            <TouchableOpacity
+              style={styles.btnStyle}
+              activeOpacity={0.9}
+              onPress={() => {
+                props.navigation.navigate('notificationSetting');
+              }}>
               <Text style={styles.btnText}>Notifications</Text>
               <Image source={Images.Icon.nextIcon} style={styles.nextIcon} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.btnStyle} activeOpacity={0.9}>
+            <TouchableOpacity
+              style={styles.btnStyle}
+              activeOpacity={0.9}
+              onPress={() => {
+                props.navigation.navigate('Auth', {screen: 'changePassword'});
+              }}>
               <Text style={styles.btnText}>Change Password</Text>
               <Image source={Images.Icon.nextIcon} style={styles.nextIcon} />
             </TouchableOpacity>
@@ -92,5 +102,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   btnText: {fontSize: 16, color: '#000000', marginLeft: 10},
-  nextIcon: {width: 13.5, height: 23.62, marginRight: 10},
+  nextIcon: {width: 12.5, height: 22.62, marginRight: 10},
 });
