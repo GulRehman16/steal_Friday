@@ -5,7 +5,7 @@ import {Images} from '../../constants';
 
 const Header = ({
   fontColor,
-  heightImage,
+
   viewHeight,
   width,
   fontSize,
@@ -16,6 +16,8 @@ const Header = ({
   screenName,
   screenText,
   marginLeft,
+  imageHeight,
+  imageWidth,
 }) => {
   return (
     <>
@@ -41,7 +43,11 @@ const Header = ({
           <View>
             <Image
               source={Images.Pictures.loginLogo}
-              style={{width: 108, height: 37, marginLeft: 50}}
+              style={{
+                width: imageWidth || 108,
+                height: imageHeight || 37,
+                marginLeft: 50,
+              }}
               resizeMode="contain"
             />
           </View>

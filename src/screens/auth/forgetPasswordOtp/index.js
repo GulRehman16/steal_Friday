@@ -20,19 +20,28 @@ const ForgetPasswordOtp = props => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{flexGrow: 1}}>
         <View style={styles.mainBody}>
-          <View style={{marginTop: 35}}>
-            <Header headerText marginLeft={33} />
-            <OTPInputView
-              style={{width: '80%', height: 200}}
-              pinCount={6}
-              autoFocusOnLoad={false}
-              codeInputFieldStyle={styles.underlineStyleBase}
-              codeInputHighlightStyle={styles.underlineStyleHighLighted}
-              onCodeFilled={code => {
-                console.log(`Code is ${code}, you are good to go!`);
-              }}
-            />
+          <Header
+            headerText
+            marginLeft={33}
+            imageHeight={51}
+            imageWidth={200}
+          />
+          <View style={styles.HeaderText}>
+            <Text style={{fontSize: 14, color: '#707070', textAlign: 'center'}}>
+              Please enter the 6 digits code sent to you registered email
+              address ab***@gmail.com
+            </Text>
           </View>
+          <OTPInputView
+            style={{width: '80%', height: 200}}
+            pinCount={6}
+            autoFocusOnLoad={false}
+            codeInputFieldStyle={styles.underlineStyleBase}
+            codeInputHighlightStyle={styles.underlineStyleHighLighted}
+            onCodeFilled={code => {
+              console.log(`Code is ${code}, you are good to go!`);
+            }}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -51,10 +60,18 @@ const styles = StyleSheet.create({
     height: '100%',
     alignSelf: 'center',
     paddingBottom: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  HeaderText: {
+    width: '90%',
+    height: 87,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   borderStyleBase: {
-    width: 30,
-    height: 45,
+    width: 38,
+    height: 37,
   },
 
   borderStyleHighLighted: {
@@ -62,9 +79,11 @@ const styles = StyleSheet.create({
   },
 
   underlineStyleBase: {
-    width: 30,
-    height: 45,
-    borderWidth: 0,
+    width: 38,
+    height: 37,
+    borderWidth: 1,
+    elevation: 5,
+    backgroundColor: 'white',
     borderBottomWidth: 1,
   },
 
