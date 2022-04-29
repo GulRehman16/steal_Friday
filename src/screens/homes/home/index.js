@@ -399,10 +399,12 @@ const styles = StyleSheet.create({
   },
   box4: {
     flexDirection: 'row',
-    marginLeft: -10,
+    marginLeft: -7,
     flexWrap: 'wrap',
     marginTop: 20,
     backgroundColor: '#F8F8F8',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   box2: {
     width: '100%',
