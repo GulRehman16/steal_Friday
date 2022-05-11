@@ -16,6 +16,7 @@ import NotificationSettings from '../../screens/homes/notificationSetting';
 import ChangePassword from '../../screens/auth/changePassword';
 import ForgetPassword from '../../screens/auth/forgetPassword';
 import ForgetPasswordOtp from '../../screens/auth/forgetPasswordOtp';
+import CheckOut from '../../screens/homes/checkout';
 
 const Stack = createNativeStackNavigator();
 
@@ -99,6 +100,11 @@ export const Homes = () => {
       <Stack.Screen
         name="notificationSetting"
         component={NotificationSettings}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="checkOut"
+        component={CheckOut}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
