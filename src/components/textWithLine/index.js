@@ -1,6 +1,6 @@
-import {Icon} from 'native-base';
+import { Icon } from 'native-base';
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 const TextWithLine = ({
   text,
@@ -12,6 +12,7 @@ const TextWithLine = ({
   lineColor,
   viewAllBtn,
   backgroundColor,
+  onPress
 }) => {
   return (
     <>
@@ -54,7 +55,7 @@ const TextWithLine = ({
             </Text>
           </View>
           {viewAllBtn && (
-            <TouchableOpacity
+            <TouchableOpacity onPress={onPress}
               style={{
                 position: 'absolute',
                 top: -13,
@@ -94,4 +95,4 @@ const TextWithLine = ({
   );
 };
 
-export {TextWithLine};
+export { TextWithLine };

@@ -8,14 +8,13 @@ import {
   StatusBar,
   ScrollView,
   FlatList,
+  SafeAreaView
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import CountDown from 'react-native-countdown-component';
 import LinearGradient from 'react-native-linear-gradient';
-import {Boxs, TextWithLine} from '../../../components';
-import {Themes, Images} from '../../../constants';
-import {Item} from 'native-base';
-
+import { Boxs, TextWithLine } from '../../../components';
+import { Themes, Images } from '../../../constants';
+import { Item } from 'native-base';
 const Home = props => {
   const data = [
     {
@@ -144,7 +143,7 @@ const Home = props => {
       />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.Header}>
           <View style={styles.Headerpart1}>
             <TouchableOpacity
@@ -212,18 +211,18 @@ const Home = props => {
               until={1000}
               onFinish={() => console.log('finished')}
               digitStyle={{}}
-              digitTxtStyle={{color: 'white'}}
+              digitTxtStyle={{ color: 'white' }}
               //timeLabelStyle={{color: 'red', fontWeight: 'bold'}}
-              separatorStyle={{color: '#AF0010'}}
+              separatorStyle={{ color: '#AF0010' }}
               timeToShow={['D', 'H', 'M', 'S']}
-              timeLabels={{d: 'Days', h: 'Hours', m: 'Minutes', s: 'Seconds'}}
+              timeLabels={{ d: 'Days', h: 'Hours', m: 'Minutes', s: 'Seconds' }}
               timeLabelStyle={styles.timeLabelStyle}
               showSeparator
             />
           </LinearGradient>
 
-          <View style={{width: '100%', marginTop: 20}}>
-            <TextWithLine
+          <View style={{ width: '100%', marginTop: 20 }}>
+            <TextWithLine onPress={() => { props.navigation.navigate('activeDeals') }}
               viewAllBtn
               left={0}
               text="Featured Deals"
@@ -236,7 +235,7 @@ const Home = props => {
                 showsHorizontalScrollIndicator={false}
                 data={data}
                 horizontal={true}
-                renderItem={({item}) => {
+                renderItem={({ item }) => {
                   return (
                     <>
                       <Boxs
@@ -259,7 +258,7 @@ const Home = props => {
             </View>
           </View>
 
-          <View style={{width: '100%', marginTop: 10}}>
+          <View style={{ width: '100%', marginTop: 10 }}>
             <TextWithLine
               viewAllBtn
               left={0}
@@ -272,7 +271,7 @@ const Home = props => {
               showsHorizontalScrollIndicator={false}
               data={data}
               horizontal={true}
-              renderItem={({item}) => {
+              renderItem={({ item }) => {
                 return (
                   <Boxs
                     width={266}
@@ -285,7 +284,7 @@ const Home = props => {
               }}
             />
           </View>
-          <View style={{marginTop: 10}}>
+          <View style={{ marginTop: 10 }}>
             <TextWithLine
               viewAllBtn
               left={0}
@@ -323,7 +322,7 @@ const Home = props => {
 export default Home;
 
 const styles = StyleSheet.create({
-  screenContainer: {flex: 1, backgroundColor: '#F8F8F8'},
+  screenContainer: { flex: 1, backgroundColor: '#F8F8F8' },
   mainBody: {
     width: '90%',
     height: '100%',
@@ -356,22 +355,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
-  Headerpart1Content1: {width: 50, height: 50},
-  Headerpart1Content2: {width: '100%', height: '100%'},
-  Headerpart2Content1: {width: 108, height: 37},
-  Headerpart2Content2: {fontSize: 14, color: '#030303', fontWeight: 'bold'},
-  Headerpart2Content3: {width: 81, height: 41},
+  Headerpart1Content1: { width: 50, height: 50 },
+  Headerpart1Content2: { width: '100%', height: '100%' },
+  Headerpart2Content1: { width: 108, height: 37 },
+  Headerpart2Content2: { fontSize: 14, color: '#030303', fontWeight: 'bold' },
+  Headerpart2Content3: { width: 81, height: 41 },
   Headerpart3Content1: {
     marginRight: 10,
     width: 21,
     height: 29,
   },
-  Headerpart3Content2: {width: '100%', height: '100%'},
+  Headerpart3Content2: { width: '100%', height: '100%' },
   Headerpart3Content3: {
     width: 50,
     height: 50,
   },
-  Headerpart3Content3_1: {width: '100%', height: '100%'},
+  Headerpart3Content3_1: { width: '100%', height: '100%' },
   timeLabelStyle: {
     color: 'white',
     position: 'absolute',

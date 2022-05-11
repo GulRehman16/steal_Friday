@@ -1,6 +1,6 @@
-import {Icon} from 'native-base';
+import { Icon, Label } from 'native-base';
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 const AppButton = ({
   onPress,
@@ -13,6 +13,17 @@ const AppButton = ({
   buttonStyle,
   color,
   btnWidth,
+  position,
+  btnHeight,
+  icon2,
+  iconClr,
+  iconW,
+  iconH,
+  text,
+  brder1,
+  backgroundColor,
+
+
 }) => {
   const icon = iconL || iconR;
 
@@ -23,32 +34,53 @@ const AppButton = ({
       style={
         buttonStyle || {
           width: btnWidth || '100%',
-          height: 50,
-          borderRadius: 30,
-          backgroundColor: '#CD1C1B',
+          height: btnHeight || 50,
+          borderRadius: brder1 || 30,
+          backgroundColor: backgroundColor || '#CD1C1B',
           justifyContent: 'center',
           alignItems: 'center',
           elevation: 5,
         }
       }>
-      <Text style={{color: color || 'white'}}> {label} </Text>
+      {text && (
+        <Text style={{ color: color || 'white' }}> {label} </Text>)}
       {icon && (
         <View
           style={{
-            width: 35,
-            height: 35,
+            width: iconW || 35,
+            height: iconH || 35,
             backgroundColor: iconBG || 'pink',
             borderRadius: 8,
-            position: 'absolute',
+            position: position || 'absolute',
             right: iconR ? 15 : null,
-            left: iconL ? 15 : null,
+            left: iconL ? '29%' : null,
             justifyContent: 'center',
             alignItems: 'center',
           }}>
           <Icon
             name={iconN || 'right'}
             type={iconT || 'AntDesign'}
-            style={{fontSize: 20}}
+            style={{ fontSize: 20 }}
+          />
+        </View>
+      )}
+      {icon2 && (
+        <View
+          style={{
+            width: iconW || 35,
+            height: iconH || 35,
+            backgroundColor: iconBG || 'transparent',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
+
+
+          }}>
+          <Text>{label}</Text>
+          <Icon
+            name={iconN || 'right'}
+            type={iconT || 'AntDesign'}
+            style={{ fontSize: 20, color: iconClr || 'white' }}
           />
         </View>
       )}
@@ -56,4 +88,4 @@ const AppButton = ({
   );
 };
 
-export {AppButton};
+export { AppButton };

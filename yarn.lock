@@ -5906,6 +5906,11 @@ react-native-countdown-component@^2.7.1:
     prop-types "^15.5.8"
     sprintf-js "^1.1.1"
 
+react-native-counter-input@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/react-native-counter-input/-/react-native-counter-input-0.1.9.tgz#d78779747f889324ef78696c0c1fe5a0e7b906d9"
+  integrity sha512-TKDveanNLXFXMici/6i7G8fvn0Pw+creXqOvw7JYYO3cyXXgC1ZOK0Gxn6URJuCLcEHQJjQIj5ugDe8jMcO3jg==
+
 react-native-drawer@2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/react-native-drawer/-/react-native-drawer-2.5.1.tgz#08b9314184f48c724f1b467f8859797369798654"

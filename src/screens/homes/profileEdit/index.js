@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -10,8 +10,8 @@ import {
   View,
   Image,
 } from 'react-native';
-import {Images} from '../../../constants';
-import {AppButton, FormInput, Header} from '../../../components';
+import { Images } from '../../../constants';
+import { AppButton, FormInput, Header } from '../../../components';
 
 const ProfileEdit = props => {
   return (
@@ -21,10 +21,10 @@ const ProfileEdit = props => {
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{flexGrow: 1}}>
-          <View style={{marginTop: 10}}>
+          contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={{ marginTop: 10 }}>
             <View style={styles.mainBody}>
-              <View style={{marginTop: 45}}>
+              <View style={{ marginTop: 45 }}>
                 <Header
                   headerText
                   leftIcon
@@ -38,7 +38,7 @@ const ProfileEdit = props => {
                 <ImageBackground
                   resizeMode="contain"
                   source={Images.Pictures.profile1}
-                  style={{width: 116, height: 119}}>
+                  style={{ width: 116, height: 119 }}>
                   <TouchableOpacity
                     style={{
                       position: 'absolute',
@@ -49,7 +49,7 @@ const ProfileEdit = props => {
                     <View style={styles.iconCamera}>
                       <Image
                         source={Images.Icon.openCamera}
-                        style={{width: 51, height: 53}}
+                        style={{ width: 51, height: 53 }}
                       />
                     </View>
                   </TouchableOpacity>
@@ -143,7 +143,7 @@ const ProfileEdit = props => {
                     <AppButton
                       btnWidth={180}
                       label="Update"
-                      onPress={() => {}}
+                      onPress={() => { }}
                     />
                   </View>
                 </View>

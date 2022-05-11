@@ -1,15 +1,15 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import {Icon} from 'native-base';
-import {Images} from '../../constants';
+import { Icon } from 'native-base';
+import { Images } from '../../constants';
 
 const Header = ({
   fontColor,
-
   viewHeight,
   width,
   fontSize,
   leftIcon,
+  RightIcon,
   text,
   leftIconProps,
   headerText,
@@ -18,6 +18,9 @@ const Header = ({
   marginLeft,
   imageHeight,
   imageWidth,
+  IconColor,
+  RICon,
+  RICon2
 }) => {
   return (
     <>
@@ -31,14 +34,15 @@ const Header = ({
         {leftIcon && (
           <TouchableOpacity
             activeOpacity={0.7}
-            style={{position: 'absolute', left: 0}}
+            style={{ position: 'absolute', left: 0 }}
             onPress={leftIconProps}>
             <Image
               source={Images.Pictures.left}
-              style={{width: 26, height: 26}}
+              style={{ width: 26, height: 26, color: IconColor || '#000' }}
             />
           </TouchableOpacity>
         )}
+
         {headerText && (
           <View>
             <Image
@@ -72,10 +76,29 @@ const Header = ({
           </Text>
         </View>
       )}
+      {RightIcon && (
+        <TouchableOpacity
+          activeOpacity={0.7}
+          style={{ position: 'absolute', right: 0 }}
+          onPress={leftIconProps}>
+          {RICon && (
+            <Image
+              source={Images.Pictures.headericon1}
+              style={{ width: 26, height: 26 }}
+            />
+
+          )}
+          {RICon2 && (
+            <Icon name='cross' type='Entypo' />
+
+          )}
+
+        </TouchableOpacity>
+      )}
     </>
   );
 };
 
-export {Header};
+export { Header };
 
 const styles = StyleSheet.create({});
