@@ -1,8 +1,8 @@
-import {StyleSheet, TouchableOpacity, View, Text, Image} from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, Image, ScrollView } from 'react-native';
 import React from 'react';
-import {Item} from 'native-base';
-import {Images} from '../../constants/images';
-import {Themes} from '../../constants';
+import { Item } from 'native-base';
+import { Images } from '../../constants/images';
+import { Themes } from '../../constants';
 
 const Boxs = ({
   borderRadius,
@@ -32,7 +32,7 @@ const Boxs = ({
 }) => {
   return (
     <>
-      <View style={{alignItems: 'center', height: 220, flexWrap: 'wrap'}}>
+      <View style={{ alignItems: 'center', height: 230, flexWrap: 'wrap', }}>
         <TouchableOpacity
           style={{
             width: width || 155,
@@ -48,6 +48,7 @@ const Boxs = ({
             elevation: elevation || 0,
             overflow: 'visible',
             position: 'relative',
+
           }}
           activeOpacity={0.9}>
           {FeaturedDeals && (
@@ -72,18 +73,18 @@ const Boxs = ({
                     justifyContent: 'center',
                   }}
                   opacity={0.4}>
-                  <Text style={{fontSize: 12, color: '#030303'}}>{text}</Text>
+                  <Text style={{ fontSize: 12, color: '#030303' }}>{text}</Text>
                 </View>
 
-                <View style={{width: 31, height: 31}}>
+                <View style={{ width: 31, height: 31 }}>
                   <Image
                     resizeMode="contain"
                     source={icon}
-                    style={{width: '100%', height: '100%'}}
+                    style={{ width: '100%', height: '100%' }}
                   />
                 </View>
               </View>
-              <View style={{height: 150}}>
+              <View style={{ height: 150 }}>
                 <View
                   style={{
                     width: '90%',
@@ -134,12 +135,12 @@ const Boxs = ({
             </View>
           )}
         </TouchableOpacity>
-        <View style={{position: 'absolute', bottom: 6}}>
-          <Text style={{fontSize: 16, color: 'black'}}>{itemName}</Text>
+        <View style={{ position: 'absolute', bottom: 6 }}>
+          <Text style={{ fontSize: 16, color: 'black' }}>{itemName}</Text>
         </View>
       </View>
     </>
   );
 };
 
-export {Boxs};
+export { Boxs };

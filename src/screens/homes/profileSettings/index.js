@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import {Images} from '../../../constants';
+import { Images } from '../../../constants';
 import React from 'react';
-import {Header} from '../../../components';
+import { Header } from '../../../components';
 
 const ProfileSettings = props => {
   return (
@@ -19,9 +19,9 @@ const ProfileSettings = props => {
       <ScrollView
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.mainBody}>
-          <View style={{marginTop: 55}}>
+          <View style={{ marginTop: 55 }}>
             <Header
               headerText
               leftIcon
@@ -59,7 +59,7 @@ const ProfileSettings = props => {
               style={styles.btnStyle}
               activeOpacity={0.9}
               onPress={() => {
-                props.navigation.navigate('Auth', {screen: 'changePassword'});
+                props.navigation.navigate('Auth', { screen: 'changePassword' });
               }}>
               <Text style={styles.btnText}>Change Password</Text>
               <Image source={Images.Icon.nextIcon} style={styles.nextIcon} />
@@ -101,6 +101,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  btnText: {fontSize: 16, color: '#000000', marginLeft: 10},
-  nextIcon: {width: 12.5, height: 22.62, marginRight: 10},
+  btnText: { fontSize: 16, color: '#000000', marginLeft: 10 },
+  nextIcon: { width: 12.5, height: 22.62, marginRight: 10 },
 });

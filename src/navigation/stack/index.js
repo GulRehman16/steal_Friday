@@ -9,7 +9,6 @@ import mainAuth from '../../screens/auth/mainAuth';
 import ContactUs from '../../screens/auth/contactUs';
 import MyDrawer from '../Drawer';
 import Notification from '../../screens/homes/notification';
-import ActiveDeals from '../../screens/homes/activeDeals';
 import ProfileSettings from '../../screens/homes/profileSettings';
 import ProfileEdit from '../../screens/homes/profileEdit';
 import NotificationSettings from '../../screens/homes/notificationSetting';
@@ -21,8 +20,8 @@ import PrivacyPolocy from '../../screens/homes/PrivacyPolicy'
 import Favorites from '../../screens/homes/Favorites';
 import CartScreen from '../../screens/homes/Cartscreen';
 import ProductDetails from '../../screens/homes/ProductDetails'
-import Orderdetails from '../../screens/homes/orderdetails';
 import PaymentMethod from '../../screens/homes/Paymentmethod'
+import Adeals from '../../screens/homes/Adeals';
 
 
 
@@ -31,14 +30,15 @@ const Stack = createNativeStackNavigator();
 const Auth = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="changePassword"
-        component={ChangePassword}
-        options={{ headerShown: false }}
-      />
+
       <Stack.Screen
         name="login"
         component={login}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="changePassword"
+        component={ChangePassword}
         options={{ headerShown: false }}
       />
 
@@ -83,8 +83,11 @@ const Auth = () => {
 export const Homes = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name='Orderdetails'
-        component={Orderdetails}
+      <Stack.Screen name='Adeals'
+        component={Adeals}
+        options={{ headerShown: false }} />
+      <Stack.Screen name='home'
+        component={home}
         options={{ headerShown: false }} />
       <Stack.Screen name='PaymentMethod'
         component={PaymentMethod}
@@ -125,17 +128,6 @@ export const Homes = () => {
         component={AutoResubscription}
         options={{ headerShown: false }}
       />
-
-      <Stack.Screen name='home'
-        component={home}
-        options={{ headerShown: false }} />
-
-      <Stack.Screen
-        name="activeDeals"
-        component={ActiveDeals}
-        options={{ headerShown: false }}
-      />
-
       <Stack.Screen
         name="profileEdit"
         component={ProfileEdit}

@@ -1,5 +1,5 @@
-import {Icon} from 'native-base';
-import React, {useState, useEffect} from 'react';
+import { Icon } from 'native-base';
+import React, { useState, useEffect } from 'react';
 import {
   StatusBar,
   ScrollView,
@@ -11,19 +11,23 @@ import {
   ImageBackground,
   Dimensions,
   SafeAreaView,
+  Press1,
+  Press2,
+  Press3
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {FormInput, AppButton} from '../../components';
-import {Images} from '../../constants';
-import {Header} from '../../components';
+import { FormInput, AppButton } from '../../components';
+import { Images } from '../../constants';
+import { Header } from '../../components';
 
-const CustomDrawer = ({navigation}) => {
+const CustomDrawer = ({ navigation }) => {
   const drawerData = [
     {
       image: Images.Icon.home,
       stack: '',
       text: 'Home',
       nav: '',
+
     },
     {
       image: Images.Icon.user,
@@ -36,6 +40,7 @@ const CustomDrawer = ({navigation}) => {
       stack: '',
       text: 'Auto Resubscription',
       nav: '',
+
     },
     {
       image: Images.Icon.favourite,
@@ -84,7 +89,7 @@ const CustomDrawer = ({navigation}) => {
       <ScrollView
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => navigation.closeDrawer()}
@@ -109,7 +114,7 @@ const CustomDrawer = ({navigation}) => {
               <Image
                 resizeMode="contain"
                 source={Images.Icon.logo}
-                style={{width: 166, height: 51, marginLeft: -10}}
+                style={{ width: 166, height: 51, marginLeft: -10 }}
               />
             </View>
 
@@ -124,7 +129,7 @@ const CustomDrawer = ({navigation}) => {
               {drawerData.map((item, index) => {
                 return (
                   <TouchableOpacity
-                    style={{flexDirection: 'row'}}
+                    style={{ flexDirection: 'row' }}
                     activeOpacity={0.8}>
                     <Image
                       source={item.image}
@@ -155,7 +160,7 @@ const CustomDrawer = ({navigation}) => {
   );
 };
 
-export {CustomDrawer};
+export { CustomDrawer };
 
 const styles = StyleSheet.create({
   container: {

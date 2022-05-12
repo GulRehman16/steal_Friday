@@ -14,6 +14,22 @@ import { Images } from '../../../constants';
 import { AppButton, FormInput, Header } from '../../../components';
 
 const ProfileEdit = props => {
+  const Catagories = ['Name1', 'Name2', 'Name3', 'Name4'];
+  const [catagoryIndex, setCatagoryIndex] = useState(0)
+
+  const CatagoryList = () => {
+    return (
+      <View style={{ width: '90%', flexDirection: 'row', justifyContent: 'space-between', marginTop: 30, marginBottom: 20, }}>
+        {Catagories.map((item, index) => (
+          <TouchableOpacity key={index} onPress={() => setCatagoryIndex(index)}>
+
+            <Text style={[styles.CatagoriesText, catagoryIndex == index && styles.catagoryTextSelected]}>
+              {item}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    )
+  }
   return (
     <>
       <SafeAreaView style={styles.screenContainer}>
@@ -143,6 +159,7 @@ const ProfileEdit = props => {
                     <AppButton
                       btnWidth={180}
                       label="Update"
+                      text
                       onPress={() => { }}
                     />
                   </View>

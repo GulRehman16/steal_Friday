@@ -1,7 +1,7 @@
 import React from 'react';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {CustomDrawer} from '../../components';
-import {Homes, Statics} from '../stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { CustomDrawer } from '../../components';
+import { Homes, Statics } from '../stack';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,7 +25,7 @@ function MyDrawer() {
       <Drawer.Screen
         name="home"
         component={Homes}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
     </Drawer.Navigator>
   );

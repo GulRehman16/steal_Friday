@@ -8,5 +8,6 @@ export * from './boxs';
 export * from './customDrawer';
 export * from './notificationBox';
 export * from './Shoebox'
-export * from './overlay'
+export * from './overlay';
+export * from './data1'
 

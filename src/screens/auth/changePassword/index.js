@@ -184,7 +184,7 @@ const ChangePassword = props => {
           </View>
         </ScrollView>
       </SafeAreaView>
-      <Overlays popupcontent1 visible={visible} toggleOverlay={() => setVisible(false)} />
+      <Overlays popupcontent btn btn5 visible={visible} toggleOverlay={() => setVisible(false)} />
     </>
   );
 };
