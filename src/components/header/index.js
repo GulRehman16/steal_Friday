@@ -18,9 +18,14 @@ const Header = ({
   marginLeft,
   imageHeight,
   imageWidth,
+
   IconColor,
   RICon,
-  RICon2
+  RICon2,
+
+  textColor,
+  lIconClr,
+
 }) => {
   return (
     <>
@@ -38,7 +43,11 @@ const Header = ({
             onPress={leftIconProps}>
             <Image
               source={Images.Pictures.left}
+
               style={{ width: 26, height: 26, color: IconColor || '#000' }}
+
+
+
             />
           </TouchableOpacity>
         )}
@@ -57,6 +66,17 @@ const Header = ({
           </View>
         )}
       </View>
+      {text && (
+        <Text
+          style={{
+            alignSelf: 'center',
+            fontSize: 20,
+            color: 'white',
+            marginTop: 20,
+          }}>
+          Checkout
+        </Text>
+      )}
       {screenName && (
         <View
           style={{

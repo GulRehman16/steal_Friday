@@ -15,6 +15,7 @@ import NotificationSettings from '../../screens/homes/notificationSetting';
 import ChangePassword from '../../screens/auth/changePassword';
 import ForgetPassword from '../../screens/auth/forgetPassword';
 import ForgetPasswordOtp from '../../screens/auth/forgetPasswordOtp';
+
 import AutoResubscription from '../../screens/homes/AutoResubscription'
 import PrivacyPolocy from '../../screens/homes/PrivacyPolicy'
 import Favorites from '../../screens/homes/Favorites';
@@ -23,6 +24,9 @@ import ProductDetails from '../../screens/homes/ProductDetails'
 import PaymentMethod from '../../screens/homes/Paymentmethod'
 import Adeals from '../../screens/homes/Adeals';
 
+
+
+import CheckOut from '../../screens/homes/checkout';
 
 
 const Stack = createNativeStackNavigator();
@@ -107,6 +111,7 @@ export const Homes = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
+        HEAD
         name="notification"
         component={Notification}
         options={{ headerShown: false }}
@@ -134,6 +139,11 @@ export const Homes = () => {
         options={{ headerShown: false }}
       />
 
+      <Stack.Screen
+        name="checkOut"
+        component={CheckOut}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };
