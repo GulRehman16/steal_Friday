@@ -210,14 +210,10 @@ const Home = ({ navigation }) => {
   ];
   return (
     <SafeAreaView style={styles.screenContainer}>
-
-
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
-        <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content"
-          translucent={false}
-        />
+        <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
         <View style={styles.Header}>
           <View style={styles.Headerpart1}>
             <TouchableOpacity
@@ -335,7 +331,7 @@ const Home = ({ navigation }) => {
           </View>
           <View style={{ width: '100%', marginTop: 10 }}>
             <TextWithLine
-              Press={() => { navigation.navigate('Adeals') }}
+              Press={() => { navigation.navigate('CatagoryScreen') }}
               viewAllBtn
               left={0}
               text="Deal Categories"
@@ -367,7 +363,7 @@ const Home = ({ navigation }) => {
           <View style={{ marginTop: 10 }}>
             <TextWithLine
               viewAllBtn
-              Press={() => { navigation.navigate('Adeals') }}
+              Press={() => { navigation.navigate('CatagoryScreen') }}
               left={0}
               text="Active Deals"
               text2="View All"
@@ -406,7 +402,7 @@ const Home = ({ navigation }) => {
 export default Home;
 
 const styles = StyleSheet.create({
-  screenContainer: { flex: 1, backgroundColor: '#F8F8F8' },
+  screenContainer: { flex: 1 },
   mainBody: {
     width: '90%',
     height: '100%',
@@ -427,7 +423,7 @@ const styles = StyleSheet.create({
   },
   Headerpart2: {
     width: '55%',
-
+    alignSelf: 'center',
     height: '60%',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -442,8 +438,10 @@ const styles = StyleSheet.create({
   Headerpart1Content1: { width: 50, height: 50 },
   Headerpart1Content2: { width: '100%', height: '100%' },
   Headerpart2Content1: { width: 108, height: 37, left: 20 },
-  Headerpart2Content2: { fontSize: 14, color: '#030303', fontWeight: 'bold' },
-  Headerpart2Content3: { width: 81, height: 41 },
+  Headerpart2Content2: {
+    fontSize: 14, color: '#030303', fontWeight: 'bold', marginLeft: 28,
+  },
+  Headerpart2Content3: { width: 100, height: 41, marginLeft: 30, marginBottom: 5 },
   Headerpart3Content1: {
     marginRight: 10,
     width: 21,

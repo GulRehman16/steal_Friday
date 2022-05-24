@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CheckBox } from 'react-native-elements';
 import StepIndicator from 'react-native-step-indicator';
 
@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 import { Header, AppButton } from '../../../components';
 import { Images } from '../../../constants';
+import { RotateInUpLeft } from 'react-native-reanimated';
 
 const CheckOut = (props) => {
   const [currentPosition, setCurrentPosition] = useState(0)
@@ -51,6 +52,16 @@ const CheckOut = (props) => {
 
 
   // console.log(params.value)
+
+
+  const isCheck = props?.route?.params?.value;
+  console.log(isCheck)
+
+  useEffect(() => {
+    currentPosition === 3 ? setCurrentPosition(isCheck) : currentPosition
+    console.log(currentPosition)
+
+  }, [])
 
 
   return (

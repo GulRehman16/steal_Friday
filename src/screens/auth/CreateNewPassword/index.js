@@ -128,9 +128,8 @@ const CreateNewPassWord = props => {
                 </ScrollView>
             </SafeAreaView>
             <Overlays popupcontent btn btn5 labletext="Continue" TexView label1="Password Changed Successfully"
-                visible={visible} Pressable1={() => {
-                    props.navigation.replace('MyDrawer', { screen: 'Home' });
-                }} />
+                visible={visible}
+                toggleOverlay={() => props.navigation.navigate('Auth', { screen: 'login' })} />
         </>
     );
 };

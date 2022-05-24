@@ -70,12 +70,12 @@ const AutoResubscription = props => {
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{ flexGrow: 1 }}>
                     <View style={styles.mainBody}>
-                        <View style={{ marginTop: 35 }}>
+                        <View style={{ marginTop: 20 }}>
                             <Header
                                 headerText1
                                 leftIcon
-                                screenName
-                                screenText={'Auto Resubscription'}
+                                screenName1
+                                screenText1={'Auto Resubscription'}
                                 marginLeft={33}
                                 leftIconProps={() => {
                                     props.navigation.goBack();

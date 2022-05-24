@@ -35,7 +35,7 @@ const MyOrder = (props) => {
                     }}>
                         <View style={{}}>
                             <Header
-                                headerText
+                                headerText1
                                 leftIcon
                                 lIconClr={'#fff'}
                                 leftIconProps={() => {
@@ -59,38 +59,28 @@ const MyOrder = (props) => {
 
                             <DataTable>
                                 <DataTable.Header>
-                                    <DataTable.Title><Text style={{ color: 'black', fontWeight: 'bold' }}>Order No.</Text></DataTable.Title>
-                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold' }}>Order No.</Text></DataTable.Title>
-                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold' }}>Date</Text></DataTable.Title>
+                                    <DataTable.Title><Text style={{ color: 'black', fontWeight: 'bold', }}>Order No.</Text></DataTable.Title>
+
+                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold', }}>Date</Text></DataTable.Title>
                                     <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold' }}>Status</Text></DataTable.Title>
                                     <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold' }}>Total</Text></DataTable.Title>
                                     <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold' }}>Action</Text></DataTable.Title>
 
                                 </DataTable.Header>
                                 <DataTable.Row>
-                                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-                                    <DataTable.Cell numeric>159</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
+                                    <DataTable.Cell style={{ padding: 15 }}>1</DataTable.Cell>
+
+                                    <DataTable.Cell numeric style={{}}>1/1/2022 </DataTable.Cell>
+                                    <DataTable.Cell numeric>Pending</DataTable.Cell>
+                                    <DataTable.Cell numeric>$30</DataTable.Cell>
                                     <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
                                         <Text style={{ color: 'green' }}>View</Text>
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-                                    <DataTable.Cell numeric>159</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
-                                        <Text style={{ color: 'blue' }}>View</Text>
-                                    </DataTable.Cell>
-                                </DataTable.Row>
-                                <DataTable.Row>
-                                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-                                    <DataTable.Cell numeric>159</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
+                                    <DataTable.Cell>2</DataTable.Cell>
+
+                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
                                     <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
@@ -98,9 +88,9 @@ const MyOrder = (props) => {
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-                                    <DataTable.Cell numeric>159</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
+                                    <DataTable.Cell>3</DataTable.Cell>
+
+                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
                                     <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
@@ -108,9 +98,19 @@ const MyOrder = (props) => {
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-                                    <DataTable.Cell numeric>159</DataTable.Cell>
+                                    <DataTable.Cell>4</DataTable.Cell>
+
+                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
+                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
+                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
+                                        <Text style={{ color: 'blue' }}>View</Text>
+                                    </DataTable.Cell>
+                                </DataTable.Row>
+                                <DataTable.Row>
+                                    <DataTable.Cell>5</DataTable.Cell>
+
+                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
                                     <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
@@ -119,19 +119,9 @@ const MyOrder = (props) => {
 
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-                                    <DataTable.Cell numeric>159</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
-                                        <Text style={{ color: 'blue' }}>View</Text>
-                                    </DataTable.Cell>
-                                </DataTable.Row>
-                                <DataTable.Row>
-                                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-                                    <DataTable.Cell numeric>159</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
+                                    <DataTable.Cell>6</DataTable.Cell>
+
+                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
                                     <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
@@ -139,9 +129,19 @@ const MyOrder = (props) => {
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>Frozen yogurt</DataTable.Cell>
-                                    <DataTable.Cell numeric>159</DataTable.Cell>
+                                    <DataTable.Cell>7</DataTable.Cell>
+
+                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
+                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
+                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
+                                        <Text style={{ color: 'blue' }}>View</Text>
+                                    </DataTable.Cell>
+                                </DataTable.Row>
+                                <DataTable.Row>
+                                    <DataTable.Cell>8</DataTable.Cell>
+
+                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
                                     <DataTable.Cell numeric>6.0</DataTable.Cell>
                                     <DataTable.Cell onPress={() => setVisible(!visible)} numeric >

@@ -29,6 +29,7 @@ import Summary from '../../screens/homes/Summary';
 import ProductItem from '../../screens/homes/ProductItem';
 import CongratesPage from '../../screens/homes/CongratesPage';
 import ContactUs from '../../screens/homes/contactUs'
+import CatagoryScreen from '../../screens/homes/CatagoryScreen';
 
 
 
@@ -82,7 +83,9 @@ const Auth = () => {
         name="changePassword"
         component={ChangePassword}
         options={{ headerShown: false }}
+
       />
+      <Stack.Screen name='ContactUs' component={ContactUs} options={{ headerShown: false }} />
 
     </Stack.Navigator>
   );
@@ -91,6 +94,7 @@ const Auth = () => {
 export const Homes = () => {
   return (
     <Stack.Navigator>
+
       <Stack.Screen name='home'
         component={home}
         options={{ headerShown: false }} />
@@ -103,7 +107,8 @@ export const Homes = () => {
       <Stack.Screen name='CongratesPage'
         component={CongratesPage}
         options={{ headerShown: false }} />
-
+      <Stack.Screen name='CatagoryScreen'
+        component={CatagoryScreen} options={{ headerShown: false }} />
       <Stack.Screen
         name="MyOrder"
         component={MyOrder}

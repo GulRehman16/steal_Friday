@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, Dimensions, ScrollView, StatusBar } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, Dimensions, ScrollView, StatusBar, Image } from 'react-native'
 import { Button, Card, Overlay } from 'react-native-elements';
 import { Themes, Images } from '../../../constants';
 import { Boxs, TextWithLine, data1, Header, ViewMore } from '../../../components';
@@ -9,9 +9,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const width = Dimensions.get('screen').width / 2 - 15
 const Adeals = ({ navigation }) => {
-
+    const [visible, setVisible] = useState(false);
     const Catagories = ['Name1', 'Name2', 'Name3', 'Name4'];
     const [catagoryIndex, setCatagoryIndex] = useState(0)
+
 
     const CatagoryList = (props) => {
         return (
@@ -402,9 +403,9 @@ const Adeals = ({ navigation }) => {
                 <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
                 <View>
 
-                    <View style={{}}>
-                        <View style={{ marginTop: 45, width: '100%', alignSelf: 'center' }}>
-                            <View style={{}}>
+                    <View style={{ width: '100%', alignSelf: 'center', }}>
+                        <View style={{ width: '90%', alignSelf: 'center', }}>
+                            <View style={{ marginTop: 5 }}>
                                 <Header
                                     headerText1
                                     leftIcon
@@ -413,13 +414,17 @@ const Adeals = ({ navigation }) => {
                                     }}
                                 />
                             </View>
+                            <TouchableOpacity onPress={() => setVisible(!visible)} style={styles.headerIcon}>
+
+                                <Image source={Images.Icon.Filter} />
+                            </TouchableOpacity>
 
                         </View>
-                        <View style={styles.ActiveText}>
 
-                            <Text style={styles.ActiveText1}>
-                                Active Deals</Text></View>
+                        <View style={styles.DealsView}>
+                            <Text style={styles.DealsText}>Active Deals</Text></View>
                     </View>
+
                     <View style={styles.catagoryView}>
 
                         <CatagoryList />
@@ -523,9 +528,20 @@ const styles = StyleSheet.create({
         borderBottomColor: '#CD1C1B',
         borderBottomWidth: 3,
     },
-    headerView: {
-        width: '100%', alignSelf: 'center', marginTop: 35
+    headerIcon: {
+        width: 40,
+        height: 40,
+        borderRadius: 25,
+        backgroundColor: '#E4201E',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute', top: 45,
+        alignSelf: 'flex-end'
     },
+    DealsView:
+        { alignItems: 'center', width: '90%', alignSelf: 'center' },
+    DealsText:
+        { fontSize: 22, fontWeight: '700', color: 'black' },
     header:
         { width: '90%', alignSelf: 'center' },
 

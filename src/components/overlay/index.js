@@ -35,12 +35,14 @@ const Overlays = ({
     const [isData, setData] = useState({
         ordernumber: "3241",
         orderDate: "12/2/22",
-        product: "Nike Limited Collection By Hidden Sole",
+        product1: "Nike Limited Collection By Hidden Sole",
+        product2: "Puma By Hidden Sole",
         Qty: " 1",
+        Qty2: " 2",
         price: "$12.00",
         DeliveryCharges: "$05.00",
         CardUsed: "********1234",
-        TotalAmountPaid: "Total Amount Paid:",
+        TotalAmountPaid: "$20.40",
         OrdersStatus: "Pending",
         ShippingDetails: "Street Address: Licolon Street City: NewYork city State: New York Zip Code: 2435132"
     })
@@ -94,10 +96,10 @@ const Overlays = ({
                                         alignItems: 'center', flexDirection: 'row',
                                     }}>
 
-                                        <View style={{ margin: 5, borderRadius: 20, borderWidth: 2 }}>
+                                        <View style={{ margin: 5, borderRadius: 20, borderWidth: 1 }}>
                                             <AppButton label="No" text
                                                 backgroundColor="#fff" color="#000"
-                                                btnWidth={100} btnHeight={40}
+                                                btnWidth={99} btnHeight={39}
                                                 onPress={() => toggleOverlay(false)} />
                                         </View>
                                         <View style={{ margin: 5, }}>
@@ -125,7 +127,7 @@ const Overlays = ({
                                             source={require('../../assets/Lottie/99398-check-mark-black.json')} autoPlay loop />
                                         <Text style={{ textAlign: 'center', fontSize: 18, color: 'black', marginVertical: 2 }}>Payment Processed {'\n'} Successfully</Text>
                                         <AppButton label={labletext} text btnWidth={137} btnHeight={40}
-                                            onPress={() => navigation.navigate('login')} />
+                                            onPress={onPress} />
                                     </View>
                                 )
                                 : null}
@@ -205,53 +207,86 @@ const Overlays = ({
                                         <View style={{}}>
                                             <View style={{ width: '80%', alignSelf: 'center', marginVertical: 10 }}>
                                                 <View style={{ marginVertical: 15, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
-                                                    <Text style={{ marginVertical: 10, fontWeight: 'bold', color: '#000' }}>Order No.</Text>
-                                                    <Text>{isData.ordernumber}</Text>
+                                                    <Text style={{ fontWeight: 'bold', color: '#000', marginTop: 25 }}>Order No.</Text>
+                                                    <Text style={{ marginTop: 25 }}>{isData.ordernumber}</Text>
                                                 </View>
-                                                <View style={{ marginVertical: 5, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
+                                                <View style={{
+                                                    flexDirection: 'row',
+                                                    justifyContent: 'space-between', borderBottomWidth: 0.50
+                                                }}>
                                                     <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Orders Date</Text>
-                                                    <Text>{isData.orderDate}</Text>
+                                                    <Text style={{ marginTop: 5 }}>{isData.orderDate}</Text>
                                                 </View>
                                                 <View style={{
                                                     width: '100%', marginVertical: 5,
-                                                    flexDirection: 'row',
-                                                    justifyContent: 'space-between',
+
                                                     borderBottomWidth: 0.50
                                                 }}>
-                                                    <View style={{ width: '40%' }}>
+                                                    <View style={{
+                                                        width: '100%', marginVertical: 5,
+                                                        flexDirection: 'row',
+                                                        justifyContent: 'space-between',
+
+                                                    }}>
+
                                                         <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>
                                                             Product:</Text>
-                                                        <Text>{isData.product}</Text>
-                                                        <Text>{isData.product}</Text>
-                                                    </View>
-                                                    <View style={{}}>
+
                                                         <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>
                                                             Qty</Text>
-                                                        <Text>{isData.Qty}</Text>
 
+
+                                                        <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>
+                                                            Price</Text>
                                                     </View>
+                                                    <View style={{
+                                                        width: '100%',
+                                                        flexDirection: 'row',
+                                                        justifyContent: 'space-between',
 
-                                                    <View>
-                                                        <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Price</Text>
-                                                        <Text>{isData.price}</Text>
-                                                        <Text>{isData.price}</Text>
+                                                    }}>
+                                                        <Text style={{ marginVertical: 5, width: '40%' }}>
+                                                            {isData.product1}</Text>
+
+                                                        <Text style={{ marginVertical: 5, }}>
+                                                            {isData.Qty}</Text>
+
+
+                                                        <Text style={{ marginVertical: 5, }}>
+                                                            {isData.price}</Text>
+                                                    </View>
+                                                    <View style={{
+                                                        width: '100%',
+                                                        flexDirection: 'row',
+                                                        justifyContent: 'space-between',
+
+                                                    }}>
+                                                        <Text style={{ marginVertical: 5, width: '40%' }}>
+                                                            {isData.product2}</Text>
+
+                                                        <Text style={{ marginVertical: 5, }}>
+                                                            {isData.Qty2}</Text>
+
+
+                                                        <Text style={{ marginVertical: 5, }}>
+                                                            {isData.price}</Text>
                                                     </View>
                                                 </View>
                                                 <View style={{ marginVertical: 5, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
                                                     <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Delivery Charges:</Text>
-                                                    <Text>{isData.DeliveryCharges}</Text>
+                                                    <Text style={{ marginTop: 5 }}>{isData.DeliveryCharges}</Text>
                                                 </View>
                                                 <View style={{ marginVertical: 5, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
                                                     <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Card Used:</Text>
-                                                    <Text>{isData.CardUsed}</Text>
+                                                    <Text style={{ marginTop: 5 }}>{isData.CardUsed}</Text>
                                                 </View>
                                                 <View style={{ marginVertical: 5, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
                                                     <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Total Amount Paid:</Text>
-                                                    <Text>{isData.TotalAmountPaid}</Text>
+                                                    <Text style={{ marginTop: 5 }}>{isData.TotalAmountPaid}</Text>
                                                 </View>
                                                 <View style={{ marginVertical: 5, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
                                                     <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Orders Status</Text>
-                                                    <Text>{isData.OrdersStatus}</Text>
+                                                    <Text style={{ marginTop: 5 }}>{isData.OrdersStatus}</Text>
                                                 </View>
                                                 <View style={{ width: '50%', marginVertical: 5, }}>
                                                     <Text style={{

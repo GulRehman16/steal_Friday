@@ -25,8 +25,8 @@ const ProfileSettings = props => {
             <Header
               headerText1
               leftIcon
-              screenName
-              screenText={'Profile Settings'}
+              screenName1
+              screenText1={'Profile Settings'}
               marginLeft={33}
               leftIconProps={() => {
                 props.navigation.goBack();

@@ -235,7 +235,7 @@ const ContactUs = props => {
       <Overlays popupcontent btn btn5 TexView label1="Your Message Sent!"
         navigation={props.navigation}
         labletext="Close" visible={visible}
-        toggleOverlay={() => setVisible(false)} />
+        toggleOverlay={() => props.navigation.navigate('Auth', { screen: 'login' })} />
     </>
   );
 };

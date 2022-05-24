@@ -53,11 +53,12 @@ const ChangePassword = props => {
           <View style={styles.mainBody}>
             <View style={{ marginTop: 55 }}>
               <Header
-                headerText
+                headerText1
                 leftIcon
-                screenName
-                screenText={'Change Password'}
+                screenName1
+                screenText1={'Change Password'}
                 marginLeft={33}
+
                 leftIconProps={() => {
                   props.navigation.goBack();
                 }}

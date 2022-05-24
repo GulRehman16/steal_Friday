@@ -66,8 +66,8 @@ const Notification = props => {
             <Header
               headerText1
               leftIcon
-              screenName
-              screenText={'Notifications'}
+              screenName1
+              screenText1={'Notifications'}
               marginLeft={33}
               leftIconProps={() => {
                 props.navigation.goBack();

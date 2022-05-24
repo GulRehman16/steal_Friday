@@ -23,15 +23,15 @@ const Shoebox = ({ Image1, content1, content2 }) => {
                     <Icon name='close' type='AntDesign'
                         style={{ fontSize: 20, color: 'white' }} />
                 </TouchableOpacity>
-                <View style={{ flexDirection: 'row', }}>
-                    <View style={{ width: '40%', alignItems: 'center', paddingRight: 15 }}>
+                <View style={{ flexDirection: 'row', width: '100%' }}>
+                    <View style={{ width: '35%', alignItems: 'center', }}>
                         <Image
                             source={Image1}
                             resizeMode="contain"
                             style={{ width: '100%', height: '100%' }} />
                     </View>
-                    <View style={{ width: '60%', alignItems: 'center' }}>
-                        <Text style={{ textAlign: 'left', fontSize: 20, color: '#000', fontWeight: 'bold', margin: 5 }}>
+                    <View style={{ width: '80%', alignSelf: 'center' }}>
+                        <Text style={{ fontSize: 20, color: '#000', fontWeight: 'bold', textAlign: 'left' }}>
                             Nike Collections
                         </Text>
                         {content1 && (
@@ -60,14 +60,15 @@ const Shoebox = ({ Image1, content1, content2 }) => {
                             </View>
                         )}
                         {content2 && (
-                            <View style={{ flexDirection: 'row', marginTop: 20, justifyContent: 'space-between' }}>
+                            <View style={{ flexDirection: 'row', marginTop: 20, width: '50%', justifyContent: 'space-between' }}>
                                 <View>
-                                    <Text style={{ fontSize: 16, color: '#000', fontWeight: '300', marginRight: 12, fontWeight: 'bold', color: '#000' }}>
+                                    <Text style={{ fontSize: 16, color: '#000', fontWeight: '300', fontWeight: 'bold', color: '#000' }}>
                                         $15.99
                                     </Text>
                                 </View>
                                 <View style={{
-                                    width: 99, height: 26, borderWidth: 0.55, flexDirection: 'row', backgroundColor: '#fff',
+                                    marginLeft: 10,
+                                    width: 88, height: 26, borderWidth: 0.55, flexDirection: 'row', backgroundColor: '#fff',
                                     elevation: 2, borderRadius: 5, justifyContent: 'space-between'
                                 }}>
                                     <TouchableOpacity onPress={() => setCount(count - 1)}>

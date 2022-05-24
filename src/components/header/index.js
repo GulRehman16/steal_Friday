@@ -31,6 +31,7 @@ const Header = ({
   txtwidth,
   textColor,
   lIconClr,
+  marginTop1,
 
 
 }) => {
@@ -73,6 +74,7 @@ const Header = ({
             <Image
               source={Images.Pictures.loginLogo}
               style={{
+
                 width: txtwidth || 108, height: 37
               }}
               resizeMode="contain"
@@ -91,7 +93,8 @@ const Header = ({
           }}>
           <Text
             style={{
-
+              marginTop: marginTop1 || 30,
+              marginVertical: marginTop1 || 20,
               fontWeight: '600',
               fontSize: 22,
               color: 'black',

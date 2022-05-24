@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, BackHandler } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -9,18 +9,44 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { FormInput, AppButton, CheckBox } from '../../../components';
+import { FormInput, AppButton, CheckBox, Alert } from '../../../components';
 
 const Login = props => {
+
+
   const [state, setState] = useState({
+
     email: '',
     password: '',
     focus: '',
     secureText: true,
   });
 
+
+  const backAction = () => {
+    props.navigation.goBack();
+    return true;
+  };
+  let backHandler;
+  props.navigation.addListener('focus', () => {
+    backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+  });
+  props.navigation.addListener('blur', () => {
+    if (backHandler) {
+      backHandler.remove();
+    }
+  });
+
+
+
+
   return (
+
     <SafeAreaView style={styles.screenContainer}>
+
       <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -162,7 +188,7 @@ const Login = props => {
           <Text style={{ color: 'black' }}>Having Trouble Logging In? </Text>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => { props.navigation.navigate('Homes', { screen: 'ContactUs' }) }} >
+            onPress={() => { props.navigation.navigate('ContactUs') }} >
             <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>
               Contact Us
             </Text>

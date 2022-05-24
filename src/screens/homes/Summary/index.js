@@ -26,27 +26,27 @@ const Summary = ({ navigation }) => {
     const [currentPosition, setCurrentPosition] = useState(0)
 
 
-    // useEffect(() => {
-    //     const backAction = () => {
-    //         navigation.navigate('checkOut', params={ value: 2 }
+    useEffect(() => {
+        const backAction = () => {
+            navigation.navigate('checkOut', params = { value: 2 }
 
-    //         );
-    //         return true;
-    //     };
-    //     let backHandler;
-    //     navigation.addListener('focus', () => {
-    //         backHandler = BackHandler.addEventListener(
-    //             'hardwareBackPress',
-    //             backAction,
-    //         );
-    //     });
-    //     navigation.addListener('blur', () => {
-    //         if (backHandler) {
-    //             backHandler.remove();
-    //         }
-    //     });
+            );
+            return true;
+        };
+        let backHandler;
+        navigation.addListener('focus', () => {
+            backHandler = BackHandler.addEventListener(
+                'hardwareBackPress',
+                backAction,
+            );
+        });
+        navigation.addListener('blur', () => {
+            if (backHandler) {
+                backHandler.remove();
+            }
+        });
 
-    // }, []);
+    }, []);
 
 
     return (

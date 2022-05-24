@@ -73,19 +73,17 @@ const CartScreen = props => {
                             <View style={{}}>
                                 <Header
 
-                                    headerText
+                                    headerText1
                                     leftIcon
+                                    screenName1
+                                    screenText1="Cart"
                                     leftIconProps={() => {
                                         props.navigation.goBack();
                                     }}
                                 />
                             </View>
                             <View style={{ paddingVertical: 30 }}>
-                                <View style={{ alignSelf: 'center' }}>
-                                    <Text style={{ fontSize: 22, color: '#000', fontWeight: 'bold', marginVertical: 5, marginTop: 10 }}>
-                                        Cart
-                                    </Text>
-                                </View>
+
                                 <View>
                                     <Shoebox content2 Image1={Images.Pictures.nikeShoe1} />
                                 </View>
