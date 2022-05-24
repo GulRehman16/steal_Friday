@@ -21,22 +21,18 @@ const CatagoryScreen = ({ navigation }) => {
                 marginTop: 10, marginBottom: 10, alignSelf: 'center'
             }}>
 
-                <TouchableOpacity onPress={() => setCatagoryIndex(0)}>
-
+                <TouchableOpacity onPress={() => { navigation.navigate('Adeals') }}>
                     <Text style={[styles.CatagoriesText, catagoryIndex == 0 && styles.catagoryTextSelected]}>Clothing
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => setCatagoryIndex(1)}>
-
+                <TouchableOpacity onPress={() => { navigation.navigate('Adeals') }}>
                     <Text style={[styles.CatagoriesText, catagoryIndex == 1 && styles.catagoryTextSelected]}>Shoes
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => setCatagoryIndex(2)}>
-
+                <TouchableOpacity onPress={() => { navigation.navigate('Adeals') }}>
                     <Text style={[styles.CatagoriesText, catagoryIndex == 2 && styles.catagoryTextSelected]}>Accessories
                     </Text>
                 </TouchableOpacity>
-
             </View>
         )
     }
@@ -245,11 +241,11 @@ const styles = StyleSheet.create({
     CatagoriesText: {
         fontSize: 16
     },
-    catagoryTextSelected: {
-        width: '100%',
-        borderBottomColor: '#CD1C1B',
-        borderBottomWidth: 3,
-    },
+    // catagoryTextSelected: {
+    //     width: '100%',
+    //     borderBottomColor: '#CD1C1B',
+    //     borderBottomWidth: 3,
+    // },
     headerIcon: {
         width: 40,
         height: 40,

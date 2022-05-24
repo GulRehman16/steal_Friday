@@ -58,94 +58,91 @@ const MyOrder = (props) => {
                         <View style={{}}>
 
                             <DataTable>
-                                <DataTable.Header>
-                                    <DataTable.Title><Text style={{ color: 'black', fontWeight: 'bold', }}>Order No.</Text></DataTable.Title>
-
-                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold', }}>Date</Text></DataTable.Title>
-                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold' }}>Status</Text></DataTable.Title>
-                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold' }}>Total</Text></DataTable.Title>
-                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold' }}>Action</Text></DataTable.Title>
+                                <DataTable.Header style={{}}>
+                                    <DataTable.Title numeric><Text style={{ color: 'black', fontWeight: 'bold', }}>Order No.</Text></DataTable.Title>
+                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Date</Text></DataTable.Title>
+                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Status</Text></DataTable.Title>
+                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Total</Text></DataTable.Title>
+                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Action</Text></DataTable.Title>
 
                                 </DataTable.Header>
                                 <DataTable.Row>
-                                    <DataTable.Cell style={{ padding: 15 }}>1</DataTable.Cell>
+                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10 }}>1</Text> </DataTable.Cell>
 
-                                    <DataTable.Cell numeric style={{}}>1/1/2022 </DataTable.Cell>
-                                    <DataTable.Cell numeric>Pending</DataTable.Cell>
-                                    <DataTable.Cell numeric>$30</DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
-                                        <Text style={{ color: 'green' }}>View</Text>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
+                                        View</Text>
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>2</DataTable.Cell>
 
-                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
-                                        <Text style={{ color: 'blue' }}>View</Text>
+                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10 }}>2 </Text> </DataTable.Cell>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
+                                        View</Text>
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>3</DataTable.Cell>
+                                    <DataTable.Cell><Text style={{ color: 'black', fontSize: 10 }}>3 </Text> </DataTable.Cell>
 
-                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
-                                        <Text style={{ color: 'blue' }}>View</Text>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
+                                        View</Text>
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>4</DataTable.Cell>
+                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10 }}>4 </Text> </DataTable.Cell>
 
-                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
-                                        <Text style={{ color: 'blue' }}>View</Text>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
+                                        View</Text>
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>5</DataTable.Cell>
-
-                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
-                                        <Text style={{ color: 'blue' }}>View</Text>
-                                    </DataTable.Cell>
-
-                                </DataTable.Row>
-                                <DataTable.Row>
-                                    <DataTable.Cell>6</DataTable.Cell>
-
-                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
-                                        <Text style={{ color: 'blue' }}>View</Text>
+                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10 }}>5</Text> </DataTable.Cell>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
+                                        View</Text>
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>7</DataTable.Cell>
+                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10 }}>6 </Text> </DataTable.Cell>
 
-                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
-                                        <Text style={{ color: 'blue' }}>View</Text>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
+                                        View</Text>
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <DataTable.Row>
-                                    <DataTable.Cell>8</DataTable.Cell>
+                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10, }}>7 </Text> </DataTable.Cell>
 
-                                    <DataTable.Cell numeric>1/1/2022</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell numeric>6.0</DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric >
-                                        <Text style={{ color: 'blue' }}>View</Text>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
+                                        View</Text>
+                                    </DataTable.Cell>
+                                </DataTable.Row>
+                                <DataTable.Row>
+                                    <DataTable.Cell><Text style={{ color: 'black', fontSize: 10 }}> 8</Text> </DataTable.Cell>
+
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10, paddingLeft: 15 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
+                                        View</Text>
                                     </DataTable.Cell>
                                 </DataTable.Row>
                                 <View style={{ alignSelf: 'center' }}>

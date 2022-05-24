@@ -23,22 +23,22 @@ const Login = props => {
   });
 
 
-  const backAction = () => {
-    props.navigation.goBack();
-    return true;
-  };
-  let backHandler;
-  props.navigation.addListener('focus', () => {
-    backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      backAction,
-    );
-  });
-  props.navigation.addListener('blur', () => {
-    if (backHandler) {
-      backHandler.remove();
-    }
-  });
+  // const backAction = () => {
+  //   props.navigation.goBack();
+  //   return true;
+  // };
+  // let backHandler;
+  // props.navigation.addListener('focus', () => {
+  //   backHandler = BackHandler.addEventListener(
+  //     'hardwareBackPress',
+  //     backAction,
+  //   );
+  // });
+  // props.navigation.addListener('blur', () => {
+  //   if (backHandler) {
+  //     backHandler.remove();
+  //   }
+  // });
 
 
 

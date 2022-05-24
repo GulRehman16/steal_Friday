@@ -96,29 +96,24 @@ const Overlays = ({
                                         alignItems: 'center', flexDirection: 'row',
                                     }}>
 
-                                        <View style={{ margin: 5, borderRadius: 20, borderWidth: 1 }}>
+                                        <View style={{ margin: 5, borderWidth: 1, borderRadius: 50 }}>
                                             <AppButton label="No" text
                                                 backgroundColor="#fff" color="#000"
                                                 btnWidth={99} btnHeight={39}
                                                 onPress={() => toggleOverlay(false)} />
                                         </View>
-                                        <View style={{ margin: 5, }}>
+                                        <View style={{ margin: 5, borderRadius: 50, borderWidth: 1, borderColor: 'red' }}>
                                             <AppButton label="Yes" text
                                                 btnWidth={100} btnHeight={40}
                                                 onPress={() => {
-                                                    setCheck(!check)
+                                                    navigation.navigate("logina")
                                                 }}
                                             />
-
                                         </View>
-
-
                                     </View>
                                 </View>
                             ) : null
                             }
-
-
                             {check === true ?
 
                                 nestedbtn && (

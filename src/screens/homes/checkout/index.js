@@ -63,7 +63,6 @@ const CheckOut = (props) => {
 
   }, [])
 
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
 

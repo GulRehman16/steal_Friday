@@ -414,19 +414,11 @@ const Adeals = ({ navigation }) => {
                                     }}
                                 />
                             </View>
-                            <TouchableOpacity onPress={() => setVisible(!visible)} style={styles.headerIcon}>
-
-                                <Image source={Images.Icon.Filter} />
-                            </TouchableOpacity>
-
                         </View>
-
                         <View style={styles.DealsView}>
                             <Text style={styles.DealsText}>Active Deals</Text></View>
                     </View>
-
                     <View style={styles.catagoryView}>
-
                         <CatagoryList />
                         <View style={{ marginTop: 10, }}>
                             <View style={styles.box4}>
