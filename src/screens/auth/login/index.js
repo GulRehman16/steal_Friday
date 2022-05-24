@@ -12,15 +12,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { FormInput, AppButton, CheckBox, Alert } from '../../../components';
 
 const Login = props => {
-
-
   const [state, setState] = useState({
-
     email: '',
     password: '',
     focus: '',
     secureText: true,
   });
+
 
 
   // const backAction = () => {
@@ -44,9 +42,7 @@ const Login = props => {
 
 
   return (
-
     <SafeAreaView style={styles.screenContainer}>
-
       <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -188,7 +184,9 @@ const Login = props => {
           <Text style={{ color: 'black' }}>Having Trouble Logging In? </Text>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => { props.navigation.navigate('ContactUs') }} >
+            onPress={() => {
+              props.navigation.navigate('ContactUs');
+            }}>
             <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>
               Contact Us
             </Text>
