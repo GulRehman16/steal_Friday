@@ -1,3 +1,5 @@
+import { Form } from 'native-base';
+
 export * from './formInput';
 export * from './appButton';
 export * from './tabBar';
@@ -9,5 +11,9 @@ export * from './customDrawer';
 export * from './notificationBox';
 export * from './Shoebox'
 export * from './overlay';
-export * from './data1'
+export * from './data1';
+export * from './circlecheckbox'
+export * from './ViewMore';
+export * from './data1';
+export * from './Content'
 

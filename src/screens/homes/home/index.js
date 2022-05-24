@@ -8,14 +8,15 @@ import {
   StatusBar,
   ScrollView,
   FlatList,
-  SafeAreaView
+  SafeAreaView,
 } from 'react-native';
 import CountDown from 'react-native-countdown-component';
 import LinearGradient from 'react-native-linear-gradient';
-import { Boxs, TextWithLine } from '../../../components';
+import { Boxs, TextWithLine, ViewMore } from '../../../components';
 import { Themes, Images } from '../../../constants';
-import { Item } from 'native-base';
-const Home = props => {
+
+const Home = ({ navigation }) => {
+
   const data = [
     {
       color: Themes.boxColors.grayLite,
@@ -26,6 +27,15 @@ const Home = props => {
       ammount: ' $15.00',
       imgW: 65,
       imgH: 100,
+      Press2: () => navigation.navigate('ProductItem', {
+        catagory: 'Shirt'
+      }),
+      Press1: () => navigation.navigate('ProductDetails', {
+        itemId: 86,
+        otherParam: 'anything you want here',
+        Image1: Images.Pictures.tShirt2
+      })
+
     },
     {
       color: Themes.boxColors.purpulLite,
@@ -36,6 +46,12 @@ const Home = props => {
       itemName: 'Nike Collection',
       imgW: 75,
       imgH: 80,
+      Press2: () => navigation.navigate('ProductItem', {
+        catagory: 'Shoes'
+      }),
+      Press1: () => navigation.navigate('ProductDetails', {
+        Image1: Images.Pictures.purpleShoes
+      })
     },
     {
       color: Themes.boxColors.blueLite,
@@ -46,6 +62,12 @@ const Home = props => {
       ammount: ' $15.00',
       imgW: 65,
       imgH: 65,
+      Press2: () => navigation.navigate('ProductItem', {
+        catagory: 'Accessories'
+      }),
+      Press1: () => navigation.navigate('ProductDetails', {
+        Image1: Images.Pictures.headPhone
+      })
     },
     {
       img: Images.Icon.greenStar,
@@ -56,6 +78,11 @@ const Home = props => {
       itemName: 'Nike Collection',
       imgW: 60,
       imgH: 65,
+
+      Press1: () => navigation.navigate('ProductDetails',
+        {
+          Image1: Images.Pictures.greenShoes
+        })
     },
 
     {
@@ -67,6 +94,14 @@ const Home = props => {
       ammount: ' $15.00',
       imgW: 70,
       imgH: 100,
+      Press2: () => navigation.navigate('ProductItem', {
+        catagory: 'Shoes'
+      }),
+      Press1: () => navigation.navigate('ProductDetails', {
+
+        Image1: Images.Pictures.tShirt1,
+
+      })
     },
   ];
 
@@ -80,6 +115,12 @@ const Home = props => {
       ammount: ' $15.00',
       imgW: 65,
       imgH: 100,
+      Press2: () => navigation.navigate('ProductItem', {
+        catagory: 'Shoes'
+      }),
+      Press2: () => navigation.navigate('ProductDetails', {
+        Image1: Images.Pictures.tShirt2
+      })
     },
     {
       color: Themes.boxColors.purpulLite,
@@ -90,6 +131,15 @@ const Home = props => {
       itemName: 'Nike Collection',
       imgW: 75,
       imgH: 80,
+      Press2: () => navigation.navigate('ProductItem', {
+        catagory: 'Shoes'
+      }),
+      Press2: () => navigation.navigate('ProductDetails',
+
+        {
+          Image1: Images.Pictures.purpleShoes
+        }
+      )
     },
     {
       color: Themes.boxColors.blueLite,
@@ -100,6 +150,14 @@ const Home = props => {
       ammount: ' $15.00',
       imgW: 65,
       imgH: 65,
+      Press2: () => navigation.navigate('ProductItem', {
+        catagory: 'Shoes'
+      }),
+      Press2: () => navigation.navigate('ProductDetails',
+        {
+          Image1: Images.Pictures.headPhone
+        }
+      )
     },
     {
       img: Images.Icon.greenStar,
@@ -110,6 +168,14 @@ const Home = props => {
       itemName: 'Nike Collection',
       imgW: 60,
       imgH: 65,
+      Press2: () => navigation.navigate('ProductItem', {
+        catagory: 'Shoes'
+      }),
+      Press2: () => navigation.navigate('ProductDetails',
+        {
+          Image1: Images.Pictures.greenShoes
+        }
+      )
     },
 
     {
@@ -121,6 +187,10 @@ const Home = props => {
       ammount: ' $15.00',
       imgW: 70,
       imgH: 100,
+      Press2: () => navigation.navigate('ProductDetails',
+        {
+          Image1: Images.Pictures.airpods
+        })
     },
 
     {
@@ -132,25 +202,29 @@ const Home = props => {
       ammount: ' $15.00',
       imgW: 70,
       imgH: 100,
+      Press2: () => navigation.navigate('ProductDetails',
+        {
+          Image1: Images.Pictures.greenShoes
+        })
     },
   ];
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <StatusBar
-        backgroundColor={'transparent'}
-        barStyle="dark-content"
-        translucent={true}
-      />
+
+
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}>
+        <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content"
+          translucent={false}
+        />
         <View style={styles.Header}>
           <View style={styles.Headerpart1}>
             <TouchableOpacity
               style={styles.Headerpart1Content1}
               activeOpacity={0.8}
               onPress={() => {
-                props.navigation.openDrawer();
+                navigation.openDrawer();
               }}>
               <Image
                 source={Images.Pictures.drawerLogo}
@@ -180,7 +254,7 @@ const Home = props => {
           <View style={styles.Headerpart3}>
             <TouchableOpacity
               onPress={() => {
-                props.navigation.navigate('notification');
+                navigation.navigate('notification');
               }}
               style={styles.Headerpart3Content1}
               activeOpacity={0.8}>
@@ -191,7 +265,7 @@ const Home = props => {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                props.navigation.navigate('profileSettings');
+                navigation.navigate('profileSettings');
               }}
               style={styles.Headerpart3Content3}
               activeOpacity={0.8}>
@@ -222,7 +296,8 @@ const Home = props => {
           </LinearGradient>
 
           <View style={{ width: '100%', marginTop: 20 }}>
-            <TextWithLine onPress={() => { props.navigation.navigate('activeDeals') }}
+            <TextWithLine
+              Press={() => { navigation.navigate('FeaturedDeals') }}
               viewAllBtn
               left={0}
               text="Featured Deals"
@@ -250,6 +325,7 @@ const Home = props => {
                         imgWidth={item.imgW}
                         StockNewOld
                         FeaturedDeals
+                        Press={item.Press1}
                       />
                     </>
                   );
@@ -257,9 +333,9 @@ const Home = props => {
               />
             </View>
           </View>
-
           <View style={{ width: '100%', marginTop: 10 }}>
             <TextWithLine
+              Press={() => { navigation.navigate('Adeals') }}
               viewAllBtn
               left={0}
               text="Deal Categories"
@@ -278,7 +354,11 @@ const Home = props => {
                     height={283}
                     marginRight={20}
                     elevation={5}
+                    itemImg={item.itemImg}
                     DealCategories
+                    text="Accessories"
+                    text1="48 Products"
+                    Press={item.Press2}
                   />
                 );
               }}
@@ -287,9 +367,11 @@ const Home = props => {
           <View style={{ marginTop: 10 }}>
             <TextWithLine
               viewAllBtn
+              Press={() => { navigation.navigate('Adeals') }}
               left={0}
               text="Active Deals"
               text2="View All"
+
             />
           </View>
           <View style={styles.box4}>
@@ -298,6 +380,7 @@ const Home = props => {
                 <>
                   <Boxs
                     Bgcolor={item.color}
+                    Press={item.Press2}
                     marginRight={10}
                     text={item.text}
                     icon={item.img}
@@ -313,6 +396,7 @@ const Home = props => {
               );
             })}
           </View>
+          <ViewMore />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -327,13 +411,13 @@ const styles = StyleSheet.create({
     width: '90%',
     height: '100%',
     alignSelf: 'center',
-    paddingBottom: 100,
+    paddingBottom: 50,
   },
   Header: {
     width: '90%',
     alignSelf: 'center',
     height: 120,
-    marginTop: 25,
+    marginTop: 40,
     flexDirection: 'row',
   },
 
@@ -357,7 +441,7 @@ const styles = StyleSheet.create({
   },
   Headerpart1Content1: { width: 50, height: 50 },
   Headerpart1Content2: { width: '100%', height: '100%' },
-  Headerpart2Content1: { width: 108, height: 37 },
+  Headerpart2Content1: { width: 108, height: 37, left: 20 },
   Headerpart2Content2: { fontSize: 14, color: '#030303', fontWeight: 'bold' },
   Headerpart2Content3: { width: 81, height: 41 },
   Headerpart3Content1: {

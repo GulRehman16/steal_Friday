@@ -1,11 +1,14 @@
-import { View, Text, Image, ScrollView } from 'react-native'
+import { View, Text, Image, ScrollView, SafeAreaView, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { Button, Overlay } from 'react-native-elements'
 import { AppButton, Header } from '../../components'
 import { Images } from '../../constants'
-import CircularProgress from 'react-native-circular-progress-indicator';
+import { CheckBox } from 'react-native-elements'
+import { CircleCheckBox } from '../circlecheckbox';
+import LottieView from 'lottie-react-native';
 
 const Overlays = ({
+    props,
     visible,
     toggleOverlay,
     btn,
@@ -14,11 +17,21 @@ const Overlays = ({
     btn3,
     btn4,
     btn5,
+    TexView,
     popupwidth,
     popupheight,
     popupcontent,
-    popupcontent1 }) => {
-
+    popupcontent1,
+    popupcontent2,
+    label1,
+    onCancel,
+    labletext,
+    btnNotice,
+    navigation,
+    nestedbtn,
+    btnes }) => {
+    const [state, setState] = useState({ checked: false });
+    const [check, setCheck] = useState(false);
     const [isData, setData] = useState({
         ordernumber: "3241",
         orderDate: "12/2/22",
@@ -30,40 +43,24 @@ const Overlays = ({
         TotalAmountPaid: "Total Amount Paid:",
         OrdersStatus: "Pending",
         ShippingDetails: "Street Address: Licolon Street City: NewYork city State: New York Zip Code: 2435132"
-
-
-
-
     })
 
     return (
-        <View>
+        <SafeAreaView>
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ flexGrow: 1 }}>
-                <Overlay isVisible={visible} onBackdropPress={toggleOverlay} overlayStyle={{ borderRadius: 30 }}>
+                <Overlay isVisible={visible} onBackdropPress={toggleOverlay} overlayStyle={{ borderRadius: 15, elevation: 10 }}>
 
                     {popupcontent && (
                         <View style={{
-                            width: 252, height: 248,
-                            alignItems: 'center', justifyContent: 'flex-end'
+
+
                         }}>
                             {btn && (
-                                <View style={{ alignItems: 'center', alignSelf: 'center', justifyContent: 'center' }}>
-
-                                    <CircularProgress
-                                        value={100}
-                                        radius={50}
-                                        activeStrokeColor={'#000'}
-                                        inActiveStrokeColor={'#000'}
-                                        inActiveStrokeOpacity={0.5}
-                                        inActiveStrokeWidth={10}
-                                        activeStrokeWidth={10}
-
-                                    />
-
-
-
+                                <View style={{ marginTop: 30, alignSelf: 'center' }}>
+                                    <LottieView style={{ width: 100, height: 100, }}
+                                        source={require('../../assets/Lottie/99398-check-mark-black.json')} autoPlay loop />
                                 </View>
                             )}
                             {btn1 && (
@@ -74,44 +71,121 @@ const Overlays = ({
                             )}
                             {btn2 && (
                                 <View style={{ alignItems: 'center', alignSelf: 'center', justifyContent: 'center' }}>
-                                    <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold', color: 'black', marginVertical: 2 }}>Notice</Text>
+                                    <Text style={{
+                                        textAlign: 'center', fontSize: 18, fontWeight: 'bold', color: 'black',
+                                        marginVertical: 2
+                                    }}>Notice</Text>
                                     <Text style={{ textAlign: 'center', fontSize: 18, color: 'black', marginVertical: 2 }}>
                                         Are you sure, you want to proceed with payment?</Text>
                                 </View>
 
                             )}
 
+                            {btnNotice && !check ? (
+                                <View style={{ alignItems: 'center', alignSelf: 'center', justifyContent: 'center', marginTop: 10 }}>
+                                    <Image source={Images.Icon.circle} />
+                                    <Text style={{
+                                        textAlign: 'center', fontSize: 18, fontWeight: 'bold',
+                                        color: 'black', marginVertical: 2
+                                    }}>Notice</Text>
+                                    <Text style={{ marginVertical: 15, textAlign: 'center' }}>
+                                        Are you sure, you want to {'\n'} proceed with payment?</Text>
+                                    <View style={{
+                                        alignItems: 'center', flexDirection: 'row',
+                                    }}>
+
+                                        <View style={{ margin: 5, borderRadius: 20, borderWidth: 2 }}>
+                                            <AppButton label="No" text
+                                                backgroundColor="#fff" color="#000"
+                                                btnWidth={100} btnHeight={40}
+                                                onPress={() => toggleOverlay(false)} />
+                                        </View>
+                                        <View style={{ margin: 5, }}>
+                                            <AppButton label="Yes" text
+                                                btnWidth={100} btnHeight={40}
+                                                onPress={() => {
+                                                    setCheck(!check)
+                                                }}
+                                            />
+
+                                        </View>
+
+
+                                    </View>
+                                </View>
+                            ) : null
+                            }
+
+
+                            {check === true ?
+
+                                nestedbtn && (
+                                    <View style={{ alignItems: 'center', alignSelf: 'center', justifyContent: 'center' }}>
+                                        <LottieView style={{ width: 100, height: 100, }}
+                                            source={require('../../assets/Lottie/99398-check-mark-black.json')} autoPlay loop />
+                                        <Text style={{ textAlign: 'center', fontSize: 18, color: 'black', marginVertical: 2 }}>Payment Processed {'\n'} Successfully</Text>
+                                        <AppButton label={labletext} text btnWidth={137} btnHeight={40}
+                                            onPress={() => navigation.navigate('login')} />
+                                    </View>
+                                )
+                                : null}
+
                             {btn3 && (
                                 <View style={{ alignItems: 'center', alignSelf: 'center', justifyContent: 'center' }}>
                                     <Image source={Images.Icon.circle} />
-                                    <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold', color: 'black', marginVertical: 2 }}>Notice</Text>
-                                    <Text style={{ textAlign: 'center', fontSize: 18, color: 'black', marginVertical: 2 }}>Are you sure, you want to proceed with payment?</Text>
+                                    <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold', color: 'black', marginVertical: 2 }}>
+                                        Notice</Text>
+                                    <Text style={{ textAlign: 'center', fontSize: 18, color: 'black', marginVertical: 2 }}>
+                                        Are you sure, you want to proceed with payment?</Text>
                                 </View>
-
                             )}
 
                             {btn4 && (
-                                <View style={{ marginVertical: 5, alignItems: 'center' }}>
-                                    <Text style={{ width: '100%', marginVertical: 8 }}>Password Updated!</Text>
+                                <View style={{ alignItems: 'center', marginVertical: 0 }}>
+                                    <Text style={{ width: '100%', marginVertical: 20, textAlign: 'center', color: "red", fontWeight: '700' }}>Notice</Text>
+                                    <Text style={{ marginVertical: 15, textAlign: 'center' }}>Are You Sure You Want {'\n'} To Make This Payment?</Text>
                                     <View style={{ alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' }}>
-                                        <AppButton label="No" text btnWidth={106} btnHeight={40} onPress={() => toggleOverlay(false)} />
-                                        <AppButton label="Yes" text backgroundColor="#fff" color="#000" btnWidth={106} btnHeight={40} onPress={() => toggleOverlay(false)} />
+                                        <AppButton label="Yes" text btnWidth={100} btnHeight={40} onPress={onCancel} />
+                                        <AppButton label="No" text backgroundColor="#fff" color="#000" btnWidth={100} btnHeight={40}
+                                            onPress={() => toggleOverlay(false)} />
                                     </View>
-
                                 </View>
+                            )}
+                            {TexView && (
+                                <View style={{ width: 260, marginBottom: -30, marginTop: 30 }}>
+                                    <Text style={{
+                                        marginVertical: 8,
+                                        fontSize: 18, textAlign: 'center'
+                                    }}>
+                                        {label1}</Text>
+                                </View>
+
 
                             )}
 
                             {btn5 && (
-                                <View style={{ marginVertical: 15, alignItems: 'center' }}>
-                                    <Text style={{ marginVertical: 8 }}>Password Updated!</Text>
-                                    <AppButton label="Close" text btnWidth={137} btnHeight={40} onPress={() => toggleOverlay(false)} />
+                                <View style={{ padding: 30, alignItems: 'center' }}>
+
+                                    <AppButton label={labletext}
+                                        onPress={() => toggleOverlay(false)}
+                                        text btnWidth={137}
+                                        btnHeight={40} />
                                 </View>
 
                             )}
+                            {btnes && (
+                                <View style={{ padding: 30, alignItems: 'center' }}>
+                                    <AppButton label={labletext}
+                                        onPress={() => navigation.navigate('profileSettings')}
+                                        text btnWidth={137}
+                                        btnHeight={40} />
+                                </View>
 
+                            )}
                         </View>
                     )}
+
+
                     <View>
 
                         {popupcontent1 && (
@@ -122,7 +196,7 @@ const Overlays = ({
                                     showsVerticalScrollIndicator={false}
                                     contentContainerStyle={{ flexGrow: 1 }}>
                                     <Header
-                                        RightIcon RICon2
+                                        RightIcon RICon2 RightIconPress={() => toggleOverlay(false)}
                                     />
                                     <View style={{ justifyContent: 'center', marginVertical: 20 }}>
                                         <View>
@@ -135,7 +209,7 @@ const Overlays = ({
                                                     <Text>{isData.ordernumber}</Text>
                                                 </View>
                                                 <View style={{ marginVertical: 5, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
-                                                    <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>orderDate</Text>
+                                                    <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Orders Date</Text>
                                                     <Text>{isData.orderDate}</Text>
                                                 </View>
                                                 <View style={{
@@ -145,17 +219,20 @@ const Overlays = ({
                                                     borderBottomWidth: 0.50
                                                 }}>
                                                     <View style={{ width: '40%' }}>
-                                                        <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Product:</Text>
+                                                        <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>
+                                                            Product:</Text>
+                                                        <Text>{isData.product}</Text>
                                                         <Text>{isData.product}</Text>
                                                     </View>
                                                     <View style={{}}>
-                                                        <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Qty:</Text>
+                                                        <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>
+                                                            Qty</Text>
                                                         <Text>{isData.Qty}</Text>
-                                                        <Text>{isData.Qty}</Text>
+
                                                     </View>
 
                                                     <View>
-                                                        <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Price:</Text>
+                                                        <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Price</Text>
                                                         <Text>{isData.price}</Text>
                                                         <Text>{isData.price}</Text>
                                                     </View>
@@ -177,7 +254,10 @@ const Overlays = ({
                                                     <Text>{isData.OrdersStatus}</Text>
                                                 </View>
                                                 <View style={{ width: '50%', marginVertical: 5, }}>
-                                                    <Text style={{ marginVertical: 5, fontWeight: 'bold', color: '#000' }}>Shipping Details:</Text>
+                                                    <Text style={{
+                                                        marginVertical: 5, fontWeight: 'bold',
+                                                        color: '#000'
+                                                    }}>Shipping Details:</Text>
                                                     <Text>{isData.ShippingDetails}</Text>
                                                 </View>
                                             </View>
@@ -191,13 +271,124 @@ const Overlays = ({
                         )}
 
                     </View>
+
+                    {popupcontent2 && (
+                        <View style={{ padding: 15 }}>
+                            <View style={{ alignItems: 'center', justifyContent: 'center', }}>
+                                <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black' }}>Filter</Text>
+                                <View style={{}}>
+
+                                    <Text style={{ alignSelf: 'center', fontWeight: '400', marginVertical: 5 }}>
+                                        Conditions</Text>
+                                    <View style={{ flexDirection: 'row', paddingRight: 10 }} >
+
+                                        <CheckBox
+                                            onPress={() => {
+                                                setState({ checked: !state.checked });
+                                            }}
+                                            center
+                                            checkedIcon="dot-circle-o"
+                                            uncheckedIcon="circle-o"
+                                            uncheckedColor="red"
+                                            checkedColor="grey"
+                                            checked={!state.checked}
+                                        />
+                                        <Text style={{ color: '#000', marginTop: 20 }}>New To Old</Text>
+
+                                    </View>
+                                    <View style={styles.select}>
+
+                                        <CheckBox
+                                            onPress={() => {
+                                                setState({ checked: !state.checked });
+                                            }}
+                                            center
+                                            checkedIcon="dot-circle-o"
+                                            uncheckedIcon="circle-o"
+                                            uncheckedColor="red"
+                                            checkedColor="grey"
+                                            checked={state.checked}
+                                        />
+                                        <Text style={{ color: '#000' }}>New To Old</Text>
+                                    </View>
+                                </View>
+
+                                <View style={{ width: 190, height: 2, backgroundColor: '#00000029', marginVertical: 10 }}>
+                                </View>
+                                <View>
+
+                                    <Text style={{ alignSelf: 'center', fontWeight: '400', marginVertical: 5 }}>Password Updated!</Text>
+
+                                    <View style={{}}>
+
+                                        <Text style={{ alignSelf: 'center', fontWeight: '400', marginVertical: 5 }}>
+                                            Conditions</Text>
+                                        <View style={{ flexDirection: 'row', paddingRight: 10 }} >
+
+                                            <CheckBox
+                                                onPress={() => {
+                                                    setState({ checked: !state.checked });
+                                                }}
+                                                center
+                                                checkedIcon="dot-circle-o"
+                                                uncheckedIcon="circle-o"
+                                                uncheckedColor="red"
+                                                checkedColor="grey"
+                                                checked={!state.checked}
+                                            />
+                                            <Text style={{ color: '#000', marginTop: 20 }}>New To Old</Text>
+
+                                        </View>
+                                        <View style={styles.select}>
+
+                                            <CheckBox
+                                                onPress={() => {
+                                                    setState({ checked: !state.checked });
+                                                }}
+                                                center
+                                                checkedIcon="dot-circle-o"
+                                                uncheckedIcon="circle-o"
+                                                uncheckedColor="red"
+                                                checkedColor="grey"
+                                                checked={state.checked}
+                                            />
+                                            <Text style={{ color: '#000' }}>New To Old</Text>
+                                        </View>
+                                    </View>
+                                </View>
+
+                                <AppButton label="Clear" text btnWidth={137} btnHeight={40}
+                                    onPress={() => toggleOverlay(false)} />
+                            </View>
+                        </View>
+
+                    )}
                 </Overlay>
             </ScrollView>
-        </View>
+        </SafeAreaView>
 
     );
 
 }
 
 export { Overlays }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 20,
+    },
+    body: {
+        alignSelf: 'center',
+        width: '100%',
+        height: '100%',
+    },
+    select: {
+        // width: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        // justifyContent: 'space-between',
+    },
+
+})
 

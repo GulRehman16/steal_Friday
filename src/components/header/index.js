@@ -1,7 +1,8 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View, headerText1 } from 'react-native';
 import React from 'react';
 import { Icon } from 'native-base';
 import { Images } from '../../constants';
+import { ICON_SIZE } from 'react-native-paper/lib/typescript/components/TextInput/Adornment/TextInputIcon';
 
 const Header = ({
   fontColor,
@@ -13,8 +14,12 @@ const Header = ({
   text,
   leftIconProps,
   headerText,
+  headerText1,
+
   screenName,
+  screenName1,
   screenText,
+  screenText1,
   marginLeft,
   imageHeight,
   imageWidth,
@@ -22,9 +27,11 @@ const Header = ({
   IconColor,
   RICon,
   RICon2,
-
+  RightIconPress,
+  txtwidth,
   textColor,
   lIconClr,
+
 
 }) => {
   return (
@@ -41,13 +48,8 @@ const Header = ({
             activeOpacity={0.7}
             style={{ position: 'absolute', left: 0 }}
             onPress={leftIconProps}>
-            <Image
-              source={Images.Pictures.left}
-
-              style={{ width: 26, height: 26, color: IconColor || '#000' }}
-
-
-
+            <Icon name='arrowleft' type='AntDesign'
+              style={{ fontSize: 18, color: IconColor || '#000' }}
             />
           </TouchableOpacity>
         )}
@@ -60,12 +62,46 @@ const Header = ({
                 width: imageWidth || 108,
                 height: imageHeight || 37,
                 marginLeft: 50,
+
               }}
               resizeMode="contain"
             />
           </View>
         )}
+        {headerText1 && (
+          <View>
+            <Image
+              source={Images.Pictures.loginLogo}
+              style={{
+                width: txtwidth || 108, height: 37
+              }}
+              resizeMode="contain"
+            />
+
+          </View>
+        )}
+
       </View>
+
+      {screenName1 && (
+        <View
+          style={{
+            alignSelf: 'center'
+
+          }}>
+          <Text
+            style={{
+
+              fontWeight: '600',
+              fontSize: 22,
+              color: 'black',
+              textAlign: 'center'
+            }}>
+            {screenText1}
+          </Text>
+        </View>
+      )}
+
       {text && (
         <Text
           style={{
@@ -84,6 +120,7 @@ const Header = ({
             alignSelf: 'center',
             width: '100%',
             alignItems: 'center',
+            justifyContent: 'center'
           }}>
           <Text
             style={{
@@ -91,6 +128,7 @@ const Header = ({
               fontWeight: '600',
               fontSize: 22,
               color: 'black',
+              textAlign: 'center'
             }}>
             {screenText}
           </Text>
@@ -100,18 +138,19 @@ const Header = ({
         <TouchableOpacity
           activeOpacity={0.7}
           style={{ position: 'absolute', right: 0 }}
-          onPress={leftIconProps}>
+          onPress={RightIconPress}>
           {RICon && (
             <Image
               source={Images.Pictures.headericon1}
-              style={{ width: 26, height: 26 }}
+              style={{ width: 26, height: 26, marginTop: 45 }}
             />
-
           )}
           {RICon2 && (
             <Icon name='cross' type='Entypo' />
 
           )}
+
+
 
         </TouchableOpacity>
       )}

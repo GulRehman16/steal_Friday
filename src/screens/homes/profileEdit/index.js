@@ -19,7 +19,10 @@ const ProfileEdit = props => {
 
   const CatagoryList = () => {
     return (
-      <View style={{ width: '90%', flexDirection: 'row', justifyContent: 'space-between', marginTop: 30, marginBottom: 20, }}>
+      <View style={{
+        width: '90%', flexDirection: 'row',
+        justifyContent: 'space-between', marginTop: 30, marginBottom: 20,
+      }}>
         {Catagories.map((item, index) => (
           <TouchableOpacity key={index} onPress={() => setCatagoryIndex(index)}>
 
@@ -42,7 +45,7 @@ const ProfileEdit = props => {
             <View style={styles.mainBody}>
               <View style={{ marginTop: 45 }}>
                 <Header
-                  headerText
+                  headerText1
                   leftIcon
                   leftIconProps={() => {
                     props.navigation.goBack();

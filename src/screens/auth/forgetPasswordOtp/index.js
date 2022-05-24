@@ -7,33 +7,37 @@ import {
   TouchableOpacity,
   SafeAreaView,
   View,
+  Image
 } from 'react-native';
-import {Header} from '../../../components';
+import { AppButton, Header } from '../../../components';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
+import App from '../../../../App';
 
-const ForgetPasswordOtp = props => {
+const ForgetPasswordOtp = (props) => {
   return (
     <SafeAreaView style={styles.screenContainer}>
       <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
       <ScrollView
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.mainBody}>
-          <Header
-            headerText
-            marginLeft={33}
-            imageHeight={51}
-            imageWidth={200}
-          />
+          <View style={{ alignSelf: 'center', width: '100%' }}>
+            <View style={styles.screenHeader}>
+              <Image
+                source={require('../../../assets/images/loginLogo.png')}
+                style={{ width: 210, height: 55 }}
+              />
+            </View>
+          </View>
           <View style={styles.HeaderText}>
-            <Text style={{fontSize: 14, color: '#707070', textAlign: 'center'}}>
-              Please enter the 6 digits code sent to you registered email
+            <Text style={{ fontSize: 16, color: '#707070', textAlign: 'center' }}>
+              Please enter the 6 digits code sent to your registered email
               address ab***@gmail.com
             </Text>
           </View>
           <OTPInputView
-            style={{width: '80%', height: 200}}
+            style={{ width: '80%', height: 100 }}
             pinCount={6}
             autoFocusOnLoad={false}
             codeInputFieldStyle={styles.underlineStyleBase}
@@ -42,7 +46,17 @@ const ForgetPasswordOtp = props => {
               console.log(`Code is ${code}, you are good to go!`);
             }}
           />
+          <View
+            style={{ width: 180, }}>
+            <AppButton label="Next" text
+              onPress={() => {
+                props.navigation.navigate('CreateNewPassWord');
+              }}
+
+            />
+          </View>
         </View>
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -51,6 +65,12 @@ const ForgetPasswordOtp = props => {
 export default ForgetPasswordOtp;
 
 const styles = StyleSheet.create({
+  screenHeader: {
+    width: '100%',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   screenContainer: {
     flex: 1,
     backgroundColor: '#F8F8F8',
@@ -64,7 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   HeaderText: {
-    width: '90%',
+    width: '80%',
     height: 87,
     alignItems: 'center',
     justifyContent: 'center',

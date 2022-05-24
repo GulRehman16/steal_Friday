@@ -110,7 +110,7 @@ const Login = props => {
                     style={{
                       color: 'black',
                     }}>
-                    Forget Password?
+                    Forgot Password?
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -123,8 +123,8 @@ const Login = props => {
                 }}>
                 <AppButton
                   btnWidth={180}
-                  text
                   label="Login"
+                  text
                   onPress={() => {
                     props.navigation.replace('MyDrawer', { screen: 'Home' });
                   }}
@@ -143,11 +143,11 @@ const Login = props => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text style={{ color: 'black' }}>Dont have an account? </Text>
+          <Text style={{ color: 'black' }}>Don't have an account? </Text>
           <TouchableOpacity
             activeOpacity={0.7}
             onPress={() => props.navigation.navigate('signup')}>
-            <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>Signup</Text>
+            <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>Sign Up</Text>
           </TouchableOpacity>
         </View>
         <View
@@ -162,7 +162,7 @@ const Login = props => {
           <Text style={{ color: 'black' }}>Having Trouble Logging In? </Text>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => props.navigation.navigate('contactUs')}>
+            onPress={() => { props.navigation.navigate('Homes', { screen: 'ContactUs' }) }} >
             <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>
               Contact Us
             </Text>

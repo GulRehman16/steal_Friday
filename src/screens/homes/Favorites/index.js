@@ -70,8 +70,7 @@ const Favorites = props => {
                         <View style={styles.mainBody}>
                             <View style={{}}>
                                 <Header
-
-                                    headerText
+                                    headerText1
                                     leftIcon
                                     leftIconProps={() => {
                                         props.navigation.goBack();
@@ -80,7 +79,13 @@ const Favorites = props => {
                             </View>
                             <View style={{ paddingVertical: 30 }}>
                                 <View style={{ alignSelf: 'center' }}>
-                                    <Text style={{ fontSize: 22, color: '#000', fontWeight: 'bold', marginVertical: 5, marginTop: 10 }}>
+                                    <Text style={{
+                                        fontSize: 22,
+                                        color: '#000',
+                                        fontWeight: 'bold',
+                                        marginVertical: 5,
+                                        marginTop: 10
+                                    }}>
                                         Favorites
                                     </Text>
                                 </View>
@@ -91,7 +96,8 @@ const Favorites = props => {
                                     <Shoebox content1 Image1={Images.Pictures.greenShoe1} />
                                 </View>
                             </View>
-                            <TouchableOpacity style={{ marginTop: 220, elevation: 5, alignItems: 'center', justifyContent: 'center', width: '100%', height: 50, borderRadius: 50, backgroundColor: '#E4201E', backgroundColor: 'red', flexDirection: 'row' }}>
+                            <TouchableOpacity onPress={() => { props.navigation.navigate('CartScreen') }}
+                                style={{ marginTop: 220, elevation: 5, alignItems: 'center', justifyContent: 'center', width: '100%', height: 50, borderRadius: 50, backgroundColor: '#E4201E', backgroundColor: 'red', flexDirection: 'row' }}>
 
                                 <Icon name='shoppingcart' type='AntDesign' style={{ fontSize: 20, color: 'white' }} />
                                 <Text style={{ color: 'white', paddingLeft: 10 }}>My Cart</Text>

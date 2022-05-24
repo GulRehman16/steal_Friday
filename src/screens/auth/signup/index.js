@@ -1,5 +1,5 @@
-import {Icon} from 'native-base';
-import React, {useState} from 'react';
+import { Icon } from 'native-base';
+import React, { useState } from 'react';
 import {
   Image,
   ScrollView,
@@ -9,9 +9,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {FormInput, AppButton, CheckBox} from '../../../components';
-import {Images} from '../../../constants';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { FormInput, AppButton, CheckBox } from '../../../components';
+import { Images } from '../../../constants';
 
 const SignUp = props => {
   const [state, setState] = useState({
@@ -30,11 +30,11 @@ const SignUp = props => {
       <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.screenHeader}>
           <Image
             source={require('../../../assets/images/loginLogo.png')}
-            style={{width: 200, height: 51}}
+            style={{ width: 200, height: 51 }}
           />
         </View>
         <View style={styles.mainContainer}>
@@ -52,16 +52,17 @@ const SignUp = props => {
                 borderColor: state.focus === 'Name' ? '#CD1C1B' : null,
                 borderWidth: state.focus === 'Name' ? 1 : 0,
                 borderRadius: 20,
+                width: '100%'
               }}>
               <FormInput
                 value={state.Name}
-                onChangeText={value => setState({...state, Name: value})}
+                onChangeText={value => setState({ ...state, Name: value })}
                 iconL
                 iconLName="user"
                 iconLType="Feather"
                 placeHolder="Name"
-                onFocus={() => setState({...state, focus: 'Name'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'Name' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
             <View
@@ -72,17 +73,18 @@ const SignUp = props => {
                 borderColor: state.focus === 'phoneNo' ? '#CD1C1B' : null,
                 borderWidth: state.focus === 'phoneNo' ? 1 : 0,
                 borderRadius: 20,
+                width: '100%'
               }}>
               <FormInput
                 value={state.phoneNo}
-                onChangeText={value => setState({...state, phoneNo: value})}
+                onChangeText={value => setState({ ...state, phoneNo: value })}
                 iconL
                 iconLName="phone"
                 iconLType="Feather"
                 placeHolder="Phone Number"
                 keyboardType={'numeric'}
-                onFocus={() => setState({...state, focus: 'phoneNo'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'phoneNo' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
             <View
@@ -93,16 +95,17 @@ const SignUp = props => {
                 borderColor: state.focus === 'email' ? '#CD1C1B' : null,
                 borderWidth: state.focus === 'email' ? 1 : 0,
                 borderRadius: 20,
+                width: '100%'
               }}>
               <FormInput
                 value={state.email}
-                onChangeText={value => setState({...state, email: value})}
+                onChangeText={value => setState({ ...state, email: value })}
                 iconL
                 iconLName="mail"
                 iconLType="AntDesign"
                 placeHolder="Email Address"
-                onFocus={() => setState({...state, focus: 'email'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'email' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
             <View
@@ -113,10 +116,11 @@ const SignUp = props => {
                 borderColor: state.focus === 'password' ? '#CD1C1B' : null,
                 borderWidth: state.focus === 'password' ? 1 : 0,
                 borderRadius: 20,
+                width: '100%'
               }}>
               <FormInput
                 value={state.password}
-                onChangeText={value => setState({...state, password: value})}
+                onChangeText={value => setState({ ...state, password: value })}
                 iconL
                 secureText={state.secureText}
                 iconLName="lock"
@@ -125,12 +129,13 @@ const SignUp = props => {
                 iconRName={state.secureText ? 'eye-with-line' : 'eye'}
                 iconRType="Entypo"
                 onPressR={() =>
-                  setState({...state, secureText: !state.secureText})
+                  setState({ ...state, secureText: !state.secureText })
                 }
                 placeHolder="New Password"
-                onFocus={() => setState({...state, focus: 'password'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'password' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
+
             </View>
             <View
               style={{
@@ -141,11 +146,12 @@ const SignUp = props => {
                   state.focus === 'confirmPassword' ? '#CD1C1B' : null,
                 borderWidth: state.focus === 'confirmPassword' ? 1 : 0,
                 borderRadius: 20,
+                width: '100%'
               }}>
               <FormInput
                 value={state.confirmPassword}
                 onChangeText={value =>
-                  setState({...state, confirmPassword: value})
+                  setState({ ...state, confirmPassword: value })
                 }
                 iconL
                 secureText={state.secureText2}
@@ -155,13 +161,15 @@ const SignUp = props => {
                 iconRName={state.secureText2 ? 'eye-with-line' : 'eye'}
                 iconRType="Entypo"
                 onPressR={() =>
-                  setState({...state, secureText2: !state.secureText2})
+                  setState({ ...state, secureText2: !state.secureText2 })
                 }
                 placeHolder="Confirm Password"
-                onFocus={() => setState({...state, focus: 'confirmPassword'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'confirmPassword' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
+
+
 
             <View
               style={{
@@ -173,63 +181,67 @@ const SignUp = props => {
               <View>
                 <CheckBox
                   alignItem={'flex-start'}
-                  onPress={() => setState({checked: !state.checked})}
+                  onPress={() => setState({ checked: !state.checked })}
                   checked={state.checked}
                 />
               </View>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Text style={{color: 'black'}}>I agree with</Text>
-                <TouchableOpacity activeOpacity={0.7}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={{ color: 'black' }}>I agree with</Text>
+                <TouchableOpacity onPress={() => { props.navigation.navigate('Homes', { screen: 'PrivacyPolocy' }) }}
+                  activeOpacity={0.7}>
                   <Text style={styles.termsPrivacy}>Terms of Services</Text>
                 </TouchableOpacity>
-                <Text style={{color: 'black'}}> &</Text>
-                <TouchableOpacity activeOpacity={0.7}>
+                <Text style={{ color: 'black' }}> &</Text>
+                <TouchableOpacity onPress={() => {
+                  props.navigation.navigate('Homes',
+                    { screen: 'PrivacyPolocy' })
+                }} activeOpacity={0.7}>
                   <Text style={styles.termsPrivacy}>Privacy Policy</Text>
                 </TouchableOpacity>
               </View>
             </View>
-            <View style={{marginTop: 15}}>
-              <Text style={[styles.termsPrivacy, {fontSize: 15}]}>
+            <View style={{ marginTop: 15 }}>
+              <Text style={[styles.termsPrivacy, { fontSize: 15 }]}>
                 Subscription Charges $19.99
               </Text>
             </View>
 
             <View
               style={{
-                paddingVertical: 40,
+                paddingVertical: 20,
                 width: '100%',
                 alignItems: 'center',
               }}>
               <AppButton
                 btnWidth={180}
+                text
                 label="Proceed To Pay"
-                onPress={() => props.navigation.replace('login')}
+                onPress={() => { props.navigation.navigate('Homes', { screen: 'PaymentMethod' }) }}
               />
             </View>
           </View>
-
           <View style={styles.alreadyAccount}>
-            <Text style={{color: 'black'}}>Already have an account? </Text>
+            <Text style={{ color: 'black' }}>Already have an account? </Text>
             <TouchableOpacity
               activeOpacity={0.7}
               onPress={() => props.navigation.navigate('login')}>
-              <Text style={{color: '#CD1C1B', fontWeight: 'bold'}}>Login</Text>
+              <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>Login</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.havingTrouble}>
-            <Text style={{color: 'black'}}>Having Trouble Logging In? </Text>
+            <Text style={{ color: 'black' }}>Having Trouble Signing Up?</Text>
             <TouchableOpacity
               activeOpacity={0.7}
-              onPress={() => props.navigation.navigate('contactUs')}>
-              <Text style={{color: '#CD1C1B', fontWeight: 'bold'}}>
+              onPress={() => { props.navigation.navigate('Homes', { screen: 'ContactUs' }) }} >
+              <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>
                 Contact Us
               </Text>
             </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 };
 
@@ -240,7 +252,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F8F8F8',
   },
-  mainContainer: {width: '90%', alignSelf: 'center', paddingBottom: 50},
+  mainContainer: { width: '90%', alignSelf: 'center', paddingBottom: 50 },
 
   screenHeader: {
     width: '90%',
@@ -268,6 +280,7 @@ const styles = StyleSheet.create({
   screenBody: {
     width: '90%',
     alignSelf: 'center',
+
   },
 
   profileImageContainer: {

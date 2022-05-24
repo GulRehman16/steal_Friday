@@ -23,7 +23,7 @@ const ProfileSettings = props => {
         <View style={styles.mainBody}>
           <View style={{ marginTop: 55 }}>
             <Header
-              headerText
+              headerText1
               leftIcon
               screenName
               screenText={'Profile Settings'}
@@ -33,7 +33,6 @@ const ProfileSettings = props => {
               }}
             />
           </View>
-
           <View style={styles.btnView}>
             <TouchableOpacity
               style={styles.btnStyle}
@@ -54,13 +53,10 @@ const ProfileSettings = props => {
               <Text style={styles.btnText}>Notifications</Text>
               <Image source={Images.Icon.nextIcon} style={styles.nextIcon} />
             </TouchableOpacity>
-
             <TouchableOpacity
               style={styles.btnStyle}
               activeOpacity={0.9}
-              onPress={() => {
-                props.navigation.navigate('Auth', { screen: 'changePassword' });
-              }}>
+              onPress={() => { props.navigation.navigate('Auth', { screen: 'changePassword' }) }}>
               <Text style={styles.btnText}>Change Password</Text>
               <Image source={Images.Icon.nextIcon} style={styles.nextIcon} />
             </TouchableOpacity>
@@ -77,6 +73,7 @@ const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     backgroundColor: '#F8F8F8',
+    paddingBottom: 40
   },
   mainBody: {
     width: '90%',

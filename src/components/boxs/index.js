@@ -13,6 +13,7 @@ const Boxs = ({
   backgroundColor,
   amount,
   text,
+  text1,
   icon,
   width,
   height,
@@ -29,11 +30,12 @@ const Boxs = ({
   DealCategories,
   FeaturedDeals,
   itemName,
+  Press
 }) => {
   return (
     <>
-      <View style={{ alignItems: 'center', height: 230, flexWrap: 'wrap', }}>
-        <TouchableOpacity
+      <View style={{ alignItems: 'center', flexWrap: 'wrap', }}>
+        <TouchableOpacity onPress={Press}
           style={{
             width: width || 155,
             height: height || 181,
@@ -76,7 +78,7 @@ const Boxs = ({
                   <Text style={{ fontSize: 12, color: '#030303' }}>{text}</Text>
                 </View>
 
-                <View style={{ width: 31, height: 31 }}>
+                <View style={{ width: 31, height: 31, }}>
                   <Image
                     resizeMode="contain"
                     source={icon}
@@ -113,6 +115,7 @@ const Boxs = ({
                       }}
                     />
                   </View>
+
                 </View>
               </View>
             </>
@@ -121,24 +124,36 @@ const Boxs = ({
           {DealCategories && (
             <View
               style={{
+
                 width: 196,
-                height: 196,
+                height: 186,
               }}>
               <Image
                 resizeMode="contain"
-                source={Images.Pictures.headPhone}
+                source={itemImg}
                 style={{
-                  height: 196,
-                  width: 196,
+                  height: '100%',
+                  width: '100%',
+                  // marginBottom: 45
                 }}
               />
+              <View style={{}}>
+
+                <Text style={{ fontSize: 18, color: '#000', textAlign: 'center', }}>{text}</Text>
+                <Text style={{ fontSize: 14, textAlign: 'center', }}>{text1}</Text>
+              </View>
+
+
             </View>
           )}
         </TouchableOpacity>
-        <View style={{ position: 'absolute', bottom: 6 }}>
-          <Text style={{ fontSize: 16, color: 'black' }}>{itemName}</Text>
+
+        <View style={{ marginVertical: 6 }}>
+          <Text style={{ fontSize: 16, color: 'black', }}>{itemName}</Text>
         </View>
-      </View>
+      </View >
+
+
     </>
   );
 };

@@ -63,6 +63,11 @@ const PrivacyPolocy = props => {
                     keyboardShouldPersistTaps="handled"
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{ flexGrow: 1 }}>
+                    <StatusBar
+                        backgroundColor={'transparent'}
+                        barStyle="dark-content"
+                        translucent={true}
+                    />
                     <View style={{ marginTop: 10 }}>
                         <View style={styles.mainBody}>
                             <View style={{ marginTop: 10 }}>
@@ -78,8 +83,11 @@ const PrivacyPolocy = props => {
                             </View>
                             <View style={styles.noticeBox}>
                                 <View>
-                                    <Text style={{ fontSize: 16, color: '#000', fontWeight: 'bold', marginVertical: 20 }}>
-                                        Terms of Services
+                                    <Text style={{
+                                        fontSize: 18, color: '#000', fontWeight: 'bold',
+                                        marginVertical: 20
+                                    }}>
+                                        Privacy Policy
                                     </Text>
                                 </View>
                                 <View style={{}}>
@@ -252,6 +260,7 @@ const styles = StyleSheet.create({
         elevation: 5,
         marginTop: 30,
         alignItems: 'center',
+        padding: 10
 
     },
     ortext: {

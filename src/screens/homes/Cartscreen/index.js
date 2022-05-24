@@ -94,11 +94,7 @@ const CartScreen = props => {
                                 </View>
                             </View>
                         </View>
-                        <View style={{
-
-                            position: 'absolute', bottom: 0, width: '100%', height: 146, elevation: 5,
-                            backgroundColor: '#fff', borderTopStartRadius: 50, borderTopEndRadius: 50, justifyContent: 'flex-end'
-                        }}>
+                        <View style={styles.footer}>
                             <View style={{ width: '90%', alignSelf: 'center', flexDirection: 'row', justifyContent: 'space-between' }}>
                                 <Text style={{ fontSize: 16, color: '#000', fontWeight: '500', marginVertical: 5, marginTop: 10 }}>
                                     Price (3 items)
@@ -108,7 +104,9 @@ const CartScreen = props => {
                                 </Text>
                             </View>
                             <View style={{ width: 214, marginVertical: 10, alignSelf: 'center', marginTop: 30 }}>
-                                <AppButton label="Checkout" text />
+                                <AppButton
+                                    onPress={() => { props.navigation.navigate('checkOut') }}
+                                    label="Checkout" text />
                             </View>
 
                         </View>
@@ -158,4 +156,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    footer: {
+        position: 'absolute', bottom: 0, width: '100%', height: 146, elevation: 5,
+        backgroundColor: '#fff', borderTopStartRadius: 50, borderTopEndRadius: 50,
+        justifyContent: 'flex-end',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 10,
+            height: 12,
+        },
+        shadowOpacity: 0.75,
+        shadowRadius: 4.84,
+        elevation: 10,
+    }
+
 });

@@ -1,12 +1,11 @@
-import { StyleSheet, Text, View, ScrollView, Image, TextInput, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Image, TextInput, TouchableOpacity, StatusBar } from 'react-native'
 import React, { useState } from 'react'
-import { AppButton, Header } from '../../../components';
+import { AppButton, Header, Overlays } from '../../../components';
 import { Images } from '../../../constants';
 
 
-
-
 const PaymentMethod = (props) => {
+    const [visible, setVisible] = useState(false);
     const { onClose, closeModal, } = props
     const [modalVisible, setModalVisible] = useState(false);
     return (
@@ -15,10 +14,18 @@ const PaymentMethod = (props) => {
                 <ScrollView keyboardShouldPersistTaps="handled"
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{ flexGrow: 1 }}>
-
+                    <StatusBar
+                        backgroundColor={'transparent'}
+                        barStyle="dark-content"
+                        translucent={true}
+                    />
                     <View style={{ width: '90%', height: '100%', alignSelf: 'center', marginVertical: 15, }}>
-                        <View>
-                            <Header leftIcon />
+                        <View style={{ marginTop: 60 }}>
+                            <Header leftIcon
+                                leftIconProps={() => {
+                                    props.navigation.goBack();
+                                }}
+                            />
                         </View>
 
                         <View style={{ width: '90%', marginTop: 30, alignSelf: 'center' }}>
@@ -81,7 +88,8 @@ const PaymentMethod = (props) => {
                             </View>
                         </View>
                         <View style={{ alignSelf: 'center', marginTop: 30 }}>
-                            <AppButton label="Pay Now" text btnWidth={180} />
+                            <AppButton label="Pay Now" text btnWidth={180}
+                                onPress={() => setVisible(!visible)} />
 
                             <View style={{ marginVertical: 5, alignSelf: 'center' }}>
                                 <Text style={{ color: '#000', fontSize: 20 }}>
@@ -96,14 +104,15 @@ const PaymentMethod = (props) => {
                                 <Text style={{ color: '#000', fontSize: 14 }}>
                                     Paypal
                                 </Text>
-
                             </TouchableOpacity>
-
                         </View>
                     </View>
                 </ScrollView >
             </View >
-
+            <Overlays popupcontent btnNotice TexView nestedbtn
+                navigation={props.navigation}
+                labletext="Close" visible={visible}
+                toggleOverlay={() => setVisible(false)} />
         </>
     )
 }

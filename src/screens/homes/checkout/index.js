@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {CheckBox} from 'react-native-elements';
-import {ProgressSteps, ProgressStep} from 'react-native-progress-steps';
+import React, { useState } from 'react';
+import { CheckBox } from 'react-native-elements';
+import StepIndicator from 'react-native-step-indicator';
 
 import {
   SafeAreaView,
@@ -8,136 +8,350 @@ import {
   View,
   ScrollView,
   Text,
+  TextInput,
+  Image,
   StatusBar,
   ImageBackground,
   TouchableOpacity,
-} from 'react-native';
-import {Header, AppButton} from '../../../components';
-import {Images} from '../../../constants';
+  textChange,
 
-const CheckOut = ({navigation}) => {
-  const [state, setState] = useState({checked: false});
+} from 'react-native';
+import { Header, AppButton } from '../../../components';
+import { Images } from '../../../constants';
+
+const CheckOut = (props) => {
+  const [currentPosition, setCurrentPosition] = useState(0)
+  const [state, setState] = useState({ checked: false });
+  const labels = ["Shipping Details", "Delivery Address", "Order Summary",];
+
+  const customStyles = {
+
+    stepIndicatorSize: 25,
+    currentStepIndicatorSize: 30,
+    separatorStrokeWidth: 2,
+    currentStepStrokeWidth: 3,
+    stepStrokeCurrentColor: '#fff',
+    stepStrokeWidth: 3,
+    stepStrokeFinishedColor: '#fe7013',
+    stepStrokeUnFinishedColor: '#aaaaaa',
+    separatorFinishedColor: '#fe7013',
+    separatorUnFinishedColor: '#aaaaaa',
+    stepIndicatorFinishedColor: '#fe7013',
+    stepIndicatorUnFinishedColor: '#ffffff',
+    stepIndicatorCurrentColor: '#ffffff',
+    stepIndicatorLabelFontSize: 13,
+    currentStepIndicatorLabelFontSize: 13,
+    stepIndicatorLabelCurrentColor: '#fe7013',
+    stepIndicatorLabelFinishedColor: '#ffffff',
+    stepIndicatorLabelUnFinishedColor: '#aaaaaa',
+    labelColor: '#999999',
+    labelSize: 13,
+    currentStepLabelColor: '#fe7013'
+  }
+
+
+  // console.log(params.value)
+
+
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <StatusBar translucent={true} backgroundColor={'transparent'} />
+    <SafeAreaView style={{ flex: 1 }}>
+
       <ImageBackground source={Images.Background.bg} style={styles.container}>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{flexGrow: 1}}>
-          <View style={{marginTop: 45}}>
-            <Header
-              text
-              leftIcon
-              lIconClr={'#fff'}
-              leftIconProps={() => {
-                props.navigation.goBack();
-              }}
-            />
+          contentContainerStyle={{ flexGrow: 1 }}>
+          <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content"
+            translucent={false}
+          />
+          <View style={{ marginTop: 5 }}>
+            <View style={{ marginTop: 45 }}>
+              <Header
+
+                leftIcon
+                IconColor="#fff"
+                leftIconProps={() => {
+                  setCurrentPosition(currentPosition + 1)
+                }} />
+            </View>
+            <View style={{ marginTop: 45 }}>
+              <StepIndicator
+                customStyles={customStyles}
+                currentPosition={currentPosition}
+                labels={labels}
+                stepCount={3} />
+            </View>
           </View>
-
           <View style={styles.body}>
-            <View style={{width: '100%'}}>
-              <ProgressSteps labelFontSize={12}>
-                <ProgressStep label="Shipping Details">
-                  <View style={{alignItems: 'center'}}>
-                    <Text>This is the content within step 1!</Text>
+
+            <View style={{ width: '100%' }}>
+              {currentPosition == 0 && (
+                <View style={{ alignItems: 'center', }}>
+                  <View
+                    style={{
+                      width: '100%',
+                      marginTop: 30,
+                    }}>
+                    <Text style={{ color: 'white', fontSize: 16, fontWeight: '700' }}>
+                      Shipping Charges
+                    </Text>
+
+                    <View style={styles.select}>
+                      <Text style={{ fontSize: 12, color: 'white' }}>
+                        Standard Delivery $9.99{'\n'}Order will be delivered in 3- 5
+                        Business Days.
+                      </Text>
+                      <CheckBox
+                        onPress={() => {
+                          setState({ checked: !state.checked });
+                        }}
+                        center
+                        checkedIcon="dot-circle-o"
+                        uncheckedIcon="circle-o"
+                        uncheckedColor="#1492E6"
+                        checked={!state.checked}
+                      />
+                    </View>
+                    <View style={styles.select}>
+                      <Text style={{ fontSize: 12, color: 'white' }}>
+                        Express Delivery $15.9{'\n'}Order will be delivered in 2
+                        Business Days.
+                      </Text>
+                      <CheckBox
+                        onPress={() => {
+                          setState({ checked: !state.checked });
+                        }}
+                        center
+                        checkedIcon="dot-circle-o"
+                        uncheckedIcon="circle-o"
+                        uncheckedColor="#1492E6"
+                        checked={state.checked}
+                      />
+                    </View>
                   </View>
-                </ProgressStep>
-                <ProgressStep label="Address">
-                  <View style={{alignItems: 'center'}}>
-                    <Text>This is the content within step 2!</Text>
+                  <View style={styles.mainBox}>
+                    <Text style={styles.mainBoxHead}>Summary</Text>
+                    <View
+                      style={{
+                        height: '75%',
+                        width: '100%',
+                        justifyContent: 'space-evenly',
+                      }}>
+                      <View style={styles.box}>
+                        <Text style={{ fontSize: 16, color: 'black' }}>Price(2)</Text>
+                        <Text style={{ fontSize: 16, color: 'black' }}>$250.00</Text>
+                      </View>
+                      <View style={styles.box}>
+                        <Text style={{ fontSize: 16, color: 'black' }}>
+                          Shipping Charges
+                        </Text>
+                        <Text style={{ fontSize: 16, color: 'black' }}>$15.99</Text>
+                      </View>
+                      <View style={styles.box}>
+                        <Text style={{ fontSize: 16, color: 'black' }}>
+                          Total Price
+                        </Text>
+                        <Text style={{ fontSize: 16, color: 'black' }}>$265.99</Text>
+                      </View>
+                    </View>
+
                   </View>
-                </ProgressStep>
-                <ProgressStep label="Payments">
-                  <View style={{alignItems: 'center'}}>
-                    <Text>This is the content within step 3!</Text>
-                  </View>
-                </ProgressStep>
-              </ProgressSteps>
-            </View>
 
-            <View
-              style={{
-                width: '100%',
-                marginTop: 30,
-              }}>
-              <Text style={{color: 'white', fontSize: 16, fontWeight: '700'}}>
-                Shipping Charges
-              </Text>
+                </View>
+              )
+              }
+              {currentPosition == 1 && (
+                <View style={{ alignItems: 'center', marginVertical: 20 }}>
+                  <View style={{ flex: 1, }}>
+                    <View style={{ alignSelf: 'center', marginBottom: 50 }}>
+                      <View style={{ marginTop: 5, alignSelf: 'center' }}>
+                        <View style={{ marginVertical: 5, }}>
+                          <View style={{ width: 310, marginVertical: 5, }}>
+                            <Text style={{ color: '#fff', fontSize: 14, textAlign: 'center' }}>
+                              Provide Your Shipping Address
+                            </Text>
+                          </View>
+                        </View>
+                      </View>
+                      <View style={{ marginVertical: 5, borderBottomWidth: 0.75, borderColor: 'grey' }}>
+                        <Text style={{ color: '#fff' }}>
+                          Address</Text>
+                        <TextInput placeholder='12514 N Creekside Ct'
+                          placeholderTextColor="#fff" style={{
+                            backgroundColor: 'transparent', color: '#fff',
+                            fontSize: 14, fontWeight: '500'
+                          }} />
+                      </View>
+                      <View style={{ marginVertical: 10, borderBottomWidth: 0.75, borderColor: 'grey' }}>
+                        <Text style={{ color: '#fff' }}>
+                          Address</Text>
+                        <TextInput placeholder='Victoria Island' placeholderTextColor="#fff" style={{
+                          backgroundColor: 'transparent', color: '#fff', fontSize: 14, fontWeight: '500'
+                        }} />
+                      </View>
+                      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <View style={{ width: '40%', marginVertical: 10, borderBottomWidth: 0.75, borderColor: 'grey' }}>
+                          <Text style={{ color: '#fff', fontSize: 14, marginLeft: 8, }}>
+                            State</Text>
+                          <TextInput placeholder='Lagos State' placeholderTextColor="#fff" style={{
+                            backgroundColor: 'transparent',
+                            fontWeight: '600', fontSize: 14, color: 'black',
+                          }} />
 
-              <View style={styles.select}>
-                <Text style={{fontSize: 12, color: 'white'}}>
-                  Standard Delivery $9.99{'\n'}Order will be delivered in 3- 5
-                  Business Days.
-                </Text>
-                <CheckBox
-                  onPress={() => {
-                    setState({checked: !state.checked});
-                  }}
-                  center
-                  checkedIcon="dot-circle-o"
-                  uncheckedIcon="circle-o"
-                  uncheckedColor="#1492E6"
-                  checked={!state.checked}
-                />
-              </View>
-              <View style={styles.select}>
-                <Text style={{fontSize: 12, color: 'white'}}>
-                  Express Delivery $15.9{'\n'}Order will be delivered in 2
-                  Business Days.
-                </Text>
+                        </View>
+                        <View style={{ width: '40%', marginVertical: 10, borderBottomWidth: 0.75, borderColor: 'grey' }}>
+                          <Text style={{ color: '#fff', fontSize: 14, marginLeft: 8, }}>
+                            Zip Code</Text>
+                          <TextInput placeholder='75080' placeholderTextColor="#fff" style={{
+                            backgroundColor: 'transparent',
+                            fontWeight: '600', fontSize: 14, color: 'black',
+                          }} />
+                        </View>
+                      </View>
+                    </View>
+                  </View >
+                </View>
+              )}
+              {currentPosition == 2 && (
+                <View style={{ alignItems: 'center', marginVertical: 20 }}>
+                  <View style={{ flex: 1, }}>
+                    <View style={{ alignSelf: 'center', }}>
+                      <View style={styles.headerbox} >
+                        <View style={[styles.box1,
+                        { backgroundColor: '#000' }
 
-                <CheckBox
-                  onPress={() => {
-                    setState({checked: !state.checked});
-                  }}
-                  center
-                  checkedIcon="dot-circle-o"
-                  uncheckedIcon="circle-o"
-                  uncheckedColor="#1492E6"
-                  checked={state.checked}
-                />
-              </View>
-            </View>
+                        ]}>
+                          <Image source={Images.Icon.PayPal1} />
+                        </View>
+                        <View style={styles.box1}>
+                          <Image source={Images.Icon.Cradit} />
+                        </View>
+                        <View style={[
+                          styles.box1,
+                          { backgroundColor: '#000' }
+                        ]}>
+                          <Image source={Images.Icon.Saved} />
+                        </View>
+                      </View>
+                      <View style={{ marginTop: 5, alignSelf: 'center' }}>
+                        <View style={{ marginVertical: 5, }}>
+                          <View style={{ marginVertical: 5, }}>
+                            <Text style={{
+                              color: '#fff', fontSize: 14,
+                              textAlign: 'center'
+                            }}>
+                              Provide Your Shipping Address
+                            </Text>
+                          </View>
+                        </View>
+                      </View>
+                      <View style={{
+                        marginVertical: 10,
+                        borderBottomWidth: 0.75,
+                        borderColor: 'grey'
+                      }}>
+                        <Text style={{
+                          color: '#fff', fontSize: 14,
+                          marginLeft: 8,
+                        }}>
+                          Card Number</Text>
+                        <View style={{
+                          flexDirection: 'row',
+                          justifyContent: 'space-between'
+                        }}>
 
-            <View style={styles.mainBox}>
-              <Text style={styles.mainBoxHead}>Summary</Text>
-              <View
-                style={{
-                  height: '75%',
-                  width: '100%',
-                  justifyContent: 'space-evenly',
+                          <TextInput
+                            placeholder='4560 5674 3224 4543'
+                            placeholderTextColor="#fff" style={{
+                              backgroundColor: 'transparent',
+                              fontWeight: 'bold',
+                              fontSize: 14, color: 'black',
+                            }} />
+                          <View style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                          }}>
+                            <Image source={Images.Pictures.path70} />
+                            <Image source={Images.Pictures.Path69} />
+
+                          </View>
+
+                        </View>
+
+                      </View>
+                      <View style={{
+                        marginVertical: 10,
+                        borderBottomWidth: 0.75,
+                        borderColor: 'grey'
+                      }}>
+                        <Text style={{ color: '#fff' }}>
+                          Card Number</Text>
+                        <TextInput placeholder='Victoria Island'
+                          placeholderTextColor="#fff" style={{
+                            backgroundColor: 'transparent', color: '#fff',
+                            fontSize: 14, fontWeight: '500'
+                          }} />
+                      </View>
+                      <View style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between'
+                      }}>
+                        <View style={{
+                          width: '40%', marginVertical: 10,
+                          borderBottomWidth: 0.75, borderColor: 'grey'
+                        }}>
+                          <Text style={{
+                            color: '#fff', fontSize: 14,
+                            marginLeft: 8,
+                          }}>
+                            Expiry Date</Text>
+                          <TextInput placeholder='09/18'
+                            placeholderTextColor="#fff" style={{
+                              backgroundColor: 'transparent',
+                              fontWeight: '600', fontSize: 14,
+                              color: 'black',
+                            }} />
+
+                        </View>
+                        <View style={{
+                          width: '40%', marginVertical: 10,
+                          borderBottomWidth: 0.75, borderColor: 'grey'
+                        }}>
+                          <Text style={{
+                            color: '#fff',
+                            fontSize: 14,
+                            marginLeft: 8,
+                          }}>
+                            CCV</Text>
+                          <TextInput placeholder='667'
+                            placeholderTextColor="#fff" style={{
+                              backgroundColor: 'transparent',
+                              fontWeight: '600', fontSize: 14,
+                              color: 'black',
+                            }} />
+
+                        </View>
+                      </View>
+
+                    </View>
+                  </View >
+                </View>
+              )}
+
+              <View>
+
+                <TouchableOpacity style={styles.NextBtn} onPress={() => {
+                  setCurrentPosition(currentPosition + 1),
+                    currentPosition == 2 ? props.navigation.navigate('Summary') : null
                 }}>
-                <View style={styles.box}>
-                  <Text style={{fontSize: 16, color: 'black'}}>Price(2)</Text>
-                  <Text style={{fontSize: 16, color: 'black'}}>$250.00</Text>
-                </View>
-                <View style={styles.box}>
-                  <Text style={{fontSize: 16, color: 'black'}}>
-                    Shipping Charges
-                  </Text>
-                  <Text style={{fontSize: 16, color: 'black'}}>$15.99</Text>
-                </View>
-                <View style={styles.box}>
-                  <Text style={{fontSize: 16, color: 'black'}}>
-                    Total Price
-                  </Text>
-                  <Text style={{fontSize: 16, color: 'black'}}>$265.99</Text>
-                </View>
+                  <Text style={styles.nextBtnText}>Next</Text>
+                </TouchableOpacity>
               </View>
-            </View>
-            <View
-              style={{
-                paddingVertical: 20,
-                width: '100%',
-                alignItems: 'center',
-              }}>
-              <AppButton btnWidth={180} label="Next" onPress={() => {}} />
+
             </View>
           </View>
         </ScrollView>
       </ImageBackground>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 };
 
@@ -179,5 +393,42 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontWeight: '600',
     marginTop: 10,
+
+
   },
+  NextBtn: {
+    width: 214,
+    backgroundColor: 'red',
+    borderRadius: 10,
+    alignSelf: 'center',
+    marginVertical: 30
+
+  },
+  nextBtnText: {
+    color: '#fff',
+    textAlign: 'center',
+    padding: 10
+  },
+  headerbox:
+  {
+    marginVertical: 10,
+    flexDirection: 'row',
+  },
+  PreviBtn: {
+
+
+
+  },
+  box1: {
+    width: '30%',
+    height: 60,
+    backgroundColor: '#fff',
+    borderRadius: 4,
+    margin: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });
+
+
+

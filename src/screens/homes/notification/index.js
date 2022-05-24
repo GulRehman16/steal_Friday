@@ -5,10 +5,11 @@ import {
   SafeAreaView,
   StatusBar,
   ScrollView,
+
 } from 'react-native';
-import {Images} from '../../../constants';
+import { Images } from '../../../constants';
 import React from 'react';
-import {Header, NotificationBox, TextWithLine} from '../../../components';
+import { Header, NotificationBox, TextWithLine, ViewMore } from '../../../components';
 
 const Notification = props => {
   const noticationData = [
@@ -54,11 +55,16 @@ const Notification = props => {
       <ScrollView
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
+        <StatusBar
+          backgroundColor={'transparent'}
+          barStyle="dark-content"
+          translucent={true}
+        />
         <View style={styles.mainBody}>
-          <View style={{marginTop: 45}}>
+          <View style={{ marginTop: 45 }}>
             <Header
-              headerText
+              headerText1
               leftIcon
               screenName
               screenText={'Notifications'}
@@ -68,7 +74,7 @@ const Notification = props => {
               }}
             />
           </View>
-          <View style={{width: '110%'}}>
+          <View style={{ width: '110%' }}>
             <TextWithLine
               text={'New Notication'}
               left={0}
@@ -76,20 +82,20 @@ const Notification = props => {
             />
           </View>
 
-          <View style={{marginTop: 10, width: '100%'}}>
+          <View style={{ marginTop: 10, width: '100%' }}>
             {noticationData.map((item, index) => {
               return (
-                <View style={{marginTop: 10}}>
+                <View style={{ marginTop: 10 }}>
                   {index === 3 ? (
                     <>
-                      <View style={{width: '110%'}}>
+                      <View style={{ width: '110%' }}>
                         <TextWithLine
                           backgroundColor={'#F8F8F8'}
                           text={'Previous Notification'}
                           left={0}
                         />
                       </View>
-                      <View style={{marginTop: 10}}>
+                      <View style={{ marginTop: 10 }}>
                         <NotificationBox
                           image={item.itemImg}
                           title={item.itemText}
@@ -107,6 +113,8 @@ const Notification = props => {
                 </View>
               );
             })}
+
+            <ViewMore />
           </View>
         </View>
       </ScrollView>

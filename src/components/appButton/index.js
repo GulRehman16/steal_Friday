@@ -43,7 +43,7 @@ const AppButton = ({
         }
       }>
       {text && (
-        <Text style={{ color: color || 'white' }}> {label} </Text>)}
+        <Text style={{ color: color || 'white', fontWeight: 'bold', fontSize: 18 }}> {label} </Text>)}
       {icon && (
         <View
           style={{
@@ -76,7 +76,7 @@ const AppButton = ({
 
 
           }}>
-          <Text>{label}</Text>
+          <Text style={{}}>{label}</Text>
           <Icon
             name={iconN || 'right'}
             type={iconT || 'AntDesign'}

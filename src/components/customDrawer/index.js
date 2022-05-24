@@ -13,7 +13,8 @@ import {
   SafeAreaView,
   Press1,
   Press2,
-  Press3
+  Press3,
+
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { FormInput, AppButton } from '../../components';
@@ -26,51 +27,55 @@ const CustomDrawer = ({ navigation }) => {
       image: Images.Icon.home,
       stack: '',
       text: 'Home',
-      nav: '',
+      Press: () => navigation.navigate('home')
 
     },
     {
-      image: Images.Icon.user,
+      image: Images.Icon.Auto,
       stack: '',
       text: 'Profile Settings',
-      nav: '',
+      Press: () => navigation.navigate("profileSettings")
     },
     {
-      image: Images.Icon.resubcription,
+      image: Images.Icon.Auto,
       stack: '',
       text: 'Auto Resubscription',
       nav: '',
+      Press: () => navigation.navigate('autoResubscription')
 
     },
     {
       image: Images.Icon.favourite,
       stack: '',
       text: 'Favorites',
-      nav: '',
+      Press: () => navigation.navigate('Favorites')
     },
     {
       image: Images.Icon.card,
       stack: '',
       text: 'Cart',
-      nav: '',
+      Press: () => navigation.navigate('CartScreen')
     },
     {
       image: Images.Icon.order,
       stack: '',
       text: 'My Orders',
-      nav: '',
+      Press: () => navigation.navigate('MyOrder')
     },
     {
       image: Images.Icon.contact,
       stack: '',
       text: 'Contact Us',
-      nav: '',
+      Press: () => navigation.navigate('ContactUs')
     },
     {
       image: Images.Icon.logout,
       stack: '',
       text: 'Logout',
       nav: '',
+      Press: () => navigation.replace('Auth', { screen: 'login' })
+
+
     },
   ];
   let [orientation, setOrietation] = useState(true);
@@ -86,6 +91,11 @@ const CustomDrawer = ({ navigation }) => {
   }, []);
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar
+        backgroundColor={'transparent'}
+        barStyle="default"
+        translucent={true}
+      />
       <ScrollView
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
@@ -128,7 +138,7 @@ const CustomDrawer = ({ navigation }) => {
               }}>
               {drawerData.map((item, index) => {
                 return (
-                  <TouchableOpacity
+                  <TouchableOpacity onPress={item.Press}
                     style={{ flexDirection: 'row' }}
                     activeOpacity={0.8}>
                     <Image
@@ -148,6 +158,7 @@ const CustomDrawer = ({ navigation }) => {
                         padding: orientation ? 0 : 20,
                       }}>
                       {item.text}
+
                     </Text>
                   </TouchableOpacity>
                 );

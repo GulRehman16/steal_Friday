@@ -10,15 +10,20 @@ import {
     Text,
     View,
     Image,
-    ImageBackground
+    ImageBackground, SafeAreaView, TouchableOpacity
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { AppButton, Header, Shoebox } from '../../../components';
 import { Images } from '../../../constants';
+import { useRoute } from '@react-navigation/native';
+
+const ProductDetails = ({ route, navigation }) => {
+
+    const { itemId, otherParam, Image1 } = route.params;
 
 
-const ProductDetails = props => {
+
+
 
     const [isData, setData] = useState({
         bgImage: Images.Pictures.nikeShoe1,
@@ -32,87 +37,100 @@ const ProductDetails = props => {
     return (
         <>
             <SafeAreaView style={styles.screenContainer}>
-                <StatusBar backgroundColor={'white'} barStyle="dark-content" />
+
+
                 <ScrollView
                     keyboardShouldPersistTaps="handled"
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{ flexGrow: 1 }}>
-                    <View style={{ flex: 1, }}>
+                    <StatusBar backgroundColor={'white'} barStyle="dark-content" />
+                    <View style={{}}>
                         <ImageBackground source={Images.Background.bg} resizeMode="cover" style={{ width: '100%', height: '100%' }}>
                             <View style={styles.mainBody}>
                                 <View style={{
-                                    marginTop: 10, width: '90%', height: 50, alignSelf: 'center', backgroundColor: 'yellow',
-                                    justifyContent: 'center'
+                                    paddingTop: 60,
+                                    width: '90%',
+                                    alignSelf: 'center'
                                 }}>
                                     <Header
-
                                         leftIcon
                                         IconColor="#fff"
                                         RightIcon
+                                        RICon
                                         leftIconProps={() => {
-                                            props.navigation.goBack();
+                                            navigation.goBack();
                                         }}
                                     />
                                 </View>
-                                <View style={{ width: 353, height: 353, alignSelf: 'center' }}>
-                                    <Image source={isData.bgImage} resizeMode="cover" style={{ width: '100%', height: '100%' }} />
+                                <View style={{ width: 353, height: 300, alignSelf: 'center' }}>
+
+                                    <Image source={Image1} resizeMode="contain"
+                                        style={{ width: '100%', height: '100%' }} />
+
                                 </View>
-                                <View style={{ width: '90%', alignSelf: 'center', marginVertical: 10 }}>
-                                    <View style={{ marginVertical: 15, }}>
+                                <View style={{ width: '90%', alignSelf: 'center', }}>
+                                    <View style={{ marginVertical: 5 }}>
                                         <Text style={{ color: '#fff', fontSize: 18 }}>Nike Limited Edition</Text>
                                         <Text style={{ color: '#fff', fontSize: 14 }}>Product Code:42303</Text>
                                     </View>
                                 </View>
-                                <View style={{ width: '100%', height: '100%', backgroundColor: '#fff', borderTopStartRadius: 25, borderTopEndRadius: 25, elevation: 1 }}>
-                                    <View style={{ width: '80%', alignSelf: 'center', marginVertical: 10 }}>
-                                        <View style={{ marginVertical: 15, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
+                                <View style={{
+                                    width: '100%', height: '100%', backgroundColor: '#fff', marginVertical: 30,
+                                    borderTopStartRadius: 25, borderTopEndRadius: 25, elevation: 1
+                                }}>
+                                    <View style={{ width: '80%', alignSelf: 'center', marginVertical: 5 }}>
+                                        <View style={{
+                                            marginVertical: 5, flexDirection: 'row',
+                                            justifyContent: 'space-between', borderBottomWidth: 0.50
+                                        }}>
                                             <Text>Price:</Text>
                                             <Text>{isData.Price}</Text>
                                         </View>
-                                        <View style={{ marginVertical: 10, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
+                                        <View style={{
+                                            marginVertical: 5, flexDirection: 'row',
+                                            justifyContent: 'space-between', borderBottomWidth: 0.50
+                                        }}>
                                             <Text>Size:</Text>
                                             <Text>{isData.Size}</Text>
                                         </View>
-                                        <View style={{ marginVertical: 10, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
+                                        <View style={{
+                                            marginVertical: 5, flexDirection: 'row',
+                                            justifyContent: 'space-between', borderBottomWidth: 0.50
+                                        }}>
                                             <Text>Condition:</Text>
                                             <Text>{isData.Condition}</Text>
                                         </View>
-                                        <View style={{ marginVertical: 10, flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.50 }}>
-                                            <Text>Brand</Text>
+                                        <View style={{
+                                            flexDirection: 'row',
+                                            justifyContent: 'space-between', borderBottomWidth: 0.50
+                                        }}>
+                                            <Text style={{ marginTop: 20 }}>Brand</Text>
                                             <Image source={isData.Image} />
-
                                         </View>
-                                        <View style={{ marginVertical: 10, }}>
-                                            <Text style={{ fontSize: 15, fontWeight: '800', marginVertical: 5 }}>Description:</Text>
+                                        <View style={{ marginVertical: 10 }}>
+                                            <Text style={{
+                                                fontSize: 15, fontWeight: '800',
+                                                marginVertical: 5,
+                                            }}>Description:</Text>
                                             <View style={{ width: 278 }}>
-                                                <Text style={{}}>{isData.Discription}</Text>
+                                                <Text style={{}}>
+                                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                                                </Text>
+                                            </View>
+                                            <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                                                <View style={{ width: '70%', marginRight: 10 }}>
+                                                    <AppButton label="Buy Now" text onPress={() => { navigation.navigate('checkOut') }} />
+                                                </View>
+                                                <View style={{ width: '25%', borderRadius: 10 }}>
+                                                    <AppButton style={{}} icon2 iconN={'shoppingcart'} />
+                                                </View>
+
                                             </View>
                                         </View>
-                                        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                                            <View style={{ width: '80%' }}>
-                                                <AppButton btnWidth={197} btnHeight={47} label="Buy Now" text />
-                                            </View>
-                                            <View>
-                                                <AppButton
-                                                    btnWidth={58}
-                                                    btnHeight={51}
-                                                    iconW={20.34}
-                                                    iconH={18.08}
-                                                    // label="send"
-                                                    brder1={10}
-                                                    icon2
-                                                    iconN={'shoppingcart'}
-                                                    iconT={'AntDesign'}
-                                                    onPress={() =>
-                                                        props.navigation.replace('MyTabs', { screen: 'home' })
-                                                    }
-                                                />
-                                            </View>
-                                        </View>
+
                                     </View>
 
                                 </View>
-
                             </View>
                         </ImageBackground>
                     </View>
@@ -133,7 +151,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         alignSelf: 'center',
-        paddingBottom: 10,
+
     },
     noticeBox: {
         width: '100%',

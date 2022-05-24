@@ -20,14 +20,11 @@ const Shoebox = ({ Image1, content1, content2 }) => {
                     backgroundColor: '#AFABAB', width: 34, height: 35,
                     borderRadius: 50, position: 'absolute', top: -15, left: -5, justifyContent: 'center', alignItems: 'center'
                 }}>
-                    <Icon name='close' type='AntDesign' style={{ fontSize: 20, color: 'white' }} />
+                    <Icon name='close' type='AntDesign'
+                        style={{ fontSize: 20, color: 'white' }} />
                 </TouchableOpacity>
-
-
-                <View style={{}}>
-                </View>
                 <View style={{ flexDirection: 'row', }}>
-                    <View style={{ width: '30%', alignItems: 'center', paddingRight: 15 }}>
+                    <View style={{ width: '40%', alignItems: 'center', paddingRight: 15 }}>
                         <Image
                             source={Image1}
                             resizeMode="contain"
@@ -39,7 +36,6 @@ const Shoebox = ({ Image1, content1, content2 }) => {
                         </Text>
                         {content1 && (
                             <View>
-
                                 <Text style={{ textAlign: 'center', fontSize: 16, color: '#000', fontWeight: '300', }}>
                                     $15.99
                                 </Text>
@@ -47,10 +43,10 @@ const Shoebox = ({ Image1, content1, content2 }) => {
                                     style={{
                                         paddingVertical: 10,
                                         width: '100%',
-                                        alignItems: 'center',
+                                        alignItems: 'center', marginRight: 10
                                     }}>
                                     <AppButton
-                                        btnWidth={189}
+                                        btnWidth={179}
                                         btnHeight={34}
                                         iconW={20.34}
                                         iconH={18.08}
@@ -58,9 +54,7 @@ const Shoebox = ({ Image1, content1, content2 }) => {
                                         icon2
                                         iconN={'shoppingcart'}
                                         iconT={'AntDesign'}
-                                        onPress={() =>
-                                            props.navigation.replace('MyTabs', { screen: 'home' })
-                                        }
+
                                     />
                                 </View>
                             </View>
@@ -108,6 +102,15 @@ const styles = StyleSheet.create({
         elevation: 5,
         marginTop: 30,
         alignItems: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 10,
+            height: 12,
+        },
+        shadowOpacity: 0.75,
+        shadowRadius: 4.84,
+
+        elevation: 10,
 
 
 

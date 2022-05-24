@@ -54,6 +54,13 @@ const Images = {
     nextIcon: require('../../assets/images/next.png'),
     openCamera: require('../../assets/images/openCamera.png'),
     circle: require('../../assets/images/circle.png'),
+    Filter: require('../../assets/images/filter.png'),
+    PayPal1: require('../../assets/images/PayPal1.png'),
+    Saved: require('../../assets/images/Saved.png'),
+    Cradit: require('../../assets/images/Cradit.png'),
+    insurance: require('../../assets/images/insurance.png'),
+    Auto: require('../../assets/images/auto.png')
+
   },
 };
 

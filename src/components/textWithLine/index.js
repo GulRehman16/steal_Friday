@@ -12,7 +12,7 @@ const TextWithLine = ({
   lineColor,
   viewAllBtn,
   backgroundColor,
-  onPress
+  Press
 }) => {
   return (
     <>
@@ -24,7 +24,7 @@ const TextWithLine = ({
           justifyContent: 'center',
           marginTop: 10,
           flexDirection: 'row',
-          backgroundColor: backgroundColor || '#fff',
+          backgroundColor: backgroundColor || '#F8F8F8',
         }}>
         <View
           style={{
@@ -41,7 +41,7 @@ const TextWithLine = ({
               left: left,
               right: right,
               overflow: 'hidden',
-              backgroundColor: backgroundColor || '#fff',
+              backgroundColor: backgroundColor || '#F8F8F8',
               paddingHorizontal: 10,
               alignItems: 'center',
             }}>
@@ -55,7 +55,7 @@ const TextWithLine = ({
             </Text>
           </View>
           {viewAllBtn && (
-            <TouchableOpacity onPress={onPress}
+            <TouchableOpacity onPress={Press}
               style={{
                 position: 'absolute',
                 top: -13,

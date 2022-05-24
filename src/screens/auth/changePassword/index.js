@@ -70,51 +70,22 @@ const ChangePassword = props => {
                 marginTop: 70,
                 alignItems: 'center',
               }}>
-              <View
-                style={{
-                  elevation: 5,
-                  backgroundColor: 'white',
-                  marginVertical: 28,
-                  borderColor:
-                    state.focus === 'currentPassword' ? '#CD1C1B' : null,
-                  borderWidth: state.focus === 'currentPassword' ? 1 : 0,
-                  borderRadius: 20,
-                }}>
-                <FormInput
-                  value={userInfo.currentPassword}
-                  onChangeText={value =>
-                    setUserInfo({ ...userInfo, currentPassword: value })
-                  }
-                  iconL
-                  secureText={state.secureText1}
-                  iconLName="lock"
-                  iconLType="Feather"
-                  iconR
-                  iconRName={state.secureText1 ? 'eye-with-line' : 'eye'}
-                  iconRType="Entypo"
-                  onPressR={() =>
-                    setState({ ...state, secureText1: !state.secureText1 })
-                  }
-                  placeHolder="Enter Current Password"
-                  onFocus={() => setState({ ...state, focus: 'currentPassword' })}
-                  onBlur={() => setState({ ...state, focus: '' })}
-                />
-              </View>
 
               <View
                 style={{
                   elevation: 5,
                   backgroundColor: 'white',
-                  marginVertical: 28,
+                  marginVertical: 8,
                   borderColor:
-                    state.focus === 'Enter New Password' ? '#CD1C1B' : null,
-                  borderWidth: state.focus === 'Enter New Password' ? 1 : 0,
+                    state.focus === 'confirmPassword' ? '#CD1C1B' : null,
+                  borderWidth: state.focus === 'confirmPassword' ? 1 : 0,
                   borderRadius: 20,
+                  width: '100%'
                 }}>
                 <FormInput
-                  value={userInfo.newPassword}
+                  value={state.confirmPassword}
                   onChangeText={value =>
-                    setUserInfo({ ...userInfo, newPassword: value })
+                    setState({ ...state, confirmPassword: value })
                   }
                   iconL
                   secureText={state.secureText2}
@@ -126,10 +97,8 @@ const ChangePassword = props => {
                   onPressR={() =>
                     setState({ ...state, secureText2: !state.secureText2 })
                   }
-                  placeHolder="Enter New Password"
-                  onFocus={() =>
-                    setState({ ...state, focus: 'Enter New Password' })
-                  }
+                  placeHolder="Current Password"
+                  onFocus={() => setState({ ...state, focus: 'confirmPassword' })}
                   onBlur={() => setState({ ...state, focus: '' })}
                 />
               </View>
@@ -138,29 +107,62 @@ const ChangePassword = props => {
                 style={{
                   elevation: 5,
                   backgroundColor: 'white',
-                  marginVertical: 28,
+                  marginVertical: 8,
                   borderColor:
-                    state.focus === 'Confirm Password' ? '#CD1C1B' : null,
-                  borderWidth: state.focus === 'Confirm Password' ? 1 : 0,
+                    state.focus === 'confirmPassword' ? '#CD1C1B' : null,
+                  borderWidth: state.focus === 'confirmPassword' ? 1 : 0,
                   borderRadius: 20,
+                  width: '100%'
                 }}>
                 <FormInput
-                  value={userInfo.confirmPassword}
+                  value={state.confirmPassword}
                   onChangeText={value =>
-                    setUserInfo({ ...userInfo, confirmPassword: value })
+                    setState({ ...state, confirmPassword: value })
                   }
                   iconL
-                  secureText={state.secureText3}
+                  secureText={state.secureText2}
                   iconLName="lock"
                   iconLType="Feather"
                   iconR
-                  iconRName={state.secureText3 ? 'eye-with-line' : 'eye'}
+                  iconRName={state.secureText2 ? 'eye-with-line' : 'eye'}
                   iconRType="Entypo"
                   onPressR={() =>
-                    setState({ ...state, secureText3: !state.secureText3 })
+                    setState({ ...state, secureText2: !state.secureText2 })
+                  }
+                  placeHolder="New Password"
+                  onFocus={() => setState({ ...state, focus: 'confirmPassword' })}
+                  onBlur={() => setState({ ...state, focus: '' })}
+                />
+              </View>
+
+              <View
+                style={{
+                  elevation: 5,
+                  backgroundColor: 'white',
+                  marginVertical: 8,
+                  borderColor:
+                    state.focus === 'confirmPassword' ? '#CD1C1B' : null,
+                  borderWidth: state.focus === 'confirmPassword' ? 1 : 0,
+                  borderRadius: 20,
+                  width: '100%'
+                }}>
+                <FormInput
+                  value={state.confirmPassword}
+                  onChangeText={value =>
+                    setState({ ...state, confirmPassword: value })
+                  }
+                  iconL
+                  secureText={state.secureText2}
+                  iconLName="lock"
+                  iconLType="Feather"
+                  iconR
+                  iconRName={state.secureText2 ? 'eye-with-line' : 'eye'}
+                  iconRType="Entypo"
+                  onPressR={() =>
+                    setState({ ...state, secureText2: !state.secureText2 })
                   }
                   placeHolder="Confirm Password"
-                  onFocus={() => setState({ ...state, focus: 'Confirm Password' })}
+                  onFocus={() => setState({ ...state, focus: 'confirmPassword' })}
                   onBlur={() => setState({ ...state, focus: '' })}
                 />
               </View>
@@ -169,7 +171,7 @@ const ChangePassword = props => {
                 style={{
                   width: '60%',
                   alignSelf: 'center',
-                  marginTop: 35,
+                  marginTop: 10,
                 }}>
                 <View
                   style={{
@@ -177,14 +179,21 @@ const ChangePassword = props => {
                     width: '100%',
                     alignItems: 'center',
                   }}>
-                  <AppButton btnWidth={180} label="Update" text onPress={() => setVisible(!visible)} />
+                  <AppButton
+                    btnWidth={180}
+                    label="Update" text
+                    onPress={() => setVisible(!visible)}
+                  />
                 </View>
               </View>
             </View>
           </View>
         </ScrollView>
       </SafeAreaView>
-      <Overlays popupcontent btn btn5 visible={visible} toggleOverlay={() => setVisible(false)} />
+      <Overlays popupcontent btn btnes TexView label1="Password Updated!"
+        navigation={props.navigation}
+        labletext="Close" visible={visible}
+        toggleOverlay={() => setVisible(false)} />
     </>
   );
 };

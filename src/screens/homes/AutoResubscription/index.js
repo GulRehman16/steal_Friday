@@ -72,7 +72,7 @@ const AutoResubscription = props => {
                     <View style={styles.mainBody}>
                         <View style={{ marginTop: 35 }}>
                             <Header
-                                headerText
+                                headerText1
                                 leftIcon
                                 screenName
                                 screenText={'Auto Resubscription'}
@@ -88,7 +88,7 @@ const AutoResubscription = props => {
                                 <SwitchComponent
                                     iconN="email-outline"
                                     iconT="MaterialCommunityIcons"
-                                    text="App Notifications"
+                                    text="Subscription Fee $19.99/month"
                                     value={state.appNotification}
                                     onSwitch={() =>
                                         setState({

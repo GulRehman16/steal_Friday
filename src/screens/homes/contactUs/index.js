@@ -10,11 +10,13 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Images } from '../../../constants';
-import { AppButton, FormInput, Header } from '../../../components';
+import { AppButton, FormInput, Header, Overlays } from '../../../components';
 
 import { Icon, Item } from 'native-base';
 
 const ContactUs = props => {
+
+
   const isHome = props?.route?.params?.isHome || false;
   const [userInfo, setUserInfo] = useState({
     firstName: '',
@@ -22,7 +24,6 @@ const ContactUs = props => {
     email: '',
     messege: '',
   });
-
   const [state, setState] = useState({
     focus: false,
     secureText: true,
@@ -58,6 +59,8 @@ const ContactUs = props => {
     });
   }, []);
 
+
+
   return (
     <>
       <SafeAreaView style={styles.screenContainer}>
@@ -70,12 +73,13 @@ const ContactUs = props => {
             <View style={styles.mainBody}>
               <View style={{ marginTop: 10 }}>
                 <Header
-                  headerText
+                  headerText1 txtwidth={120}
                   leftIcon
                   leftIconProps={() => {
                     props.navigation.goBack();
                   }}
                 />
+                <View style={{}}><Text style={{ textAlign: 'center', fontSize: 22, color: '#000' }}>Contact Us</Text></View>
               </View>
               <View style={styles.noticeBox}>
                 <View style={{ height: 50, marginTop: 10 }}>
@@ -98,7 +102,7 @@ const ContactUs = props => {
                   or
                 </Text>
                 <Text style={{ fontSize: 20, color: '#000', fontWeight: 'bold' }}>
-                  Send US a Message
+                  Send us a message
                 </Text>
               </View>
 
@@ -218,10 +222,8 @@ const ContactUs = props => {
                     }}>
                     <AppButton
                       btnWidth={180}
-                      label="send"
-                      onPress={() =>
-                        props.navigation.replace('MyTabs', { screen: 'home' })
-                      }
+                      label="Send" text
+                      onPress={() => setVisible(!visible)}
                     />
                   </View>
                 </View>
@@ -230,6 +232,10 @@ const ContactUs = props => {
           </View>
         </ScrollView>
       </SafeAreaView>
+      <Overlays popupcontent btn btn5 TexView label1="Your Message Sent!"
+        navigation={props.navigation}
+        labletext="Close" visible={visible}
+        toggleOverlay={() => setVisible(false)} />
     </>
   );
 };
