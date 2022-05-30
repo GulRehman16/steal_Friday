@@ -1,8 +1,8 @@
-import {StyleSheet, TouchableOpacity, View, Text, Image} from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, Image, ScrollView } from 'react-native';
 import React from 'react';
-import {Item} from 'native-base';
-import {Images} from '../../constants/images';
-import {Themes} from '../../constants';
+import { Item } from 'native-base';
+import { Images } from '../../constants/images';
+import { Themes } from '../../constants';
 
 const Boxs = ({
   borderRadius,
@@ -13,6 +13,7 @@ const Boxs = ({
   backgroundColor,
   amount,
   text,
+  text1,
   icon,
   width,
   height,
@@ -29,11 +30,12 @@ const Boxs = ({
   DealCategories,
   FeaturedDeals,
   itemName,
+  Press
 }) => {
   return (
     <>
-      <View style={{alignItems: 'center', height: 220, flexWrap: 'wrap'}}>
-        <TouchableOpacity
+      <View style={{ alignItems: 'center', flexWrap: 'wrap', }}>
+        <TouchableOpacity onPress={Press}
           style={{
             width: width || 155,
             height: height || 181,
@@ -48,6 +50,7 @@ const Boxs = ({
             elevation: elevation || 0,
             overflow: 'visible',
             position: 'relative',
+
           }}
           activeOpacity={0.9}>
           {FeaturedDeals && (
@@ -72,18 +75,18 @@ const Boxs = ({
                     justifyContent: 'center',
                   }}
                   opacity={0.4}>
-                  <Text style={{fontSize: 12, color: '#030303'}}>{text}</Text>
+                  <Text style={{ fontSize: 12, color: '#030303' }}>{text}</Text>
                 </View>
 
-                <View style={{width: 31, height: 31}}>
+                <View style={{ width: 31, height: 31, }}>
                   <Image
                     resizeMode="contain"
                     source={icon}
-                    style={{width: '100%', height: '100%'}}
+                    style={{ width: '100%', height: '100%' }}
                   />
                 </View>
               </View>
-              <View style={{height: 150}}>
+              <View style={{ height: 150 }}>
                 <View
                   style={{
                     width: '90%',
@@ -112,6 +115,7 @@ const Boxs = ({
                       }}
                     />
                   </View>
+
                 </View>
               </View>
             </>
@@ -120,26 +124,38 @@ const Boxs = ({
           {DealCategories && (
             <View
               style={{
+
                 width: 196,
-                height: 196,
+                height: 186,
               }}>
               <Image
                 resizeMode="contain"
-                source={Images.Pictures.headPhone}
+                source={itemImg}
                 style={{
-                  height: 196,
-                  width: 196,
+                  height: '100%',
+                  width: '100%',
+                  // marginBottom: 45
                 }}
               />
+              <View style={{}}>
+
+                <Text style={{ fontSize: 18, color: '#000', textAlign: 'center', }}>{text}</Text>
+                <Text style={{ fontSize: 14, textAlign: 'center', }}>{text1}</Text>
+              </View>
+
+
             </View>
           )}
         </TouchableOpacity>
-        <View style={{position: 'absolute', bottom: 6}}>
-          <Text style={{fontSize: 16, color: 'black'}}>{itemName}</Text>
+
+        <View style={{ marginVertical: 6 }}>
+          <Text style={{ fontSize: 16, color: 'black', }}>{itemName}</Text>
         </View>
-      </View>
+      </View >
+
+
     </>
   );
 };
 
-export {Boxs};
+export { Boxs };

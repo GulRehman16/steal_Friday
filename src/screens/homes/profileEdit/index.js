@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -10,10 +10,29 @@ import {
   View,
   Image,
 } from 'react-native';
-import {Images} from '../../../constants';
-import {AppButton, FormInput, Header} from '../../../components';
+import { Images } from '../../../constants';
+import { AppButton, FormInput, Header } from '../../../components';
 
 const ProfileEdit = props => {
+  const Catagories = ['Name1', 'Name2', 'Name3', 'Name4'];
+  const [catagoryIndex, setCatagoryIndex] = useState(0)
+
+  const CatagoryList = () => {
+    return (
+      <View style={{
+        width: '90%', flexDirection: 'row',
+        justifyContent: 'space-between', marginTop: 30, marginBottom: 20,
+      }}>
+        {Catagories.map((item, index) => (
+          <TouchableOpacity key={index} onPress={() => setCatagoryIndex(index)}>
+
+            <Text style={[styles.CatagoriesText, catagoryIndex == index && styles.catagoryTextSelected]}>
+              {item}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    )
+  }
   return (
     <>
       <SafeAreaView style={styles.screenContainer}>
@@ -21,12 +40,12 @@ const ProfileEdit = props => {
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{flexGrow: 1}}>
-          <View style={{marginTop: 10}}>
+          contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={{ marginTop: 10 }}>
             <View style={styles.mainBody}>
-              <View style={{marginTop: 45}}>
+              <View style={{ marginTop: 45 }}>
                 <Header
-                  headerText
+                  headerText1
                   leftIcon
                   leftIconProps={() => {
                     props.navigation.goBack();
@@ -38,7 +57,7 @@ const ProfileEdit = props => {
                 <ImageBackground
                   resizeMode="contain"
                   source={Images.Pictures.profile1}
-                  style={{width: 116, height: 119}}>
+                  style={{ width: 116, height: 119 }}>
                   <TouchableOpacity
                     style={{
                       position: 'absolute',
@@ -49,7 +68,7 @@ const ProfileEdit = props => {
                     <View style={styles.iconCamera}>
                       <Image
                         source={Images.Icon.openCamera}
-                        style={{width: 51, height: 53}}
+                        style={{ width: 51, height: 53 }}
                       />
                     </View>
                   </TouchableOpacity>
@@ -143,7 +162,8 @@ const ProfileEdit = props => {
                     <AppButton
                       btnWidth={180}
                       label="Update"
-                      onPress={() => {}}
+                      text
+                      onPress={() => { }}
                     />
                   </View>
                 </View>

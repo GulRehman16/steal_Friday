@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {FormInput, AppButton, Header} from '../../../components';
-import {Themes, Images} from './../../../constants';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { FormInput, AppButton, Header } from '../../../components';
+import { Themes, Images } from './../../../constants';
 
 const ForgetPassword = props => {
   const [visible, setVisible] = useState(false);
@@ -36,14 +36,14 @@ const ForgetPassword = props => {
       <ScrollView
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.mainBody}>
-          <View style={{marginTop: 35}}>
+          <View style={{ marginTop: 35 }}>
             <Header
-              headerText
+              headerText1
               leftIcon
-              screenName
-              screenText={'Forget Password'}
+              screenName1
+              screenText1={'Forget Password'}
               marginLeft={33}
               leftIconProps={() => {
                 props.navigation.goBack();
@@ -52,11 +52,11 @@ const ForgetPassword = props => {
           </View>
 
           <View style={styles.HeaderText}>
-            <Text style={{fontSize: 19, color: '#191919B8'}}>
-              Enter Your Registered Email To Get The Password Reset Link
+            <Text style={{ fontSize: 19, color: '#191919B8' }}>
+              Enter Your Registered Email To Get The Password Reset Code
             </Text>
           </View>
-          <View style={{marginTop: 40}}>
+          <View style={{ marginTop: 40 }}>
             <Text
               style={{
                 alignSelf: 'center',
@@ -78,13 +78,13 @@ const ForgetPassword = props => {
               <FormInput
                 autoCapitalize="none"
                 value={userInfo.email}
-                onChangeText={value => setUserInfo({...userInfo, email: value})}
+                onChangeText={value => setUserInfo({ ...userInfo, email: value })}
                 iconL
                 iconLName="mail"
                 iconLType="AntDesign"
                 placeHolder="example@gmail.com"
-                onFocus={() => setState({...state, focus: 'email'})}
-                onBlur={() => setState({...state, focus: ''})}
+                onFocus={() => setState({ ...state, focus: 'email' })}
+                onBlur={() => setState({ ...state, focus: '' })}
               />
             </View>
 
@@ -100,8 +100,10 @@ const ForgetPassword = props => {
                   alignItems: 'center',
                 }}>
                 <AppButton
+
                   btnWidth={200}
                   label="Continue"
+                  text
                   onPress={() => {
                     props.navigation.navigate('forgetPasswordOtp');
                   }}

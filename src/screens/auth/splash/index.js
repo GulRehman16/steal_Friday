@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 import {
   SafeAreaView,
@@ -11,9 +11,9 @@ import {
   StatusBar,
   ImageBackground,
 } from 'react-native';
-import {Images} from '../../../constants';
+import { Images } from '../../../constants';
 
-const Splash = ({navigation}) => {
+const Splash = ({ navigation }) => {
   let rotateValueHolder = new Animated.Value(0);
 
   const startImageRotateFunction = () => {
@@ -36,17 +36,17 @@ const Splash = ({navigation}) => {
       startImageRotateFunction();
       setTimeout(() => {
         navigation.replace('login');
-      }, 500);
+      }, 1000);
     }, []),
     (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         <StatusBar translucent={true} backgroundColor={'transparent'} />
         <ImageBackground source={Images.Background.bg} style={styles.container}>
           <Animated.Image
             style={{
               width: 224,
               height: 43,
-              transform: [{rotate: RotateData}],
+              transform: [{ rotate: RotateData }],
             }}
             source={require('../../../assets/images/logo.png')}
           />

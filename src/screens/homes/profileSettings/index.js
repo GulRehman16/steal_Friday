@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import {Images} from '../../../constants';
+import { Images } from '../../../constants';
 import React from 'react';
-import {Header} from '../../../components';
+import { Header } from '../../../components';
 
 const ProfileSettings = props => {
   return (
@@ -19,21 +19,20 @@ const ProfileSettings = props => {
       <ScrollView
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.mainBody}>
-          <View style={{marginTop: 55}}>
+          <View style={{ marginTop: 55 }}>
             <Header
-              headerText
+              headerText1
               leftIcon
-              screenName
-              screenText={'Profile Settings'}
+              screenName1
+              screenText1={'Profile Settings'}
               marginLeft={33}
               leftIconProps={() => {
                 props.navigation.goBack();
               }}
             />
           </View>
-
           <View style={styles.btnView}>
             <TouchableOpacity
               style={styles.btnStyle}
@@ -54,13 +53,10 @@ const ProfileSettings = props => {
               <Text style={styles.btnText}>Notifications</Text>
               <Image source={Images.Icon.nextIcon} style={styles.nextIcon} />
             </TouchableOpacity>
-
             <TouchableOpacity
               style={styles.btnStyle}
               activeOpacity={0.9}
-              onPress={() => {
-                props.navigation.navigate('Auth', {screen: 'changePassword'});
-              }}>
+              onPress={() => { props.navigation.navigate('Auth', { screen: 'changePassword' }) }}>
               <Text style={styles.btnText}>Change Password</Text>
               <Image source={Images.Icon.nextIcon} style={styles.nextIcon} />
             </TouchableOpacity>
@@ -77,6 +73,7 @@ const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     backgroundColor: '#F8F8F8',
+    paddingBottom: 40
   },
   mainBody: {
     width: '90%',
@@ -101,6 +98,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  btnText: {fontSize: 16, color: '#000000', marginLeft: 10},
-  nextIcon: {width: 12.5, height: 22.62, marginRight: 10},
+  btnText: { fontSize: 16, color: '#000000', marginLeft: 10 },
+  nextIcon: { width: 12.5, height: 22.62, marginRight: 10 },
 });

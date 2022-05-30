@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect, BackHandler } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -9,10 +9,10 @@ import {
   View,
   TextInput,
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {FormInput, AppButton, CheckBox} from '../../../components';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { FormInput, AppButton, CheckBox, Alert } from '../../../components';
 
-const Login = props => {
+const Login = ({ navigation, route }) => {
   const [state, setState] = useState({
     email: '',
     password: '',
@@ -20,16 +20,38 @@ const Login = props => {
     secureText: true,
   });
 
+
+
+  // const backAction = () => {
+  //   props.navigation.goBack();
+  //   return true;
+  // };
+  // let backHandler;
+  // props.navigation.addListener('focus', () => {
+  //   backHandler = BackHandler.addEventListener(
+  //     'hardwareBackPress',
+  //     backAction,
+  //   );
+  // });
+  // props.navigation.addListener('blur', () => {
+  //   if (backHandler) {
+  //     backHandler.remove();
+  //   }
+  // });
+
+
+
+
   return (
     <SafeAreaView style={styles.screenContainer}>
       <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{flexGrow: 1}}>
+        contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.screenHeader}>
           <Image
             source={require('../../../assets/images/loginLogo.png')}
-            style={{width: 200, height: 51}}
+            style={{ width: 200, height: 51 }}
           />
         </View>
         <View style={styles.screenBody}>
@@ -37,7 +59,7 @@ const Login = props => {
             <View style={styles.screenHeader2}>
               <Text style={styles.headingText}>Login</Text>
             </View>
-            <View style={{marginTop: 40, width: '100%'}}>
+            <View style={{ marginTop: 40, width: '100%' }}>
               <View
                 style={{
                   elevation: 5,
@@ -49,13 +71,13 @@ const Login = props => {
                 }}>
                 <FormInput
                   value={state.email}
-                  onChangeText={value => setState({...state, email: value})}
+                  onChangeText={value => setState({ ...state, email: value })}
                   iconL
                   iconLName="mail"
                   iconLType="AntDesign"
                   placeHolder="Email Address"
-                  onFocus={() => setState({...state, focus: 'email'})}
-                  onBlur={() => setState({...state, focus: ''})}
+                  onFocus={() => setState({ ...state, focus: 'email' })}
+                  onBlur={() => setState({ ...state, focus: '' })}
                 />
               </View>
               <View
@@ -69,7 +91,7 @@ const Login = props => {
                 }}>
                 <FormInput
                   value={state.password}
-                  onChangeText={value => setState({...state, password: value})}
+                  onChangeText={value => setState({ ...state, password: value })}
                   iconL
                   secureText={state.secureText}
                   iconLName="lock"
@@ -78,11 +100,11 @@ const Login = props => {
                   iconRName={state.secureText ? 'eye-with-line' : 'eye'}
                   iconRType="Entypo"
                   onPressR={() =>
-                    setState({...state, secureText: !state.secureText})
+                    setState({ ...state, secureText: !state.secureText })
                   }
                   placeHolder="Password"
-                  onFocus={() => setState({...state, focus: 'password'})}
-                  onBlur={() => setState({...state, focus: ''})}
+                  onFocus={() => setState({ ...state, focus: 'password' })}
+                  onBlur={() => setState({ ...state, focus: '' })}
                 />
               </View>
               <View
@@ -97,21 +119,21 @@ const Login = props => {
                 <View>
                   <CheckBox
                     alignItem={'flex-start'}
-                    onPress={() => setState({checked: !state.checked})}
+                    onPress={() => setState({ checked: !state.checked })}
                     checked={state.checked}
                     text={'Remember'}
                   />
                 </View>
                 <TouchableOpacity
-                  style={{marginTop: 5}}
+                  style={{ marginTop: 5 }}
                   onPress={() => {
-                    props.navigation.navigate('forgetPassword');
+                    navigation.navigate('forgetPassword');
                   }}>
                   <Text
                     style={{
                       color: 'black',
                     }}>
-                    Forget Password?
+                    Forgot Password?
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -125,8 +147,9 @@ const Login = props => {
                 <AppButton
                   btnWidth={180}
                   label="Login"
+                  text
                   onPress={() => {
-                    props.navigation.replace('MyDrawer', {screen: 'Home'});
+                    navigation.replace('MyDrawer', { screen: 'Home' });
                   }}
                 />
               </View>
@@ -143,11 +166,11 @@ const Login = props => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text style={{color: 'black'}}>Dont have an account? </Text>
+          <Text style={{ color: 'black' }}>Don't have an account? </Text>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => props.navigation.navigate('signup')}>
-            <Text style={{color: '#CD1C1B', fontWeight: 'bold'}}>Signup</Text>
+            onPress={() => navigation.navigate('signup')}>
+            <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>Sign Up</Text>
           </TouchableOpacity>
         </View>
         <View
@@ -159,11 +182,13 @@ const Login = props => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text style={{color: 'black'}}>Having Trouble Logging In? </Text>
+          <Text style={{ color: 'black' }}>Having Trouble Logging In? </Text>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => props.navigation.navigate('contactUs')}>
-            <Text style={{color: '#CD1C1B', fontWeight: 'bold'}}>
+            onPress={() => {
+              navigation.navigate('ContactUs');
+            }}>
+            <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>
               Contact Us
             </Text>
           </TouchableOpacity>

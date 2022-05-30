@@ -1,11 +1,16 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Profile = () => {
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <Text style={{color: 'black'}}>Profile Screen</Text>
+      <StatusBar
+        backgroundColor={'transparent'}
+        barStyle="dark-content"
+        translucent={true}
+      />
+      <Text style={{ color: 'black' }}>Profile Screen</Text>
     </SafeAreaView>
   );
 };

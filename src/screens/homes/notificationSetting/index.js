@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   ImageBackground,
   ScrollView,
@@ -8,13 +8,13 @@ import {
   Switch,
   StatusBar,
 } from 'react-native';
-import {Header} from '../../../components';
-import {View, Text} from 'react-native';
-import {Images} from '../../../constants';
-import {Icon} from 'native-base';
-import {useState} from 'react';
+import { Header } from '../../../components';
+import { View, Text } from 'react-native';
+import { Images } from '../../../constants';
+import { Icon } from 'native-base';
+import { useState } from 'react';
 
-const SwitchComponent = ({iconN, iconT, text, value, onSwitch}) => {
+const SwitchComponent = ({ iconN, iconT, text, value, onSwitch }) => {
   return (
     <View
       style={{
@@ -23,6 +23,7 @@ const SwitchComponent = ({iconN, iconT, text, value, onSwitch}) => {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
+
       <View
         style={{
           width: '75%',
@@ -30,11 +31,11 @@ const SwitchComponent = ({iconN, iconT, text, value, onSwitch}) => {
           alignItems: 'center',
           justifyContent: 'flex-start',
         }}>
-        <View style={{paddingLeft: 6}}>
-          <Text style={{color: '#323232', fontSize: 15}}>{text}</Text>
+        <View style={{ paddingLeft: 6 }}>
+          <Text style={{ color: '#323232', fontSize: 15 }}>{text}</Text>
         </View>
       </View>
-      <View style={{width: '20%'}}>
+      <View style={{ width: '20%' }}>
         <Switch
           value={value}
           onChange={onSwitch}
@@ -64,14 +65,14 @@ const NotificationSettings = props => {
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{flexGrow: 1}}>
+          contentContainerStyle={{ flexGrow: 1 }}>
           <View style={styles.mainBody}>
-            <View style={{marginTop: 35}}>
+            <View style={{ marginTop: 35 }}>
               <Header
-                headerText
+                headerText1
                 leftIcon
-                screenName
-                screenText={'Notifications'}
+                screenName1
+                screenText1={'Notifications'}
                 marginLeft={33}
                 leftIconProps={() => {
                   props.navigation.goBack();
@@ -79,8 +80,8 @@ const NotificationSettings = props => {
               />
             </View>
 
-            <View style={{width: '100%', paddingTop: 30}}>
-              <View style={{marginVertical: 10}}>
+            <View style={{ width: '100%', paddingTop: 30 }}>
+              <View style={{ marginVertical: 10 }}>
                 <SwitchComponent
                   iconN="email-outline"
                   iconT="MaterialCommunityIcons"
@@ -94,7 +95,7 @@ const NotificationSettings = props => {
                   }
                 />
               </View>
-              <View style={{marginVertical: 10}}>
+              <View style={{ marginVertical: 10 }}>
                 <SwitchComponent
                   iconN="email-outline"
                   iconT="MaterialCommunityIcons"

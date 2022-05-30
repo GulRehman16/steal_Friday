@@ -1,6 +1,6 @@
-import {Icon} from 'native-base';
+import { Icon } from 'native-base';
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 const TextWithLine = ({
   text,
@@ -12,6 +12,7 @@ const TextWithLine = ({
   lineColor,
   viewAllBtn,
   backgroundColor,
+  Press
 }) => {
   return (
     <>
@@ -23,7 +24,7 @@ const TextWithLine = ({
           justifyContent: 'center',
           marginTop: 10,
           flexDirection: 'row',
-          backgroundColor: backgroundColor || '#fff',
+          backgroundColor: backgroundColor || '#F8F8F8',
         }}>
         <View
           style={{
@@ -40,7 +41,7 @@ const TextWithLine = ({
               left: left,
               right: right,
               overflow: 'hidden',
-              backgroundColor: backgroundColor || '#fff',
+              backgroundColor: backgroundColor || '#F8F8F8',
               paddingHorizontal: 10,
               alignItems: 'center',
             }}>
@@ -54,7 +55,7 @@ const TextWithLine = ({
             </Text>
           </View>
           {viewAllBtn && (
-            <TouchableOpacity
+            <TouchableOpacity onPress={Press}
               style={{
                 position: 'absolute',
                 top: -13,
@@ -94,4 +95,4 @@ const TextWithLine = ({
   );
 };
 
-export {TextWithLine};
+export { TextWithLine };

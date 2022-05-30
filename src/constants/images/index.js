@@ -4,6 +4,7 @@ const Images = {
     drawerBg: require('../../assets/images/drawerBg.png'),
   },
   Pictures: {
+
     appLogo: require('../../assets/images/logo.png'),
     loginLogo: require('../../assets/images/loginLogo.png'),
     left: require('../../assets/images/left.png'),
@@ -19,11 +20,22 @@ const Images = {
     tShirt2: require('../../assets/images/tShirt2.png'),
     airpods: require('../../assets/images/airPods.png'),
     nikeShoes: require('../../assets/images/nikeShoes.png'),
+    nikeShoe1: require('../../assets/images/nikeshoe1.png'),
     blackHeadfone: require('../../assets/images/blackHeadfone.png'),
     tShirt: require('../../assets/images/t_shirt.png'),
     headfone: require('../../assets/images/headfone.png'),
     blackShoes: require('../../assets/images/blackShoes.png'),
     orangeShoes: require('../../assets/images/orangeShoes.png'),
+    nikeshoe2: require('../../assets/images/nikeshoe2.png'),
+    greenShoe1: require('../../assets/images/greenshoe1.png'),
+    maskheader: require('../../assets/images/maskheader.png'),
+    blackHeadphone: require('../../assets/images/blackHeadphones.png'),
+    headericon1: require('../../assets/images/headericon1.png'),
+    paypal: require('../../assets/images/paypal.png'),
+    path70: require('../../assets/images/70.png'),
+    Path69: require('../../assets/images/69.png'),
+
+
   },
   Icon: {
     logo: require('../../assets/images/logo.png'),
@@ -33,7 +45,7 @@ const Images = {
     purpleStar: require('../../assets/images/purpleStar.png'),
     home: require('../../assets/images/homeIcon.png'),
     user: require('../../assets/images/userIcon.png'),
-    resubcription: require('../../assets/images/resubcriptionIcon.png'),
+    // resubcription: require('../../assets/images/resubcriptionIcon.png'),
     favourite: require('../../assets/images/favouriteIcon.png'),
     card: require('../../assets/images/shoppingCardIcon.png'),
     contact: require('../../assets/images/contactIcon.png'),
@@ -41,7 +53,15 @@ const Images = {
     logout: require('../../assets/images/logOutIcon.png'),
     nextIcon: require('../../assets/images/next.png'),
     openCamera: require('../../assets/images/openCamera.png'),
+    circle: require('../../assets/images/circle.png'),
+    Filter: require('../../assets/images/filter.png'),
+    PayPal1: require('../../assets/images/PayPal1.png'),
+    Saved: require('../../assets/images/Saved.png'),
+    Cradit: require('../../assets/images/Cradit.png'),
+    insurance: require('../../assets/images/insurance.png'),
+    Auto: require('../../assets/images/auto.png')
+
   },
 };
 
-export {Images};
+export { Images };

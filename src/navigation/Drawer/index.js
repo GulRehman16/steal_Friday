@@ -1,7 +1,8 @@
 import React from 'react';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {CustomDrawer} from '../../components';
-import {Homes, Statics} from '../stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { CustomDrawer } from '../../components';
+import { Homes, Statics } from '../stack';
+import ProfileSettings from '../../screens/homes/profileSettings';
 
 const Drawer = createDrawerNavigator();
 
@@ -16,17 +17,24 @@ function MyDrawer() {
         },
       }}
       drawerContent={props => <CustomDrawer {...props} />}>
-      {/* <Drawer.Screen
+      <Drawer.Screen
         name="Homes"
         component={Homes}
-        options={{headerShown: false}}
-      /> */}
+        options={{ headerShown: false }}
+      />
 
       <Drawer.Screen
         name="home"
         component={Homes}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
+      <Drawer.Screen
+        name="profileSettings"
+        component={ProfileSettings}
+        options={{ headerShown: false }}
+      />
+
+
     </Drawer.Navigator>
   );
 }

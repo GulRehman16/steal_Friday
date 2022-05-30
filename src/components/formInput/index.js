@@ -1,6 +1,6 @@
 import React from 'react';
-import {TextInput, TouchableOpacity, View, Text} from 'react-native';
-import {Icon} from 'native-base';
+import { TextInput, TouchableOpacity, View, Text } from 'react-native';
+import { Icon } from 'native-base';
 
 const FormInput = ({
   value,
@@ -35,7 +35,7 @@ const FormInput = ({
   return (
     <View
       style={{
-        width: '100%',
+        width: '80%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -61,7 +61,7 @@ const FormInput = ({
                 justifyContent: 'center',
               }}>
               <TextInput
-                style={{width: '10%'}}
+                style={{ width: '10%' }}
                 placeholder="+966 "
                 keyboardType={keyboardType || 'default'}
                 maxLength={3}
@@ -71,7 +71,7 @@ const FormInput = ({
             <Icon
               name={iconLName}
               type={iconLType}
-              style={styleL || {fontSize: 17, color: iconColor || 'grey'}}
+              style={styleL || { fontSize: 17, color: iconColor || 'grey' }}
             />
           )}
         </View>
@@ -82,6 +82,7 @@ const FormInput = ({
           {
             width: iconL && iconR ? '80%' : iconL ? '90%' : '100%',
             paddingLeft: iconL ? 0 : 10,
+
             color: 'black',
             textAlignVertical: multiLine ? 'top' : 'center',
             height: textHeight || null,
@@ -104,14 +105,14 @@ const FormInput = ({
           activeOpacity={0.7}
           onPress={onPressR}
           style={{
-            width: '10%',
+            width: '50%',
             justifyContent: 'center',
             alignItems: 'center',
           }}>
           <Icon
             name={iconRName || 'eye-with-line'}
             type={iconRType || 'Entypo'}
-            style={styleR || {fontSize: 17, color: iconColor || 'grey'}}
+            style={styleR || { fontSize: 17, color: iconColor || 'grey' }}
           />
         </TouchableOpacity>
       )}
@@ -119,4 +120,4 @@ const FormInput = ({
   );
 };
 
-export {FormInput};
+export { FormInput };
