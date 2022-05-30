@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   View,
+  TextInput,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {FormInput, AppButton, CheckBox} from '../../../components';
