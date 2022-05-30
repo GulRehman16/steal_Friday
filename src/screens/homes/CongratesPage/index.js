@@ -28,7 +28,7 @@ const CongratesPage = ({ navigation }) => {
                     <ScrollView
                         showsVerticalScrollIndicator={false}
                         contentContainerStyle={{ flexGrow: 1 }}>
-                        <View style={{ marginTop: 40 }}>
+                        <View style={{ marginTop: 25, width: '90%', alignSelf: 'center' }}>
                             <Header
 
                                 leftIcon
@@ -39,7 +39,8 @@ const CongratesPage = ({ navigation }) => {
                             />
                         </View>
                         <View style={{
-                            alignSelf: 'center',
+                            width: '90%', alignSelf: 'center', marginVertical: 10
+
                         }} >
                             <Text style={{
                                 marginVertical: 5,
@@ -77,17 +78,13 @@ const CongratesPage = ({ navigation }) => {
                                     Order Information
                                 </Text>
                             </View>
+                            <Content />
+                            <View style={{ width: 214, alignSelf: 'center', }}>
+                                <AppButton label="Continue Shopping" text
+                                    onPress={() => { navigation.navigate('home') }}
+                                />
+                            </View>
                         </View>
-                        <Content />
-                        <View style={{ width: 214, alignSelf: 'center', }}>
-                            <AppButton label="Continue Shopping" text
-                                onPress={() => { navigation.navigate('home') }}
-                            />
-
-                        </View>
-
-
-
                     </ScrollView>
                 </ImageBackground>
             </SafeAreaView >
@@ -100,16 +97,16 @@ export default CongratesPage
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 20,
+
 
     },
     body: {
-        alignSelf: 'center',
-        width: '100%',
-        height: '100%',
+        paddingLeft: 20,
+        paddingRight: 20,
+
     },
     select: {
-        width: '100%',
+
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: 10,
@@ -117,7 +114,7 @@ const styles = StyleSheet.create({
     },
     mainBox: {
         marginTop: 30,
-        width: '100%',
+        width: '90%',
         height: 218,
         backgroundColor: 'white',
         borderRadius: 40,

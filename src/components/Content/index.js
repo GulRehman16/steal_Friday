@@ -51,13 +51,13 @@ const Content = ({
                         }}>
                             <Text style={{
                                 color: '#fff',
-                                fontSize: 16, marginRight: 5
+                                fontSize: 16, marginRight: 5, color: '#aaa'
                             }}>Order No:</Text>
                         </View>
                         <View style={{ marginVertical: 5 }}>
                             <Text style={{
                                 color: '#fff',
-                                fontSize: 16, marginRight: 5
+                                fontSize: 16, marginRight: 5, color: '#aaa'
                             }}>33324</Text>
                         </View>
                     </View>
@@ -98,26 +98,13 @@ const Content = ({
                         justifyContent: 'space-between',
                         marginVertical: 5
                     }}>
-                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, }}>Shipping Charges</Text>
+                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>Shipping Charges</Text>
                             </View>
                             <View style={{ marginRight: 80 }}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>1</Text>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>1</Text>
                             </View>
                             <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>$15.99</Text>
-                            </View>
-                        </View>
-                        <View style={{
-                            flexDirection: 'row',
-                            justifyContent: 'space-between',
-                            marginVertical: 5
-                        }}>
-                            <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>$15.99</Text>
-                            </View>
-                            <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>2</Text></View>
-                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, }}>$15.00</Text>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>$15.99</Text>
                             </View>
                         </View>
                         <View style={{
@@ -126,11 +113,24 @@ const Content = ({
                             marginVertical: 5
                         }}>
                             <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>$15.99</Text>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>tShirts</Text>
                             </View>
                             <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>1</Text></View>
-                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, }}>$15.00</Text>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>2</Text></View>
+                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>$15.00</Text>
+                            </View>
+                        </View>
+                        <View style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            marginVertical: 5
+                        }}>
+                            <View style={{}}>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa', }}>airpod</Text>
+                            </View>
+                            <View style={{}}>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>1</Text></View>
+                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>$15.00</Text>
                             </View>
                         </View>
                     </View>
@@ -152,11 +152,11 @@ const Content = ({
                         justifyContent: 'space-between',
                         marginVertical: 5
                     }}>
-                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, }}>
+                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>
                                 Shipping Charges</Text>
                             </View>
                             <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>$15.99</Text>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>$15.99</Text>
                             </View>
                         </View>
                         <View style={{
@@ -166,8 +166,8 @@ const Content = ({
                         }}>
 
                             <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>Total Amount</Text></View>
-                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, }}>$15.00</Text>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>Total Amount</Text></View>
+                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>$15.00</Text>
                             </View>
                         </View>
                         <View style={{
@@ -176,8 +176,8 @@ const Content = ({
                             marginVertical: 5
                         }}>
                             <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>Total Amount</Text></View>
-                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, }}>********-000</Text>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>Card No:</Text></View>
+                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>********-000</Text>
                             </View>
                         </View>
                     </View>
@@ -197,11 +197,11 @@ const Content = ({
                         justifyContent: 'space-between',
                         marginVertical: 5
                     }}>
-                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, }}>
+                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>
                                 Address</Text>
                             </View>
                             <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>123 N Creekside Ct</Text>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>123 N Creekside Ct</Text>
                             </View>
                         </View>
                         <View style={{
@@ -211,8 +211,8 @@ const Content = ({
                         }}>
 
                             <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>City</Text></View>
-                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, }}>$15.00</Text>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>City</Text></View>
+                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>$15.00</Text>
                             </View>
                         </View>
                         <View style={{
@@ -221,8 +221,8 @@ const Content = ({
                             marginVertical: 5
                         }}>
                             <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>state</Text></View>
-                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, }}>********-000</Text>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>state</Text></View>
+                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>********-000</Text>
                             </View>
 
                         </View>
@@ -232,8 +232,8 @@ const Content = ({
                             marginVertical: 5
                         }}>
                             <View style={{}}>
-                                <Text style={{ color: '#fff', fontSize: 16, }}>Zip Code</Text></View>
-                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, }}>
+                                <Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>Zip Code</Text></View>
+                            <View style={{}}><Text style={{ color: '#fff', fontSize: 16, color: '#aaa' }}>
                                 12345</Text>
                             </View>
                         </View>

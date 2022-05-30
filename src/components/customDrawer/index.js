@@ -11,9 +11,7 @@ import {
   ImageBackground,
   Dimensions,
   SafeAreaView,
-  Press1,
-  Press2,
-  Press3,
+
 
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -28,10 +26,9 @@ const CustomDrawer = ({ navigation }) => {
       stack: '',
       text: 'Home',
       Press: () => navigation.navigate('home')
-
     },
     {
-      image: Images.Icon.Auto,
+      image: Images.Icon.user,
       stack: '',
       text: 'Profile Settings',
       Press: () => navigation.navigate("profileSettings")
@@ -66,7 +63,7 @@ const CustomDrawer = ({ navigation }) => {
       image: Images.Icon.contact,
       stack: '',
       text: 'Contact Us',
-      Press: () => navigation.navigate('ContactUs')
+      Press: () => navigation.navigate('ContactUs', { value: true })
     },
     {
       image: Images.Icon.logout,
@@ -178,3 +175,38 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+
+
+// <View
+// style={{
+//   marginTop: orientation ? '30%' : '5%',
+//   marginLeft: '14%',
+//   height: '50%',
+//   alignItems: 'flex-start',
+//   justifyContent: 'space-evenly',
+// }}>
+// <TouchableOpacity onPress={() => navigation.navigate('home')}>
+//   <Image source={Images.Icon.home} />
+//   <Text>Home</Text>
+
+// </TouchableOpacity>
+// <TouchableOpacity onPress={() => navigation.navigate('profileSettings')}>
+//   <Image source={Images.Icon.home} />
+//   <Text>Home</Text>
+// </TouchableOpacity>
+// <TouchableOpacity onPress={() => navigation.navigate('autoResubscription')}>
+//   <Image source={Images.Icon.home} />
+//   <Text>Home</Text>
+
+// </TouchableOpacity>
+// <TouchableOpacity onPress={() => navigation.navigate('home')}>
+//   <Image source={Images.Icon.home} />
+//   <Text>Home</Text>
+
+// </TouchableOpacity>
+
+
+
+
+// </View>

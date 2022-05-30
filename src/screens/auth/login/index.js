@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FormInput, AppButton, CheckBox, Alert } from '../../../components';
 
-const Login = props => {
+const Login = ({ navigation, route }) => {
   const [state, setState] = useState({
     email: '',
     password: '',
@@ -126,7 +126,7 @@ const Login = props => {
                 <TouchableOpacity
                   style={{ marginTop: 5 }}
                   onPress={() => {
-                    props.navigation.navigate('forgetPassword');
+                    navigation.navigate('forgetPassword');
                   }}>
                   <Text
                     style={{
@@ -148,7 +148,7 @@ const Login = props => {
                   label="Login"
                   text
                   onPress={() => {
-                    props.navigation.replace('MyDrawer', { screen: 'Home' });
+                    navigation.replace('MyDrawer', { screen: 'Home' });
                   }}
                 />
               </View>
@@ -168,7 +168,7 @@ const Login = props => {
           <Text style={{ color: 'black' }}>Don't have an account? </Text>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => props.navigation.navigate('signup')}>
+            onPress={() => navigation.navigate('signup')}>
             <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>Sign Up</Text>
           </TouchableOpacity>
         </View>
@@ -185,7 +185,7 @@ const Login = props => {
           <TouchableOpacity
             activeOpacity={0.7}
             onPress={() => {
-              props.navigation.navigate('ContactUs');
+              navigation.navigate('ContactUs');
             }}>
             <Text style={{ color: '#CD1C1B', fontWeight: 'bold' }}>
               Contact Us

@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, Dimensions, ScrollView, StatusBar, Image } from 'react-native'
-import { Button, Card, Overlay } from 'react-native-elements';
+
 import { Themes, Images } from '../../../constants';
-import { Boxs, TextWithLine, data1, Header, ViewMore } from '../../../components';
+import { Boxs, TextWithLine, data1, Header, ViewMore, Overlays } from '../../../components';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
@@ -163,76 +163,80 @@ const CatagoryScreen = ({ navigation }) => {
 
 
     return (
-        <SafeAreaView style={{
+        <>
+            <SafeAreaView style={{
 
-        }}>
-            <ScrollView
-                keyboardShouldPersistTaps="handled"
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ flexGrow: 1 }}>
-                <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
-                <View>
+            }}>
+                <ScrollView
+                    keyboardShouldPersistTaps="handled"
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={{ flexGrow: 1 }}>
+                    <StatusBar backgroundColor={'#F8F8F8'} barStyle="dark-content" />
+                    <View>
 
-                    <View style={{ width: '100%', alignSelf: 'center', }}>
-                        <View style={{ width: '90%', alignSelf: 'center', }}>
-                            <View style={{ marginTop: 5 }}>
-                                <Header
-                                    headerText1
-                                    leftIcon
-                                    leftIconProps={() => {
-                                        navigation.goBack();
-                                    }}
-                                />
-                            </View>
-                            <TouchableOpacity onPress={() => setVisible(!visible)} style={styles.headerIcon}>
-
-                                <Image source={Images.Icon.Filter} />
-                            </TouchableOpacity>
-
-                        </View>
-
-                        <View style={styles.DealsView}>
-                            <Text style={styles.DealsText}>Active Deals</Text></View>
-                    </View>
-
-                    <View style={styles.catagoryView}>
-
-                        <CatagoryList />
-                        <View style={{ marginTop: 10, }}>
-                            <View style={styles.box4}>
-
-                                <View style={styles.box4}>
-                                    {shirts.map((item, index) => {
-                                        return (
-                                            <>
-                                                <Boxs
-                                                    Bgcolor={item.color}
-                                                    Press={() => navigation.navigate('ProductDetails', {
-                                                        Image1: item.itemImg
-                                                    })}
-                                                    marginRight={10}
-                                                    text={item.text}
-                                                    icon={item.img}
-                                                    itemImg={item.itemImg}
-                                                    itemName={item.itemName}
-                                                    amount={item.ammount}
-                                                    imgHeight={item.imgH}
-                                                    imgWidth={item.imgW}
-                                                    StockNewOld
-                                                    FeaturedDeals
-                                                />
-                                            </>
-                                        );
-                                    })}
+                        <View style={{ width: '100%', alignSelf: 'center', }}>
+                            <View style={{ width: '90%', alignSelf: 'center', }}>
+                                <View style={{ marginTop: 5 }}>
+                                    <Header
+                                        headerText1
+                                        leftIcon
+                                        leftIconProps={() => {
+                                            navigation.goBack();
+                                        }}
+                                    />
                                 </View>
+                                <TouchableOpacity onPress={() => setVisible(!visible)} style={styles.headerIcon}>
+
+                                    <Image source={Images.Icon.Filter} />
+                                </TouchableOpacity>
 
                             </View>
+
+                            <View style={styles.DealsView}>
+                                <Text style={styles.DealsText}>Active Deals</Text></View>
                         </View>
+
+                        <View style={styles.catagoryView}>
+
+                            <CatagoryList />
+                            <View style={{ marginTop: 10, }}>
+                                <View style={styles.box4}>
+
+                                    <View style={styles.box4}>
+                                        {shirts.map((item, index) => {
+                                            return (
+                                                <>
+                                                    <Boxs
+                                                        Bgcolor={item.color}
+                                                        Press={() => navigation.navigate('ProductDetails', {
+                                                            Image1: item.itemImg
+                                                        })}
+                                                        marginRight={10}
+                                                        text={item.text}
+                                                        icon={item.img}
+                                                        itemImg={item.itemImg}
+                                                        itemName={item.itemName}
+                                                        amount={item.ammount}
+                                                        imgHeight={item.imgH}
+                                                        imgWidth={item.imgW}
+                                                        StockNewOld
+                                                        FeaturedDeals
+                                                    />
+                                                </>
+                                            );
+                                        })}
+                                    </View>
+
+                                </View>
+                            </View>
+                        </View>
+                        <ViewMore />
                     </View>
-                    <ViewMore />
-                </View>
-            </ScrollView >
-        </SafeAreaView >
+                </ScrollView >
+            </SafeAreaView >
+
+            <Overlays popupcontent2 visible={visible} toggleOverlay={() => setVisible(false)} />
+        </>
     );
 };
 export default CatagoryScreen

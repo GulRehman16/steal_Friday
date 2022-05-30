@@ -89,7 +89,7 @@ const Favorites = props => {
                                         Favorites
                                     </Text>
                                 </View>
-                                <View>
+                                <View style={{}}>
                                     <Shoebox content1 Image1={Images.Pictures.nikeShoe1} />
                                 </View>
                                 <View>

@@ -367,7 +367,6 @@ const Home = ({ navigation }) => {
               left={0}
               text="Active Deals"
               text2="View All"
-
             />
           </View>
           <View style={styles.box4}>
@@ -428,6 +427,7 @@ const styles = StyleSheet.create({
     height: '60%',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginBottom: 40
   },
   Headerpart3: {
     width: '25%',

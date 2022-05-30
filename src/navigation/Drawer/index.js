@@ -33,6 +33,8 @@ function MyDrawer() {
         component={ProfileSettings}
         options={{ headerShown: false }}
       />
+
+
     </Drawer.Navigator>
   );
 }

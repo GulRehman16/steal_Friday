@@ -1,5 +1,5 @@
-import {Icon} from 'native-base';
-import React, {useEffect, useState} from 'react';
+import { Icon } from 'native-base';
+import React, { useEffect, useState } from 'react';
 import {
   BackHandler,
   ScrollView,
@@ -12,19 +12,20 @@ import {
   SafeAreaView,
   TouchableOpacity,
   TextInput,
+  OnPress
 } from 'react-native';
 
 // import { Images } from '../../../../constants';
 // import { AppButton, Header, Overlays } from '../../../../components';
-import {Images} from '../../../constants';
-import {Header, AppButton, Overlays} from '../../../components';
+import { Images } from '../../../constants';
+import { Header, AppButton, Overlays } from '../../../components';
 
-const Summary = ({navigation}) => {
+const Summary = ({ navigation }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const backAction = () => {
-      navigation.navigate('checkOut', (params = {value: true}));
+      navigation.navigate('checkOut', (params = { value: true }));
       return true;
     };
     let backHandler;
@@ -43,18 +44,18 @@ const Summary = ({navigation}) => {
 
   return (
     <>
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         <StatusBar />
         <ImageBackground source={Images.Background.bg} style={styles.container}>
           <ScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{flexGrow: 1}}>
-            <View style={{marginTop: 45}}>
+            contentContainerStyle={{ flexGrow: 1 }}>
+            <View style={{ marginTop: 10 }}>
               <Header
                 leftIcon
                 IconColor="#fff"
                 leftIconProps={() => {
-                  navigation.navigate('checkOut', (params = {value2: true}));
+                  navigation.navigate('checkOut', (params = { value2: true }));
                 }}
               />
             </View>
@@ -99,7 +100,7 @@ const Summary = ({navigation}) => {
                   }}>
                   <Text
                     style={{
-                      color: '#fff',
+                      color: '#aaa',
                       fontSize: 16,
                       marginRight: 10,
                     }}>
@@ -111,6 +112,7 @@ const Summary = ({navigation}) => {
 
                       fontSize: 16,
                       marginRight: 10,
+                      color: '#aaa',
                     }}>
                     Product Name
                   </Text>
@@ -120,15 +122,15 @@ const Summary = ({navigation}) => {
 
                       fontSize: 16,
                       marginRight: 10,
+                      color: '#aaa',
                     }}>
                     Product Name
                   </Text>
                 </View>
-                <View style={{marginVertical: 10}}>
+                <View style={{ marginVertical: 10 }}>
                   <Text
                     style={{
-                      color: '#fff',
-
+                      color: '#aaa',
                       fontSize: 16,
                       marginRight: 10,
                     }}>
@@ -136,7 +138,7 @@ const Summary = ({navigation}) => {
                   </Text>
                   <Text
                     style={{
-                      color: '#fff',
+                      color: '#aaa',
 
                       fontSize: 16,
                       marginRight: 10,
@@ -145,8 +147,7 @@ const Summary = ({navigation}) => {
                   </Text>
                   <Text
                     style={{
-                      color: '#fff',
-
+                      color: '#aaa',
                       fontSize: 16,
                       marginRight: 10,
                     }}>
@@ -157,7 +158,7 @@ const Summary = ({navigation}) => {
             </View>
             <View
               style={{
-                marginVertical: 10,
+                // marginVertical: 5,
                 borderBottomWidth: 0.75,
                 borderColor: 'grey',
               }}>
@@ -169,11 +170,11 @@ const Summary = ({navigation}) => {
                 }}>
                 <View
                   style={{
-                    marginVertical: 15,
+                    marginVertical: 5,
                   }}>
                   <Text
                     style={{
-                      color: '#fff',
+                      color: '#aaa',
                       fontSize: 16,
                       marginRight: 10,
                     }}>
@@ -181,7 +182,8 @@ const Summary = ({navigation}) => {
                   </Text>
                   <Text
                     style={{
-                      color: '#fff',
+                      color: '#aaa',
+                      marginVertical: 10,
 
                       fontSize: 16,
                       marginRight: 10,
@@ -192,19 +194,20 @@ const Summary = ({navigation}) => {
                 <View>
                   <Text
                     style={{
-                      color: '#fff',
 
                       fontSize: 16,
                       marginRight: 10,
+                      marginVertical: 10,
+                      color: '#aaa',
                     }}>
                     $15.99
                   </Text>
                   <Text
                     style={{
-                      color: '#fff',
 
                       fontSize: 16,
                       marginRight: 10,
+                      color: '#aaa',
                     }}>
                     $15.00
                   </Text>
@@ -223,7 +226,7 @@ const Summary = ({navigation}) => {
 
                   justifyContent: 'space-between',
                 }}>
-                <View style={{flexDirection: 'row', marginVertical: 5}}>
+                <View style={{ flexDirection: 'row', marginVertical: 5 }}>
                   <Text
                     style={{
                       color: '#fff',
@@ -234,7 +237,7 @@ const Summary = ({navigation}) => {
                     Shipping Address
                   </Text>
                 </View>
-                <View>
+                <TouchableOpacity onPress={() => { navigation.navigate('checkOut', (params = { value3: true })); }}>
                   <Text
                     style={{
                       color: '#1492E6',
@@ -242,23 +245,23 @@ const Summary = ({navigation}) => {
                     }}>
                     Change
                   </Text>
-                </View>
+                </TouchableOpacity>
               </View>
               <View
                 style={{
                   flexDirection: 'row',
                 }}>
-                <View style={{marginVertical: 15}}>
+                <View style={{ marginVertical: 15 }}>
                   <Text
                     style={{
-                      color: '#fff',
+                      color: '#aaa',
                       fontSize: 12,
                     }}>
                     MAster Card
                   </Text>
                   <Text
                     style={{
-                      color: '#fff',
+                      color: '#aaa',
                       fontSize: 12,
                       marginVertical: 5,
                     }}>
@@ -266,7 +269,7 @@ const Summary = ({navigation}) => {
                   </Text>
                   <Text
                     style={{
-                      color: '#fff',
+                      color: '#aaa',
                       fontSize: 12,
                       marginVertical: 5,
                     }}>
@@ -274,7 +277,7 @@ const Summary = ({navigation}) => {
                   </Text>
                   <Text
                     style={{
-                      color: '#fff',
+                      color: '#aaa',
                       fontSize: 12,
                       marginVertical: 5,
                     }}>
@@ -293,7 +296,7 @@ const Summary = ({navigation}) => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                 }}>
-                <View style={{flexDirection: 'row'}}>
+                <View style={{ flexDirection: 'row' }}>
                   <Text
                     style={{
                       color: '#fff',
@@ -305,7 +308,10 @@ const Summary = ({navigation}) => {
                   </Text>
                   <Image source={Images.Icon.insurance} />
                 </View>
-                <View>
+                <TouchableOpacity onPress={() => {
+                  navigation.navigate('checkOut',
+                    (params = { value2: true }));
+                }}>
                   <Text
                     style={{
                       color: '#1492E6',
@@ -313,7 +319,7 @@ const Summary = ({navigation}) => {
                     }}>
                     Change
                   </Text>
-                </View>
+                </TouchableOpacity>
               </View>
               <View
                 style={{
@@ -329,17 +335,18 @@ const Summary = ({navigation}) => {
                   <Image source={Images.Pictures.path70} />
                   <Image source={Images.Pictures.Path69} />
                 </View>
-                <View style={{marginLeft: 10}}>
+                <View style={{ marginLeft: 10 }}>
                   <Text
                     style={{
-                      color: '#fff',
+
                       fontSize: 12,
+                      color: '#aaa',
                     }}>
                     MAster Card
                   </Text>
                   <Text
                     style={{
-                      color: '#fff',
+                      color: '#aaa',
                       fontSize: 12,
                     }}>
                     * * * * * * * * * 4543
@@ -347,7 +354,10 @@ const Summary = ({navigation}) => {
                 </View>
               </View>
             </View>
-            <View style={{width: 214, alignSelf: 'center', marginVertical: 25}}>
+            <View style={{
+              width: 214, alignSelf: 'center',
+              marginVertical: 25
+            }}>
               <AppButton
                 label="Pay"
                 text
@@ -357,16 +367,16 @@ const Summary = ({navigation}) => {
           </ScrollView>
         </ImageBackground>
       </SafeAreaView>
-      <Overlays
-        popupcontent
-        btn4
-        onCancel={() => {
-          navigation.navigate('CongratesPage');
-        }}
-        labletext="Close"
-        visible={visible}
+
+
+      <Overlays popupcontent
+
+        yesNobtn visible={visible}
+        navigation={navigation}
         toggleOverlay={() => setVisible(false)}
       />
+
+
     </>
   );
 };
@@ -431,3 +441,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <Overlays
+//         popupcontent
+//         btn4
+//         onCancel={() => {
+//           navigation.navigate('CongratesPage');
+//         }}
+//         labletext="Close"
+//         visible={visible}
+//         toggleOverlay={() => setVisible(false)}
+//       />

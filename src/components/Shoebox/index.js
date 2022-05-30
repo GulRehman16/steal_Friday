@@ -9,7 +9,7 @@ import { Icon } from 'native-base';
 
 
 
-const Shoebox = ({ Image1, content1, content2 }) => {
+const Shoebox = ({ Image1, content1, content2, txt }) => {
     const [count, setCount] = useState(0);
 
     return (
@@ -24,29 +24,32 @@ const Shoebox = ({ Image1, content1, content2 }) => {
                         style={{ fontSize: 20, color: 'white' }} />
                 </TouchableOpacity>
                 <View style={{ flexDirection: 'row', width: '100%' }}>
-                    <View style={{ width: '35%', alignItems: 'center', }}>
+                    <View style={{ width: '30%', alignItems: 'center', }}>
                         <Image
                             source={Image1}
                             resizeMode="contain"
                             style={{ width: '100%', height: '100%' }} />
                     </View>
                     <View style={{ width: '80%', alignSelf: 'center' }}>
-                        <Text style={{ fontSize: 20, color: '#000', fontWeight: 'bold', textAlign: 'left' }}>
-                            Nike Collections
-                        </Text>
+
+
                         {content1 && (
-                            <View>
-                                <Text style={{ textAlign: 'center', fontSize: 16, color: '#000', fontWeight: '300', }}>
+
+                            <View style={{ marginLeft: 30 }}>
+                                <Text style={{ fontSize: 20, color: '#000', fontWeight: 'bold', textAlign: 'left' }}>
+                                    Nike Collections
+                                </Text>
+                                <Text style={{ marginLeft: 55, fontSize: 16, color: '#000', fontWeight: '300', }}>
                                     $15.99
                                 </Text>
                                 <View
                                     style={{
                                         paddingVertical: 10,
                                         width: '100%',
-                                        alignItems: 'center', marginRight: 10
+                                        marginRight: 0
                                     }}>
                                     <AppButton
-                                        btnWidth={179}
+                                        btnWidth={159}
                                         btnHeight={34}
                                         iconW={20.34}
                                         iconH={18.08}
@@ -60,26 +63,36 @@ const Shoebox = ({ Image1, content1, content2 }) => {
                             </View>
                         )}
                         {content2 && (
-                            <View style={{ flexDirection: 'row', marginTop: 20, width: '50%', justifyContent: 'space-between' }}>
+                            <View style={{ marginLeft: 30 }}>
+
                                 <View>
-                                    <Text style={{ fontSize: 16, color: '#000', fontWeight: '300', fontWeight: 'bold', color: '#000' }}>
-                                        $15.99
+                                    <Text style={{ fontSize: 20, color: '#000', fontWeight: 'bold', textAlign: 'left' }}>
+                                        Nike Collections
                                     </Text>
                                 </View>
-                                <View style={{
-                                    marginLeft: 10,
-                                    width: 88, height: 26, borderWidth: 0.55, flexDirection: 'row', backgroundColor: '#fff',
-                                    elevation: 2, borderRadius: 5, justifyContent: 'space-between'
-                                }}>
-                                    <TouchableOpacity onPress={() => setCount(count - 1)}>
-                                        <Text style={{ fontSize: 22, marginLeft: 5, fontWeight: 'bold', color: '#000' }}>-</Text>
-                                    </TouchableOpacity>
+                                <View style={{ flexDirection: 'row', marginTop: 20, width: '40%', justifyContent: 'space-between' }}>
 
-                                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#000' }}>{count}</Text>
-                                    <TouchableOpacity onPress={() => setCount(count + 1)}>
-                                        <Text style={{ fontSize: 18, marginRight: 5, fontWeight: 'bold', color: '#000' }}>+</Text>
+                                    <View>
 
-                                    </TouchableOpacity>
+                                        <Text style={{ fontSize: 16, color: '#000', fontWeight: '300', fontWeight: 'bold', color: '#000' }}>
+                                            $15.99
+                                        </Text>
+                                    </View>
+                                    <View style={{
+                                        marginLeft: 10,
+                                        width: 88, height: 26, borderWidth: 0.55, flexDirection: 'row', backgroundColor: '#fff',
+                                        elevation: 2, borderRadius: 5, justifyContent: 'space-between'
+                                    }}>
+                                        <TouchableOpacity onPress={() => setCount(count - 1)}>
+                                            <Text style={{ fontSize: 22, marginLeft: 5, fontWeight: 'bold', color: '#000' }}>-</Text>
+                                        </TouchableOpacity>
+
+                                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#000' }}>{count}</Text>
+                                        <TouchableOpacity onPress={() => setCount(count + 1)}>
+                                            <Text style={{ fontSize: 18, marginRight: 5, fontWeight: 'bold', color: '#000' }}>+</Text>
+
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
                             </View>
 

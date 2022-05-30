@@ -28,10 +28,8 @@ const MyOrder = (props) => {
                         barStyle="dark-content"
                         translucent={true}
                     />
-
                     <View style={{
                         marginTop: 45, width: '90%', alignSelf: 'center'
-
                     }}>
                         <View style={{}}>
                             <Header
@@ -42,8 +40,6 @@ const MyOrder = (props) => {
                                     props.navigation.goBack();
                                 }}
                             />
-
-
                         </View>
                         <View style={{
                             alignSelf: 'center',
@@ -55,107 +51,94 @@ const MyOrder = (props) => {
                             }}>My Orders</Text>
                         </View>
 
-                        <View style={{}}>
+                        <View style={{ width: '100%', alignSelf: 'center' }}>
 
-                            <DataTable>
-                                <DataTable.Header style={{}}>
-                                    <DataTable.Title numeric><Text style={{ color: 'black', fontWeight: 'bold', }}>Order No.</Text></DataTable.Title>
-                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Date</Text></DataTable.Title>
-                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Status</Text></DataTable.Title>
-                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Total</Text></DataTable.Title>
-                                    <DataTable.Title numeric>  <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Action</Text></DataTable.Title>
+                            <DataTable style={{}}>
+                                <DataTable.Row style={{}}>
+                                    <DataTable.Title style={{ alignItems: 'center', justifyContent: 'space-evenly' }}>
+                                        <Text style={{ color: 'black', fontWeight: 'bold', }}>Order No.</Text></DataTable.Title>
+                                    <DataTable.Title style={{ alignItems: 'center', justifyContent: 'space-evenly' }}>
+                                        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}> Date</Text></DataTable.Title>
+                                    <DataTable.Title style={{ alignItems: 'center', justifyContent: 'space-evenly' }}>
+                                        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Status</Text></DataTable.Title>
+                                    <DataTable.Title style={{ alignItems: 'center', justifyContent: 'space-evenly' }}>
+                                        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Total</Text></DataTable.Title>
+                                    <DataTable.Title style={{ alignItems: 'center', justifyContent: 'space-evenly' }}>
+                                        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>Action</Text></DataTable.Title>
 
-                                </DataTable.Header>
-                                <DataTable.Row>
-                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10 }}>1</Text> </DataTable.Cell>
+                                </DataTable.Row>
 
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
-                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
+
+
+
+                                <DataTable.Row style={{}}>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10, }}>1</Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} ><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} > <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ alignItems: 'center', justifyContent: 'space-evenly' }} onPress={() => setVisible(!visible)}><Text style={{ color: 'black', fontSize: 10, }}>
                                         View</Text>
                                     </DataTable.Cell>
                                 </DataTable.Row>
-                                <DataTable.Row>
+                                <DataTable.Row style={{}}>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10, }}>2</Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} ><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} > <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ alignItems: 'center', justifyContent: 'space-evenly' }} onPress={() => setVisible(!visible)}><Text style={{ color: 'black', fontSize: 10, }}>
+                                        View</Text>
+                                    </DataTable.Cell>
+                                </DataTable.Row>
+                                <DataTable.Row style={{}}>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10, }}>3</Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} ><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} > <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ alignItems: 'center', justifyContent: 'space-evenly' }} onPress={() => setVisible(!visible)}><Text style={{ color: 'black', fontSize: 10, }}>
+                                        View</Text>
+                                    </DataTable.Cell>
+                                </DataTable.Row>
+                                <DataTable.Row style={{}}>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10, }}>4</Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} ><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} > <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ alignItems: 'center', justifyContent: 'space-evenly' }} onPress={() => setVisible(!visible)}><Text style={{ color: 'black', fontSize: 10, }}>
+                                        View</Text>
+                                    </DataTable.Cell>
+                                </DataTable.Row>
+                                <DataTable.Row style={{}}>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10, }}>5</Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} ><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} > <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ alignItems: 'center', justifyContent: 'space-evenly' }} onPress={() => setVisible(!visible)}><Text style={{ color: 'black', fontSize: 10, }}>
+                                        View</Text>
+                                    </DataTable.Cell>
+                                </DataTable.Row>
+                                <DataTable.Row style={{}}>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10, }}>6</Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} ><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }}><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ justifyContent: 'space-evenly' }} > <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
+                                    <DataTable.Cell style={{ alignItems: 'center', justifyContent: 'space-evenly' }} onPress={() => setVisible(!visible)}><Text style={{ color: 'black', fontSize: 10, }}>
+                                        View</Text>
+                                    </DataTable.Cell>
+                                </DataTable.Row>
 
-                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10 }}>2 </Text> </DataTable.Cell>
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
-                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
-                                        View</Text>
-                                    </DataTable.Cell>
-                                </DataTable.Row>
-                                <DataTable.Row>
-                                    <DataTable.Cell><Text style={{ color: 'black', fontSize: 10 }}>3 </Text> </DataTable.Cell>
 
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
-                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
-                                        View</Text>
-                                    </DataTable.Cell>
-                                </DataTable.Row>
-                                <DataTable.Row>
-                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10 }}>4 </Text> </DataTable.Cell>
-
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
-                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
-                                        View</Text>
-                                    </DataTable.Cell>
-                                </DataTable.Row>
-                                <DataTable.Row>
-                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10 }}>5</Text> </DataTable.Cell>
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
-                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
-                                        View</Text>
-                                    </DataTable.Cell>
-                                </DataTable.Row>
-                                <DataTable.Row>
-                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10 }}>6 </Text> </DataTable.Cell>
-
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
-                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
-                                        View</Text>
-                                    </DataTable.Cell>
-                                </DataTable.Row>
-                                <DataTable.Row>
-                                    <DataTable.Cell ><Text style={{ color: 'black', fontSize: 10, }}>7 </Text> </DataTable.Cell>
-
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}>1/1/2022 </Text> </DataTable.Cell>
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
-                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
-                                        View</Text>
-                                    </DataTable.Cell>
-                                </DataTable.Row>
-                                <DataTable.Row>
-                                    <DataTable.Cell><Text style={{ color: 'black', fontSize: 10 }}> 8</Text> </DataTable.Cell>
-
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10, paddingLeft: 15 }}>1/1/2022 </Text> </DataTable.Cell>
-                                    <DataTable.Cell numeric><Text style={{ color: 'black', fontSize: 10 }}> Pending</Text></DataTable.Cell>
-                                    <DataTable.Cell numeric> <Text style={{ color: 'black', fontSize: 10 }}>$30</Text></DataTable.Cell>
-                                    <DataTable.Cell onPress={() => setVisible(!visible)} numeric ><Text style={{ color: 'black', fontSize: 10 }}>
-                                        View</Text>
-                                    </DataTable.Cell>
-                                </DataTable.Row>
-                                <View style={{ alignSelf: 'center' }}>
+                                <View style={{ alignItems: 'center' }}>
                                     <DataTable.Pagination
                                         page={page}
                                         numberOfPages={3}
+                                        onPageChange={(page) => setPage(page)}
                                         label="1-2 of 6"
-                                        onPageChange={page => setPage(page)}
                                         optionsPerPage={optionsPerPage}
+                                        itemsPerPage={itemsPerPage}
                                         setItemsPerPage={setItemsPerPage}
-                                        selectPageDropdownLabel={'Rows per page'}
+                                        showFastPagination
+                                        optionsLabel={'Rows per page'}
                                     />
-
                                 </View>
                             </DataTable>
                         </View>
@@ -163,7 +146,10 @@ const MyOrder = (props) => {
                     </View>
                 </ScrollView>
             </SafeAreaView>
-            <Overlays popupcontent1 visible={visible} toggleOverlay={() => setVisible(false)} />
+            <View style={{ marginVertical: 20 }}>
+                <Overlays popupcontent1 visible={visible} toggleOverlay={() => setVisible(false)} />
+            </View>
+
         </>
 
     );

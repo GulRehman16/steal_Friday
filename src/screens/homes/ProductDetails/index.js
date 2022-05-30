@@ -17,13 +17,9 @@ import { AppButton, Header, Shoebox } from '../../../components';
 import { Images } from '../../../constants';
 import { useRoute } from '@react-navigation/native';
 
-const ProductDetails = ({ route, navigation }) => {
+const ProductDetails = ({ route, navigation, onPress }) => {
 
     const { itemId, otherParam, Image1 } = route.params;
-
-
-
-
 
     const [isData, setData] = useState({
         bgImage: Images.Pictures.nikeShoe1,
@@ -37,15 +33,14 @@ const ProductDetails = ({ route, navigation }) => {
     return (
         <>
             <SafeAreaView style={styles.screenContainer}>
-
-
                 <ScrollView
                     keyboardShouldPersistTaps="handled"
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{ flexGrow: 1 }}>
                     <StatusBar backgroundColor={'white'} barStyle="dark-content" />
                     <View style={{}}>
-                        <ImageBackground source={Images.Background.bg} resizeMode="cover" style={{ width: '100%', height: '100%' }}>
+                        <ImageBackground source={Images.Background.bg} resizeMode="cover"
+                            style={{ width: '100%', height: '100%' }}>
                             <View style={styles.mainBody}>
                                 <View style={{
                                     paddingTop: 60,
@@ -107,7 +102,7 @@ const ProductDetails = ({ route, navigation }) => {
                                             <Text style={{ marginTop: 20 }}>Brand</Text>
                                             <Image source={isData.Image} />
                                         </View>
-                                        <View style={{ marginVertical: 10 }}>
+                                        <View style={{ marginTop: 10 }}>
                                             <Text style={{
                                                 fontSize: 15, fontWeight: '800',
                                                 marginVertical: 5,
@@ -117,19 +112,18 @@ const ProductDetails = ({ route, navigation }) => {
                                                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
                                                 </Text>
                                             </View>
-                                            <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                                            <View style={{ flexDirection: 'row', marginTop: 10 }}>
                                                 <View style={{ width: '70%', marginRight: 10 }}>
-                                                    <AppButton label="Buy Now" text onPress={() => { navigation.navigate('checkOut') }} />
+                                                    <AppButton label="Buy Now" text
+
+                                                        onPress={() => { navigation.navigate('Homes', { screen: 'checkOut', params: { count: 0 } }) }} />
                                                 </View>
                                                 <View style={{ width: '25%', borderRadius: 10 }}>
                                                     <AppButton style={{}} icon2 iconN={'shoppingcart'} />
                                                 </View>
-
                                             </View>
                                         </View>
-
                                     </View>
-
                                 </View>
                             </View>
                         </ImageBackground>

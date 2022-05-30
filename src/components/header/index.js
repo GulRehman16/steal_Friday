@@ -32,6 +32,7 @@ const Header = ({
   textColor,
   lIconClr,
   marginTop1,
+  colorT
 
 
 }) => {
@@ -98,7 +99,8 @@ const Header = ({
               fontWeight: '600',
               fontSize: 22,
               color: 'black',
-              textAlign: 'center'
+              textAlign: 'center',
+              color: colorT || '#000'
             }}>
             {screenText1}
           </Text>

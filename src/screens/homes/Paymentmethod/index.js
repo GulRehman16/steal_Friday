@@ -43,7 +43,7 @@ const PaymentMethod = (props) => {
                         </View>
 
                         <View style={{ marginVertical: 10, borderBottomWidth: 1 }}>
-                            <Text style={{}}>
+                            <Text style={{ color: '#000', fontSize: 14, marginLeft: 4, }}>
                                 Name On Card</Text>
                             <TextInput placeholder='Rabecca Spade' placeholderTextColor="#000" style={{
                                 backgroundColor: 'transparent', color: '#000', fontSize: 14, fontWeight: 'bold'
@@ -51,7 +51,7 @@ const PaymentMethod = (props) => {
 
                         </View>
                         <View style={{ marginVertical: 10, borderBottomWidth: 1 }}>
-                            <Text style={{ color: '#000', fontSize: 14, marginLeft: 8, }}>
+                            <Text style={{ color: '#000', fontSize: 14, marginLeft: 4, }}>
                                 Card Number</Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
 
@@ -69,7 +69,7 @@ const PaymentMethod = (props) => {
                         </View>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <View style={{ width: '40%', marginVertical: 10, borderBottomWidth: 1 }}>
-                                <Text style={{ color: '#000', fontSize: 14, marginLeft: 8, }}>
+                                <Text style={{ color: '#000', fontSize: 14, marginLeft: 4, }}>
                                     Expiry Date</Text>
                                 <TextInput placeholder='09 / 18' placeholderTextColor="#000" style={{
                                     backgroundColor: 'transparent',
@@ -78,7 +78,7 @@ const PaymentMethod = (props) => {
 
                             </View>
                             <View style={{ width: '40%', marginVertical: 10, borderBottomWidth: 1 }}>
-                                <Text style={{ color: '#000', fontSize: 14, marginLeft: 8, }}>
+                                <Text style={{ color: '#000', fontSize: 14, marginLeft: 4, }}>
                                     CVV</Text>
                                 <TextInput placeholder='667' placeholderTextColor="#000" style={{
                                     backgroundColor: 'transparent',

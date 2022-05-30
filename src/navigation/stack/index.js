@@ -46,7 +46,6 @@ const Auth = () => {
         component={splash}
         options={{ headerShown: false }}
       />
-
       <Stack.Screen
         name="login"
         component={login}
@@ -57,7 +56,6 @@ const Auth = () => {
         component={signup}
         options={{ headerShown: false }}
       />
-
       <Stack.Screen
         name="forgetPasswordOtp"
         component={ForgetPasswordOtp}
@@ -83,14 +81,13 @@ const Auth = () => {
         name="changePassword"
         component={ChangePassword}
         options={{ headerShown: false }}
-
       />
-      <Stack.Screen name='ContactUs' component={ContactUs} options={{ headerShown: false }} />
-
+      <Stack.Screen name='ContactUs'
+        component={ContactUs}
+        options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 };
-
 export const Homes = () => {
   return (
     <Stack.Navigator>
@@ -98,7 +95,9 @@ export const Homes = () => {
       <Stack.Screen name='home'
         component={home}
         options={{ headerShown: false }} />
-      <Stack.Screen name='ContactUs' component={ContactUs} options={{ headerShown: false }} />
+      <Stack.Screen name='ContactUs'
+        component={ContactUs}
+        options={{ headerShown: false }} />
 
       <Stack.Screen name='Summary'
         component={Summary}
@@ -137,7 +136,7 @@ export const Homes = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        HEAD
+
         name="notification"
         component={Notification}
         options={{ headerShown: false }}

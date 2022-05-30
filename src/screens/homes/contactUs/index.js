@@ -17,7 +17,6 @@ import { Icon, Item } from 'native-base';
 const ContactUs = props => {
 
 
-  const isHome = props?.route?.params?.isHome || false;
   const [userInfo, setUserInfo] = useState({
     firstName: '',
     LastName: '',
@@ -32,9 +31,12 @@ const ContactUs = props => {
     checked2: false,
   });
   const [visible, setVisible] = useState(false);
-
+  const isRoute = props?.route?.params?.value;
   const backScreen = props?.route?.params?.backScreen;
   useEffect(() => {
+
+
+    console.log(isRoute);
     const backAction = () => {
       if (backScreen) {
         props.navigation.navigate('MyTabs', { screen: backScreen });
@@ -233,13 +235,14 @@ const ContactUs = props => {
         </ScrollView>
       </SafeAreaView>
       <Overlays popupcontent btn btn5 TexView label1="Your Message Sent!"
-        navigation={props.navigation}
+
+        press={() => { isRoute == true ? props.navigation.navigate('home') : props.navigation.navigate('Auth', { screen: 'login' }) }}
+
         labletext="Close" visible={visible}
-        toggleOverlay={() => props.navigation.navigate('Auth', { screen: 'login' })} />
+        toggleOverlay={() => { }} />
     </>
   );
 };
-
 export default ContactUs;
 
 const styles = StyleSheet.create({

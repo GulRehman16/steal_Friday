@@ -29,7 +29,9 @@ const Overlays = ({
     btnNotice,
     navigation,
     nestedbtn,
-    btnes }) => {
+    btnes,
+    yesNobtn,
+    press }) => {
     const [state, setState] = useState({ checked: false });
     const [check, setCheck] = useState(false);
     const [isData, setData] = useState({
@@ -95,7 +97,6 @@ const Overlays = ({
                                     <View style={{
                                         alignItems: 'center', flexDirection: 'row',
                                     }}>
-
                                         <View style={{ margin: 5, borderWidth: 1, borderRadius: 50 }}>
                                             <AppButton label="No" text
                                                 backgroundColor="#fff" color="#000"
@@ -105,9 +106,7 @@ const Overlays = ({
                                         <View style={{ margin: 5, borderRadius: 50, borderWidth: 1, borderColor: 'red' }}>
                                             <AppButton label="Yes" text
                                                 btnWidth={100} btnHeight={40}
-                                                onPress={() => {
-                                                    navigation.navigate("logina")
-                                                }}
+                                                onPress={() => { setCheck(true) }}
                                             />
                                         </View>
                                     </View>
@@ -122,7 +121,7 @@ const Overlays = ({
                                             source={require('../../assets/Lottie/99398-check-mark-black.json')} autoPlay loop />
                                         <Text style={{ textAlign: 'center', fontSize: 18, color: 'black', marginVertical: 2 }}>Payment Processed {'\n'} Successfully</Text>
                                         <AppButton label={labletext} text btnWidth={137} btnHeight={40}
-                                            onPress={onPress} />
+                                            onPress={() => { navigation.navigate('Auth', { screen: 'login' }) }} />
                                     </View>
                                 )
                                 : null}
@@ -137,14 +136,35 @@ const Overlays = ({
                                 </View>
                             )}
 
-                            {btn4 && (
-                                <View style={{ alignItems: 'center', marginVertical: 0 }}>
+
+                            {yesNobtn && (
+                                <View style={{ alignItems: 'center', marginVertical: 0, padding: 10, }}>
                                     <Text style={{ width: '100%', marginVertical: 20, textAlign: 'center', color: "red", fontWeight: '700' }}>Notice</Text>
                                     <Text style={{ marginVertical: 15, textAlign: 'center' }}>Are You Sure You Want {'\n'} To Make This Payment?</Text>
-                                    <View style={{ alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' }}>
-                                        <AppButton label="Yes" text btnWidth={100} btnHeight={40} onPress={onCancel} />
-                                        <AppButton label="No" text backgroundColor="#fff" color="#000" btnWidth={100} btnHeight={40}
-                                            onPress={() => toggleOverlay(false)} />
+                                    <View style={{ alignItems: 'center', flexDirection: 'row', }}>
+                                        <View style={{ marginRight: 10, borderWidth: 1, borderRadius: 25, borderColor: 'red' }}>
+                                            <AppButton label="Yes" text btnWidth={80} btnHeight={40}
+                                                onPress={() => { navigation.navigate('CongratesPage'), toggleOverlay(false) }} />
+                                        </View>
+                                        <View style={{ borderWidth: 1, borderRadius: 25 }}>
+                                            <AppButton label="No" text backgroundColor="#fff" color="#000" btnWidth={80} btnHeight={40}
+                                                onPress={() => toggleOverlay(false)} />
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
+                            {btn4 && (
+                                <View style={{ alignItems: 'center', marginVertical: 0, padding: 10, }}>
+                                    <Text style={{ width: '100%', marginVertical: 20, textAlign: 'center', color: "red", fontWeight: '700' }}>Notice</Text>
+                                    <Text style={{ marginVertical: 15, textAlign: 'center' }}>Are You Sure You Want {'\n'} To Make This Payment?</Text>
+                                    <View style={{ alignItems: 'center', flexDirection: 'row', }}>
+                                        <View style={{ marginRight: 10, borderWidth: 1, borderRadius: 25, borderColor: 'red' }}>
+                                            <AppButton label="Yes" text btnWidth={80} btnHeight={40} onPress={onCancel} />
+                                        </View>
+                                        <View style={{ borderWidth: 1, borderRadius: 25 }}>
+                                            <AppButton label="No" text backgroundColor="#fff" color="#000" btnWidth={80} btnHeight={40}
+                                                onPress={() => toggleOverlay(false)} />
+                                        </View>
                                     </View>
                                 </View>
                             )}
@@ -164,7 +184,7 @@ const Overlays = ({
                                 <View style={{ padding: 30, alignItems: 'center' }}>
 
                                     <AppButton label={labletext}
-                                        onPress={() => toggleOverlay(false)}
+                                        onPress={press}
                                         text btnWidth={137}
                                         btnHeight={40} />
                                 </View>
@@ -187,7 +207,7 @@ const Overlays = ({
 
                         {popupcontent1 && (
 
-                            <View style={{ width: 320, height: 600, borderRadius: 30 }}>
+                            <View style={{ width: 320, borderRadius: 30, padding: 10 }}>
                                 <ScrollView
                                     keyboardShouldPersistTaps="handled"
                                     showsVerticalScrollIndicator={false}
@@ -303,6 +323,7 @@ const Overlays = ({
                     </View>
 
                     {popupcontent2 && (
+
                         <View style={{ padding: 15 }}>
                             <View style={{ alignItems: 'center', justifyContent: 'center', }}>
                                 <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black' }}>Filter</Text>
@@ -317,13 +338,13 @@ const Overlays = ({
                                                 setState({ checked: !state.checked });
                                             }}
                                             center
-                                            checkedIcon="dot-circle-o"
-                                            uncheckedIcon="circle-o"
+                                            checkedIcon="circle-o"
+                                            uncheckedIcon="dot-circle-o"
                                             uncheckedColor="red"
                                             checkedColor="grey"
                                             checked={!state.checked}
                                         />
-                                        <Text style={{ color: '#000', marginTop: 20 }}>New To Old</Text>
+                                        <Text style={{ color: '#000', marginTop: 20 }}>New To Old {'            '}</Text>
 
                                     </View>
                                     <View style={styles.select}>
@@ -333,8 +354,8 @@ const Overlays = ({
                                                 setState({ checked: !state.checked });
                                             }}
                                             center
-                                            checkedIcon="dot-circle-o"
-                                            uncheckedIcon="circle-o"
+                                            checkedIcon="circle-o"
+                                            uncheckedIcon="dot-circle-o"
                                             uncheckedColor="red"
                                             checkedColor="grey"
                                             checked={state.checked}
@@ -343,16 +364,13 @@ const Overlays = ({
                                     </View>
                                 </View>
 
-                                <View style={{ width: 190, height: 2, backgroundColor: '#00000029', marginVertical: 10 }}>
+                                <View style={{ width: 190, height: 2, backgroundColor: '#00000029', marginVertical: 1 }}>
                                 </View>
                                 <View>
 
-                                    <Text style={{ alignSelf: 'center', fontWeight: '400', marginVertical: 5 }}>Password Updated!</Text>
-
                                     <View style={{}}>
-
                                         <Text style={{ alignSelf: 'center', fontWeight: '400', marginVertical: 5 }}>
-                                            Conditions</Text>
+                                            Prices</Text>
                                         <View style={{ flexDirection: 'row', paddingRight: 10 }} >
 
                                             <CheckBox
@@ -360,13 +378,13 @@ const Overlays = ({
                                                     setState({ checked: !state.checked });
                                                 }}
                                                 center
-                                                checkedIcon="dot-circle-o"
-                                                uncheckedIcon="circle-o"
+                                                checkedIcon="circle-o"
+                                                uncheckedIcon="dot-circle-o"
                                                 uncheckedColor="red"
                                                 checkedColor="grey"
                                                 checked={!state.checked}
                                             />
-                                            <Text style={{ color: '#000', marginTop: 20 }}>New To Old</Text>
+                                            <Text style={{ color: '#000', marginTop: 20 }}>Price Low To High</Text>
 
                                         </View>
                                         <View style={styles.select}>
@@ -376,19 +394,20 @@ const Overlays = ({
                                                     setState({ checked: !state.checked });
                                                 }}
                                                 center
-                                                checkedIcon="dot-circle-o"
-                                                uncheckedIcon="circle-o"
+                                                checkedIcon="circle-o"
+                                                uncheckedIcon="dot-circle-o"
                                                 uncheckedColor="red"
                                                 checkedColor="grey"
                                                 checked={state.checked}
                                             />
-                                            <Text style={{ color: '#000' }}>New To Old</Text>
+                                            <Text style={{ color: '#000' }}>Price High To Low</Text>
                                         </View>
                                     </View>
                                 </View>
-
-                                <AppButton label="Clear" text btnWidth={137} btnHeight={40}
-                                    onPress={() => toggleOverlay(false)} />
+                                <View style={{ marginLeft: 25 }}>
+                                    <AppButton label="Clear" text btnWidth={137} btnHeight={40}
+                                        onPress={() => toggleOverlay(false)} />
+                                </View>
                             </View>
                         </View>
 
@@ -417,6 +436,7 @@ const styles = StyleSheet.create({
         // width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
+        marginTop: -20,
         // justifyContent: 'space-between',
     },
 
