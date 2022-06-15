@@ -135,7 +135,6 @@ const Home = ({ navigation }) => {
         catagory: 'Shoes'
       }),
       Press2: () => navigation.navigate('ProductDetails',
-
         {
           Image1: Images.Pictures.purpleShoes
         }
